@@ -1,0 +1,5 @@
+.left-sidebar
+  .user-photo
+    = image_tag @pet.avatar.url(:avatar)
+.content
+  == render 'form'

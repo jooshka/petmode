@@ -1,6 +1,7 @@
 .menu-settings
-  ul
-    li
+  .wr-flex
+    .item
       = active_link_to 'Основные данные', settings_user_path(current_user), class: 'settings', :active => [['users'], ['settings']]
-    li =link_to 'Уведомления', '#'
-    li =link_to 'Верификация', '#'
+    .item =link_to 'Ваша организация', '#'
+    .item =link_to 'Уведомления', '#'
+    .item =link_to 'Верификация', '#'

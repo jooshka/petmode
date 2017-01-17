@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @pets = @user.pets
   end
 
   # GET /users/new
@@ -22,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def settings
+    render layout: 'user'
   end
 
   # POST /users

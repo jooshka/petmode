@@ -56,7 +56,6 @@
 }
 
 .btn {
-  float: left;
   width: 227px;
   height: 40px;
   font-size: 15px;
@@ -67,6 +66,10 @@
   -moz-border-radius: 50px;
   border-radius: 50px;
   margin-right: 20px;
+  text-align: center;
+  a {
+    line-height: 25px;
+  }
   &:hover {
     color: #ffffff;
     background: #343434;

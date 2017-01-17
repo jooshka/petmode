@@ -9,7 +9,7 @@
       li
         =active_link_to '', settings_user_path(current_user), class: 'settings', :active => [['users'], ['settings']]
       li
-        =link_to '', '#', class: 'footprint'
+        =link_to '', new_pet_path, class: 'footprint'
       li
         =link_to '#', class: 'share'
           span.num 5

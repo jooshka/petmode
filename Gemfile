@@ -65,3 +65,4 @@ end
 gem "paperclip", "~> 5.0.0"
 gem 'simple_form'
 gem 'active_link_to'
+gem 'virtus'

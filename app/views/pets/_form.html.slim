@@ -1,0 +1,9 @@
+= simple_form_for @pet_form do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.hidden_field :user_id, value: current_user.id
+    = f.input :name
+    = f.input :weight
+  .form-actions
+    = f.button :submit, 'Сохранить'

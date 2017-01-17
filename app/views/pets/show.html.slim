@@ -1,0 +1,15 @@
+.left-sidebar
+  .user-photo
+    = image_tag @pet.avatar.url(:avatar)
+.content
+  .user-content
+    p#notice = notice
+    .user-info-top
+      ul
+        li
+          =link_to 'Изменить', edit_pet_path(@pet)
+        li
+          =link_to 'Удалить', @pet, method: :delete
+      ul.title-info
+        li.title-user = @pet.display_name
+        li = @pet.last_weight

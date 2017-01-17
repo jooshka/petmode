@@ -1,18 +1,18 @@
 .menu-settings {
   text-align:center;
-  ul {
-    list-style: none;
-    display: table;
+  .wr-flex {
     width: 75%;
     margin:auto;
     text-align: center;
-    li {
-      display: table-cell;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-around;
+    .item {
       text-align: center;
       a {
         display: block;
-        width: 227px;
-        padding: 5px 10px;
+        width: auto;
+        padding: 5px 15px;
         line-height: 25px;
         border: 1px solid #ffffff;
         &:hover, &.active {
