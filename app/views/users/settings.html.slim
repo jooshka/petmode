@@ -1,0 +1,6 @@
+.left-sidebar
+  .user-photo
+    = image_tag @user.avatar.url(:avatar)
+.content
+  == render 'menu_settings'
+  == render 'form'

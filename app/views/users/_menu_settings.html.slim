@@ -1,0 +1,6 @@
+.menu-settings
+  ul
+    li
+      = active_link_to 'Основные данные', settings_user_path(current_user), class: 'settings', :active => [['users'], ['settings']]
+    li =link_to 'Уведомления', '#'
+    li =link_to 'Верификация', '#'

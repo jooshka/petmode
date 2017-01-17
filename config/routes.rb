@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   root to: "home#index"
   resources :users
+  get '/users/:id/settings', to: 'users#settings', as: 'settings_user'
 end
