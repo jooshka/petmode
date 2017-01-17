@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: [:show, :destroy]
+  before_action :set_pet, only: [:show, :edit, :update, :destroy]
 
   # GET /pets
   # GET /pets.json
@@ -21,7 +21,6 @@ class PetsController < ApplicationController
   # GET /pets/1/edit
   def edit
     @pet_form = PetForm.new(id: params[:id])
-    @pet = @pet_form.pet
   end
 
   # POST /pets
@@ -45,11 +44,11 @@ class PetsController < ApplicationController
     @pet_form = PetForm.new(pet_form_params.merge(id: params[:id]))
     respond_to do |format|
       if @pet_form.update
-        format.html { redirect_to @pet_form.pet, notice: 'Pet was successfully updated.' }
-        format.json { render :show, status: :ok, location: @pet_form.pet }
+        format.html { redirect_to @pet, notice: 'Pet was successfully updated.' }
+        format.json { render :show, status: :ok, location: @pet }
       else
         format.html { render :edit }
-        format.json { render json: @pet_form.pet.errors, status: :unprocessable_entity }
+        format.json { render json: @pet.errors, status: :unprocessable_entity }
       end
     end
   end

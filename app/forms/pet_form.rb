@@ -68,7 +68,7 @@ private
         @pet.update_attributes(name: name)
         @pet.save!
       end
-      if !(weight.empty?) && @pet.last_weight!=weight
+      if weight.is_a?(Float) && @pet.last_weight!=weight
         @pet.weights.create!(user_id: user_id, date: Date.today, weight: weight)
       end
     end
