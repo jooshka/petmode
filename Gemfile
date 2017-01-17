@@ -61,3 +61,7 @@ gem 'bootstrap-sass'
 group :development, :test do
   gem 'rspec-rails'
 end
+
+gem "paperclip", "~> 5.0.0"
+gem 'simple_form'
+gem 'active_link_to'
