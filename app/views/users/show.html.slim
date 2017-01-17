@@ -1,5 +1,23 @@
 .left-sidebar
-
+  .user-photo
+    = image_tag @user.avatar.url(:avatar)
 .content
-  p#notice = notice
-  = @user.fio
+  .user-content
+    p#notice = notice
+    .user-info-top
+      ul.title-info
+        li.title-user = @user.full_name
+        li.pro PRO
+        li.club CLUB
+        - if @user.breeder
+          li.breeder breeder
+        li.check
+
+      - if @user != current_user
+        .btn-block
+          =button_to 'Написать сообщение', '#', class: 'btn'
+          =button_to 'Добавить в избранное', '#', class: 'btn'
+
+    .about-me
+      h2.title-one Обо мне:
+      p.text-one =@user.about

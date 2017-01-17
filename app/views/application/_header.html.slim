@@ -25,9 +25,9 @@ header
       .user-block
         .user
           =link_to '#', class:'img-user'
-            =image_tag 'user-img.jpg'
+            =image_tag current_user.avatar.url(:icon)
           p.name-user
-            = current_user.fio
+            = current_user.full_name
             span
 
         .basket-block

@@ -1,9 +1,8 @@
-= form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      ul
-        - @user.errors.full_messages.each do |message|
-          li = message
-
-  .actions = f.submit
+= simple_form_for @user do |f|
+  = f.input :last_name, label: 'Фамилия'
+  = f.input :first_name, label: 'Имя'
+  = f.input :breeder, label: 'Разводчик'
+  = f.input :about, label: false, :input_html => { placeholder: 'Обо мне', cols: 100, rows: 4 }
+  = f.input :avatar, as: :file
+  .actions
+    = f.button :submit, 'Сохранить изменения', class: 'btn btn2'

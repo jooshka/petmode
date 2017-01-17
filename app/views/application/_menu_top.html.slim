@@ -2,12 +2,12 @@
   .container
     ul
       li
-        =link_to '', '#', class: 'profile'
+        =active_link_to '', user_path(current_user), class: 'profile', :active => [['users'], ['show']]
       li
         =link_to '#', class: 'messages'
           span.num 2
       li
-        =link_to '', '#', class: 'settings'
+        =active_link_to '', settings_user_path(current_user), class: 'settings', :active => [['users'], ['settings']]
       li
         =link_to '', '#', class: 'footprint'
       li
