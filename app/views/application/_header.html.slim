@@ -1,0 +1,36 @@
+header
+  .languages
+    =link_to 'ru', '#', class: "ru active"
+    =link_to 'eng', '#', class: "eng"
+  .container
+    .wrap
+      .logo-block
+        =link_to '#', class: 'logo-header'
+          =image_tag 'logo-header.png'
+        p.logo-text Сервис домашних питомцев
+      .nav-block
+        ul.menu-head.wrap-flex2
+          li =link_to 'Продажа', '#'
+          li =link_to 'Новости', '#'
+          li =link_to 'В добрые руки', '#'
+          li =link_to 'Конкурсы', '#'
+          li =link_to 'Случка', '#'
+          li =link_to 'Зоомагазин', '#'
+          li =link_to 'Специалисты', '#'
+          li =link_to 'Выставки', '#'
+        .search
+          <input type="text" placeholder="Search">
+          button.btn-search
+            =image_tag 'ic-search.png'
+      .user-block
+        .user
+          =link_to '#', class:'img-user'
+            =image_tag 'user-img.jpg'
+          p.name-user
+            = current_user.fio
+            span
+
+        .basket-block
+          =link_to '#', class:'basket'
+            =image_tag 'ic-basket.png'
+            .span.basket-num 2

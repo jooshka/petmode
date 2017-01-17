@@ -1,0 +1,41 @@
+footer
+  .container
+    .wrap-flex
+      .first-block
+        .partners
+          h3.title-first Наши партнеры:
+          =link_to '#', class: "logo-footer"
+            =image_tag 'logo-footer.png'
+        .social-block
+          h3.title-first Мы в социальных сетях
+          ul.social-ic.wrap-flex
+            li
+              =link_to '', '#', class: "social"
+            li
+              =link_to '', '#', class: "social2"
+            li
+              =link_to '', '#', class: "social3"
+            li
+              =link_to '', '#', class: "social4"
+            li
+              =link_to '', '#', class: "social5"
+            li
+              =link_to '', '#', class: "social6"
+        p.text-first Petmode.ru | "Петмод" © 2017
+      ul.menu-footer.wrap-flex2
+        li =link_to 'Продажа', '#'
+        li =link_to 'Зоомагазин', '#'
+        li =link_to 'Новости', '#'
+        li =link_to 'Случка', '#'
+        li =link_to 'Выставки', '#'
+        li =link_to 'Помощь', '#'
+        li =link_to 'В добрые руки', '#'
+        li =link_to 'Конкурсы', '#'
+        li =link_to 'Правила', '#'
+        li =link_to 'Специалисты', '#'
+        li =link_to 'Благотворительность', '#'
+        li =link_to 'Команда', '#'
+      .development-block
+        p.development
+          | Разработка сайта
+          span< yo_brnd
