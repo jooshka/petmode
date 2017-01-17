@@ -1,0 +1,103 @@
+.menu-top {
+  padding: 21px 0px 19px;
+  background: #ffd800;
+  ul {
+    li {
+      float: left;
+      a {
+        vertical-align: bottom;
+        margin-right: 30px;
+        position: relative;
+        .num {
+          width: 23px;
+          height: 23px;
+          background: #343434;
+          border: 3px solid #ffd800;
+          text-align: center;
+          font-family: "PTSansRegular";
+          font-size: 14px;
+          color: #ffd800;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          border-radius: 50%;
+          position: absolute;
+          top: -10px;
+          right: -11px;
+        }
+      }
+    }
+    &:after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+  }
+}
+
+.menu-top ul li {
+  .profile {
+    margin-right: 40px;
+    width: 32px;
+    height: 31px;
+    background: url(ic-profile.png) no-repeat;
+    &:hover, &.active {
+      background: url(ic-profile-w.png) no-repeat;
+    }
+  }
+  .messages {
+    margin: 1px 40px 0px 0px;
+    width: 40px;
+    height: 30px;
+    background: url(ic-massage.png) no-repeat;
+    &:hover, &.active {
+      background: url(ic-massage-w.png) no-repeat;
+    }
+  }
+  .settings {
+    margin: 0px 33px 0px 0px;
+    width: 31px;
+    height: 31px;
+    background: url(ic-setting.png) no-repeat;
+    &:hover, &.active {
+      background: url(ic-setting-w.png) no-repeat;
+    }
+  }
+  .footprint {
+    margin: -2px 33px 0px 0px;
+    width: 35px;
+    height: 35px;
+    background: url(ic-footprint.png) no-repeat;
+    &:hover, &.active {
+      background: url(ic-footprint-w.png) no-repeat;
+    }
+  }
+  .share {
+    margin: 1px 42px 0px 0px;
+    width: 36px;
+    height: 32px;
+    background: url(ic-share.png) no-repeat;
+    &:hover, &.active {
+      background: url(ic-share-w.png) no-repeat;
+    }
+  }
+  .base {
+    margin-top: -1px;
+    width: 75px;
+    height: 35px;
+    text-align: center;
+    font-family: "PTSansRegular";
+    font-size: 14px;
+    color: #ffffff;
+    text-transform: uppercase;
+    line-height: 35px;
+    background: #343434;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    &:hover, &.active {
+      color: #343434;
+      background: #ffffff;
+      font-weight: bold;
+    }
+  }
+}

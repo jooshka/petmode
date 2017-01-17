@@ -1,3 +1,101 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-//@import "*";
+//@import "bootstrap-sprockets";
+//@import "bootstrap";
+
+// reset
+html, body, div, span, object, iframe, img, strong, b, u, i,table,tbody, tfoot, thead,td,th,tr,
+form, label, legend{margin:0; padding:0; border:0; vertical-align:baseline; background:transparent;}
+input:focus, select:focus, textarea:focus {outline:none}
+table,td,th,tr {border-collapse:collapse; border-spacing:0;}
+html, body{width:100%; height:100%;}
+input, select, textarea {font-family: 'Arial', sans-serif;font-weight:normal;}
+input[type="button"]{cursor: pointer}
+
+.clear{clear:both; font-size:0;}
+.clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden;}
+html>body .clearfix {display:block;}
+.clearfix {display:inline-block;}
+/*\*/
+* html .clearfix {height: 1%;}
+/**/
+p, ul, li, a, h1, h2, h3, h4, h5, h6{margin: 0;padding: 0;}
+*{box-sizing: border-box;outline: none;}
+a{display:inline-block;text-decoration: none;font-size: 14px;color: #000000;}
+ul{list-style: none;}
+
+//
+.zero, html, body, div, span, object, iframe, img, strong, b, u, i, table,
+tbody, tfoot, thead, td, th, tr, form, label, legend, button, header, footer,
+article, section, aside, figcaption, figure, hgroup, time {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html, body, div, span, object, iframe, img, strong, b, u, i, table, tbody,
+tfoot, thead, td, th, tr, form, label, legend, button {
+  vertical-align: baseline;
+  background: transparent;
+}
+
+input:focus, select:focus, textarea:focus, button:active {
+  outline: none;
+}
+
+table, td, th, tr {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+input, select, textarea { font-family: Arial, sans-serif; font-weight: 400; border: none; }
+
+input[type="button"], input[type="submit"], input[type="reset"], button { cursor: pointer; }
+
+.clear { clear: both; font-size: 0; }
+
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+* html .clearfix { height: 1%; }
+
+header, footer, article, section, aside, figcaption, figure, hgroup, time { display: block; }
+
+* { max-height: 100000000000000px; }
+
+body { font-family: "PTSansRegular", arial, sans-serif; font-size: 62.5%; line-height: 1.3; color: #343434; }
+
+.title-one { font-family: "PFCSProBold"; font-size: 24px; }
+
+.text-one { font-family: "PTSansRegular"; font-size: 14px; line-height: 24px; color: #8f8f8f; }
+
+.container { width: 100%; max-width: 1170px; margin: 0 auto; }
+
+.wrap-flex { display: -webkit-box; display: -moz-box; display: box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -moz-box-orient: horizontal; box-orient: horizontal; -webkit-box-direction: normal; -moz-box-direction: normal; box-direction: normal; -webkit-flex-direction: row; -moz-flex-direction: row; flex-direction: row; -ms-flex-direction: row; -webkit-box-pack: justify; -moz-box-pack: justify; box-pack: justify; -webkit-justify-content: space-between; -moz-justify-content: space-between; -ms-justify-content: space-between; -o-justify-content: space-between; justify-content: space-between; -ms-flex-pack: justify; }
+
+.wrap-flex2 { display: -webkit-box; display: -moz-box; display: box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -moz-box-orient: horizontal; box-orient: horizontal; -webkit-box-direction: normal; -moz-box-direction: normal; box-direction: normal; -webkit-flex-direction: row; -moz-flex-direction: row; flex-direction: row; -ms-flex-direction: row; -webkit-box-pack: justify; -moz-box-pack: justify; box-pack: justify; -webkit-justify-content: space-between; -moz-justify-content: space-between; -ms-justify-content: space-between; -o-justify-content: space-between; justify-content: space-between; -ms-flex-pack: justify; -webkit-box-lines: multiple; -moz-box-lines: multiple; box-lines: multiple; -webkit-flex-wrap: wrap; -moz-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+
+.main {
+  padding: 71px 0px 0px;
+  margin-bottom: 53px;
+  .container {
+    &:after {
+      clear: both;
+      content: "";
+      display: table;
+    }
+    .left-sidebar {
+      float: left;
+      width: 219px;
+    }
+    .content {
+      float: right;
+      width: 922px;
+      padding-top: 11px;
+    }
+  }
+}
+
+@import "*";
