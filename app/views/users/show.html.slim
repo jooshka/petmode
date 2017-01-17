@@ -28,5 +28,5 @@
           = link_to pet_path(pet), class:'pets-block' do
               .img-block
                 = image_tag pet.avatar.url(:thumb)
-              h3.title-name = pet.show_name
+              h3.title-name = pet.display_name
               p.text-breed Перс

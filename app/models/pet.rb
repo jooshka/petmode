@@ -5,10 +5,6 @@ class Pet < ApplicationRecord
   belongs_to :user
   has_many :weights, class_name: 'PetWeight', dependent: :destroy
 
-  validates :weight,
-            allow_blank: true,
-            numericality: { only_float: true, greater_than: 0.020 }
-
   def last_weight
     weights.empty? ? nil : weights.last.weight
   end

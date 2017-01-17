@@ -64,11 +64,11 @@ private
       if @pet.new_record?
         @pet.update_attributes(user_id: user_id, name: name)
         @pet.save!
-      elsif name && @pet.name!=name
+      elsif !(name.empty?) && @pet.name!=name
         @pet.update_attributes(name: name)
         @pet.save!
       end
-      if weight && @pet.last_weight!=weight
+      if !(weight.empty?) && @pet.last_weight!=weight
         @pet.weights.create!(user_id: user_id, date: Date.today, weight: weight)
       end
     end
