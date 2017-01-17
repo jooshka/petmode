@@ -1,0 +1,29 @@
+.menu-settings {
+  text-align:center;
+  ul {
+    list-style: none;
+    display: table;
+    width: 75%;
+    margin:auto;
+    text-align: center;
+    li {
+      display: table-cell;
+      text-align: center;
+      a {
+        display: block;
+        width: 227px;
+        padding: 5px 10px;
+        line-height: 25px;
+        border: 1px solid #ffffff;
+        &:hover {
+          color: #747474;
+          background: #eaeaea;
+          border: 1px solid #d0d0d0;
+          -webkit-border-radius: 50px;
+          -moz-border-radius: 50px;
+          border-radius: 50px;
+        }
+      }
+    }
+  }
+}
