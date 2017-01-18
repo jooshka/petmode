@@ -6,3 +6,22 @@
   = f.input :avatar, as: :file
   .actions
     = f.button :submit, 'Сохранить изменения', class: 'btn btn2'
+
+javascript:
+  $(function() {
+    $('.user-photo').first().children(':first-child').addClass('change');
+    $('#user_avatar').on('change', function(event) {
+      var files = event.target.files;
+      var image = files[0]
+      var reader = new FileReader();
+      reader.onload = function(file) {
+        var img = new Image(219);
+        var img2 = new Image(75);
+        img.src = file.target.result;
+        img2.src = file.target.result;
+        $('#target').html(img);
+        $('#target2').html(img2);
+      }
+      reader.readAsDataURL(image);
+    });
+  });

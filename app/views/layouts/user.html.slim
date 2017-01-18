@@ -13,7 +13,8 @@ html
       .container
         .left-sidebar
           .user-photo
-            = image_tag current_user.avatar.url(:avatar)
+            div#target
+              = image_tag current_user.avatar.url(:avatar)
         .content
           .user-content
             p#notice = notice

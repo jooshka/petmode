@@ -25,7 +25,8 @@ header
       .user-block
         .user
           =link_to '#', class:'img-user'
-            =image_tag current_user.avatar.url(:icon)
+            #target2
+              =image_tag current_user.avatar.url(:icon)
           p.name-user
             = current_user.full_name
             span
