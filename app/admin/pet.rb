@@ -1,10 +1,11 @@
 ActiveAdmin.register Pet do
-  permit_params :name, :user_id, :avatar
+  permit_params :name, :user_id, :avatar, :gender_id
 
   index do
     selectable_column
     id_column
     column :name
+    column :gender
     column :user
     column :avatar do |pet|
       image_tag(pet.avatar.url(:thumb))
@@ -17,6 +18,7 @@ ActiveAdmin.register Pet do
     f.inputs "Admin Details" do
       f.input :name
       f.input :user
+      f.input :gender_id
     end
     f.actions
   end

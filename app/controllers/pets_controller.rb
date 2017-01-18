@@ -69,6 +69,6 @@ class PetsController < ApplicationController
     end
 
     def pet_form_params
-      params.fetch(:pet).permit(:name, :weight, :user_id)
+      params.fetch(:pet).permit(:name, :weight, :user_id, :gender_id)
     end
 end

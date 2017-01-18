@@ -7,6 +7,7 @@ class PetForm
   attribute :user_id, Integer
   attribute :name, String
   attribute :weight, Float
+  attribute :gender_id, Integer
 
   validates :weight,
             allow_blank: true,
@@ -27,12 +28,14 @@ class PetForm
   def initialize(attributes = {})
     if attributes[:id].nil?
       @pet = Pet.new
+      self.gender_id = 1
       assign_attributes(attributes)
     else
       @pet = Pet.find(attributes[:id])
       self.name = attributes[:name].nil? ? @pet.name : attributes[:name]
       self.weight = attributes[:weight].nil? ? @pet.last_weight : attributes[:weight]
       self.user_id = attributes[:user_id]
+      self.gender_id = attributes[:gender_id].nil? ? @pet.gender_id : attributes[:gender_id]
     end
   end
 
@@ -62,10 +65,10 @@ private
   def persist!
     @pet.transaction do
       if @pet.new_record?
-        @pet.update_attributes(user_id: user_id, name: name)
+        @pet.update_attributes(user_id: user_id, name: name, gender_id: gender_id)
         @pet.save!
-      elsif !(name.empty?) && @pet.name!=name
-        @pet.update_attributes(name: name)
+      else
+        @pet.update_attributes(name: name, gender_id: gender_id)
         @pet.save!
       end
       if weight.is_a?(Float) && @pet.last_weight!=weight

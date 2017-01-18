@@ -16,5 +16,15 @@ html
             = image_tag current_user.avatar.url(:avatar)
         .content
           .user-content
+            p#notice = notice
+            .user-info-top
+              ul.title-info
+                li.title-user = current_user.full_name
+                li.pro PRO
+                li.club CLUB
+                - if current_user.breeder
+                  li.breeder breeder
+                li.check
+
             = yield
     = render 'footer'

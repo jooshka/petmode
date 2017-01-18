@@ -7,3 +7,34 @@
 .my-pets .wrap .pets-block .img-block img { display: block; width: 100%; height: 100%; }
 .my-pets .wrap .pets-block .title-name { font-size: 15px; color: #8f8f8f; font-weight: 400; margin-bottom: 5px; padding-left: 15px; }
 .my-pets .wrap .pets-block .text-breed { font-size: 14px; color: #343434; font-weight: bold; padding-left: 15px; }
+
+.gender-block {
+  ul {
+    margin: 5px;
+    width: auto;
+    li {
+      margin: 5px;
+      display: inline;
+      border: 1px solid #fff;
+      color: black;
+      font-weight: bold;
+      &.active {
+        color:red;
+      }
+      .fa {
+        font-size: 30px;
+      }
+    }
+  }
+}
+.actions {
+  float: right;
+  ul {
+    li {
+      display: inline;
+      a.btn {
+        width: 160px;
+      }
+    }
+  }
+}

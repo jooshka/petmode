@@ -1,3 +1,42 @@
+.menu-settings {
+  .wr-flex {
+    width: 75%;
+    margin:auto;
+    text-align: center;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-around;
+    .item {
+      a {
+        display: block;
+        width: auto;
+        padding: 5px 15px;
+        line-height: 25px;
+        border: 1px solid #ffffff;
+        &:hover {
+          color: #747474;
+          background: #eaeaea;
+          border: 1px solid #d0d0d0;
+          -webkit-border-radius: 50px;
+          -moz-border-radius: 50px;
+          border-radius: 50px;
+        }
+      }
+    }
+  }
+}
+
+ .ui-tabs-active {
+   a {
+     color: #747474;
+     background: #eaeaea;
+     border: 1px solid #d0d0d0;
+     -webkit-border-radius: 50px;
+     -moz-border-radius: 50px;
+     border-radius: 50px;
+   }
+ }
+ 
 .user-photo {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -60,7 +99,7 @@
   height: 40px;
   font-size: 15px;
   color: #747474;
-  line-height: 25px;
+  line-height: 40px;
   background: #eaeaea;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;

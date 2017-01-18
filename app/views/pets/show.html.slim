@@ -5,11 +5,18 @@
   .user-content
     p#notice = notice
     .user-info-top
-      ul
-        li
-          =link_to 'Изменить', edit_pet_path(@pet)
-        li
-          =link_to 'Удалить', @pet, method: :delete
+      .actions
+        ul
+          li
+            =link_to 'Изменить', edit_pet_path(@pet), class: 'btn'
+          li
+            =link_to 'Удалить', @pet, method: :delete, class: 'btn'
       ul.title-info
         li.title-user = @pet.display_name
-        li = @pet.last_weight
+      ul
+        li
+          | Пол>
+          span< = @pet.gender.name
+        li
+          | Вес>
+          span< = @pet.last_weight

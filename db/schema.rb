@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117122507) do
+ActiveRecord::Schema.define(version: 20170117221127) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20170117122507) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
+
+  create_table "genders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pet_weights", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,6 +52,8 @@ ActiveRecord::Schema.define(version: 20170117122507) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "name"
+    t.integer  "gender_id"
+    t.index ["gender_id"], name: "index_pets_on_gender_id", using: :btree
     t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
   end
 
@@ -77,5 +85,6 @@ ActiveRecord::Schema.define(version: 20170117122507) do
 
   add_foreign_key "pet_weights", "pets"
   add_foreign_key "pet_weights", "users"
+  add_foreign_key "pets", "genders"
   add_foreign_key "pets", "users"
 end
