@@ -114,3 +114,19 @@
     background: #343434;
   }
 }
+
+div.upload {
+  width: 157px;
+  height: 57px;
+  background: url(camera-icon.png) center no-repeat;
+  background-size: contain;
+  overflow: hidden;
+}
+
+.upload input {
+  display: block !important;
+  width: 157px !important;
+  height: 57px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+}
