@@ -18,28 +18,31 @@
       margin-top: 18px;
       text-align: left;
     }
-    .form-inputs {
-      width: 100%;
-      input {
-        margin-top: 30px;
-        width: calc(100% - 2 * 18px - 2px);
-        border: 1px solid #ddd;
-        @include border-radius(4px);
-        padding: 11px 18px;
-        color: #a2a2a2;
-        &:focus {
-          border-color: #bababa;
-          color: #343434;
-        }
-      }
+  }
+}
+
+.form-inputs {
+  width: 100%;
+  input {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: calc(100% - 2 * 18px - 2px);
+    border: 1px solid #ddd;
+    @include border-radius(4px);
+    padding: 11px 18px;
+    color: #a2a2a2;
+    &:focus {
+      border-color: #bababa;
+      color: #343434;
     }
-    .form-actions {
-      input {
-        font-family: "PFCSProBold";
-        @include rounded-button-uppercase(15px, #ffd800);
-        margin-top: 30px;
-        margin-bottom: 32px;
-      }
-    }
+  }
+}
+
+.form-actions {
+  input {
+    font-family: "PFCSProBold";
+    @include rounded-button-uppercase(14px, $yellow);
+    margin-top: 30px;
+    margin-bottom: 32px;
   }
 }

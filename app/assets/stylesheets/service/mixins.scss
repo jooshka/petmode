@@ -53,19 +53,18 @@
           flex-wrap: $v;
 }
 
-@mixin rounded-button($fs, $bg) {
-  min-width: 200px;
-  padding-left: 10px;
-  padding-right: 10px;
+@mixin rounded-button($fs, $bg, $height: 'auto') {
+  text-align: center;
+  padding: 0 20px;
   font-size: $fs;
-  height: $fs * 2 + 20px;
-  line-height: $fs * 2 + 20px;
+  @if $height == 'auto' { $height: $fs * 2 + 10px; }
+  height: $height;
+  line-height: $height;
   background-color: $bg;
-  text-transform: uppercase;
-  @include border-radius(($fs * 2 + 20px) / 2);
+  @include border-radius( $height / 2 );
 }
 
-@mixin rounded-button-uppercase($fs, $bg) {
-  @include rounded-button($fs, $bg);
+@mixin rounded-button-uppercase($fs, $bg, $height: 'auto') {
+  @include rounded-button($fs, $bg, $height: 'auto');
   text-transform: uppercase;
 }

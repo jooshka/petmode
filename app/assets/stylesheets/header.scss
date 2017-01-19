@@ -37,8 +37,8 @@ header {
           a {
             font-family: "PTSansRegular";
             font-size: 18px;
-            color: #ffffff;
-            border-bottom: 1px dashed #ffffff;
+            color: #fff;
+            border-bottom: 1px dashed #fff;
             &:hover { border-bottom: none; }
           }
         }
@@ -46,16 +46,17 @@ header {
     }
     &:after { clear: both; content: ""; display: table; }
     .search {
+      position: relative;
       input[type="text"] {
         width: 100%;
         box-sizing: border-box;
-        border: 1px solid #ffffff;
+        border: 1px solid #fff;
         @include border-radius(50px);
         background-color: transparent;
         height: 40px;
         font-family: "PTSansRegular";
         font-size: 14px;
-        color: #ffffff;
+        color: #fff;
         padding: 0px 50px 0px 24px;
       }
       .btn-search {
@@ -77,11 +78,11 @@ header {
 header .wrap .user-block .user { margin-bottom: 29px; }
 header .wrap .user-block .user:after { clear: both; content: ""; display: table; }
 header .wrap .user-block .user .img-user { display: block; width: 75px; height: 75px; -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%; overflow: hidden; float: right; }
-header .wrap .user-block .user .name-user { margin-top: 28px; font-family: "PTSansRegular"; font-size: 15px; color: #ffffff; display: inline-block; position: relative; }
+header .wrap .user-block .user .name-user { margin-top: 28px; font-family: "PTSansRegular"; font-size: 15px; color: #fff; display: inline-block; position: relative; }
 header .wrap .user-block .user .name-user span { position: absolute; width: 9px; height: 5px; background: url(arrow-user.png) no-repeat; top: 8px; right: -16px; }
 header .wrap .user-block .basket-block { float: right; display: block; margin-right: 24px; }
 header .wrap .user-block .basket-block .basket { width: 35px; height: 30px; display: block; position: relative; margin: 0 0 0 0; }
-header .wrap .user-block .basket-block .basket .basket-num { width: 19px; height: 19px; background: #ffd800; font-family: "PTSansRegular"; font-size: 11px; line-height: 19px; position: absolute; top: -9px; right: -9px; -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%; text-align: center; }
+header .wrap .user-block .basket-block .basket .basket-num { width: 19px; height: 19px; background: $yellow; font-family: "PTSansRegular"; font-size: 11px; line-height: 19px; position: absolute; top: -9px; right: -9px; -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%; text-align: center; }
 
 
 header.guest {
@@ -121,6 +122,10 @@ header.guest {
         .user-block {
           padding-top: 5px;
           text-align: right;
+          .signin-link a {
+            margin-bottom: 8px;
+            @include rounded-button(14px, $yellow, 33px);
+          }
         }
       }
       .slogan {
@@ -128,7 +133,7 @@ header.guest {
         overflow: hidden;
         margin-right: -80px;
         width: calc(100% + 80px);
-        border: 1px dashed #ffffff;
+        border: 1px dashed #fff;
         border-right: none;
         padding: 20px;
         padding-right: 80px;
@@ -150,7 +155,7 @@ header.user {
         height: 97px;
         margin: 0px 0px 21px -24px;
       }
-      .logo-text { font-size: 18px; color: #ffd800; }
+      .logo-text { font-size: 18px; color: $yellow; }
     }
     .nav-block {
       width: 570px;

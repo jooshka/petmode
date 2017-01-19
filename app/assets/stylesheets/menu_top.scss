@@ -1,6 +1,7 @@
 .menu-top {
+  margin-bottom: 71px;
   padding: 21px 0px 19px;
-  background: #ffd800;
+  background: $yellow;
   ul {
     li {
       float: left;
@@ -12,12 +13,12 @@
           width: 23px;
           height: 23px;
           background: #343434;
-          border: 3px solid #ffd800;
+          border: 3px solid $yellow;
           text-align: center;
           font-family: "PTSansRegular";
           font-size: 14px;
           line-height: 23px;
-          color: #ffd800;
+          color: $yellow;
           -webkit-border-radius: 50%;
           -moz-border-radius: 50%;
           border-radius: 50%;
@@ -88,7 +89,7 @@
     text-align: center;
     font-family: "PTSansRegular";
     font-size: 14px;
-    color: #ffffff;
+    color: #fff;
     text-transform: uppercase;
     line-height: 35px;
     background: #343434;
@@ -97,7 +98,7 @@
     border-radius: 3px;
     &:hover, &.active {
       color: #343434;
-      background: #ffffff;
+      background: #fff;
       font-weight: bold;
     }
   }

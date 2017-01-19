@@ -1,12 +1,13 @@
 = simple_form_for @user do |f|
-  = f.input :last_name, label: 'Фамилия'
-  = f.input :first_name, label: 'Имя'
-  = f.input :breeder, label: 'Разводчик'
-  = f.input :about, label: false, :input_html => { placeholder: 'Обо мне', cols: 100, rows: 4 }
-  .upload
-    = f.input :avatar, label: false, as: :file
-  .actions
-    = f.button :submit, 'Сохранить изменения', class: 'btn btn2'
+  .form-inputs
+    = f.input :last_name, label: false, placeholder: 'Фамилия'
+    = f.input :first_name, label: false, placeholder: 'Имя'
+    = f.input :breeder, label: 'Разводчик'
+    = f.input :about, label: false, :input_html => { placeholder: 'Обо мне', cols: 100, rows: 4 }
+    .upload
+      = f.input :avatar, label: false, as: :file
+  .form-actions
+    = f.button :submit, 'Сохранить'
 
 javascript:
   $(function() {
