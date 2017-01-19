@@ -1,0 +1,40 @@
+header.user
+  = image_tag 'header_user_bg.jpg', class: 'fake_bg'
+  .languages
+    =link_to 'ru', '#', class: "ru active"
+    =link_to 'eng', '#', class: "eng"
+  .wrap1
+    =link_to 'Выход', destroy_user_session_path, method: 'delete'
+    .container
+      .wrap
+        .logo-block
+          =link_to '#', class: 'logo-header'
+            =image_tag 'logo.png'
+          p.logo-text Сервис домашних питомцев
+        .nav-block
+          ul.menu-head.wrap-flex2
+            li =link_to 'Продажа', '#'
+            li =link_to 'Новости', '#'
+            li =link_to 'В добрые руки', '#'
+            li =link_to 'Конкурсы', '#'
+            li =link_to 'Случка', '#'
+            li =link_to 'Зоомагазин', '#'
+            li =link_to 'Специалисты', '#'
+            li =link_to 'Выставки', '#'
+          .search
+            <input type="text" placeholder="Search">
+            button.btn-search
+              =image_tag 'ic-search.png'
+        .user-block
+          .user
+            =link_to '#', class:'img-user'
+              #target2
+                =image_tag current_user.avatar.url(:icon)
+            p.name-user
+              = current_user.full_name
+              span
+
+          .basket-block
+            =link_to '#', class:'basket'
+              =image_tag 'ic-basket.png'
+              .span.basket-num 2

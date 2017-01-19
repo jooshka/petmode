@@ -94,39 +94,41 @@
   }
 }
 
-.btn {
-  width: 227px;
-  height: 40px;
-  font-size: 15px;
-  color: #747474;
-  line-height: 40px;
-  background: #eaeaea;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  border-radius: 50px;
-  margin-right: 20px;
-  text-align: center;
-  a {
-    line-height: 25px;
+.rem {
+  .btn {
+    width: 227px;
+    height: 40px;
+    font-size: 15px;
+    color: #747474;
+    line-height: 40px;
+    background: #eaeaea;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    margin-right: 20px;
+    text-align: center;
+    a {
+      line-height: 25px;
+    }
+    &:hover {
+      color: #ffffff;
+      background: #343434;
+    }
   }
-  &:hover {
-    color: #ffffff;
-    background: #343434;
+
+  div.upload {
+    width: 157px;
+    height: 57px;
+    background: url(camera-icon.png) center no-repeat;
+    background-size: contain;
+    overflow: hidden;
   }
-}
 
-div.upload {
-  width: 157px;
-  height: 57px;
-  background: url(camera-icon.png) center no-repeat;
-  background-size: contain;
-  overflow: hidden;
-}
-
-.upload input {
-  display: block !important;
-  width: 157px !important;
-  height: 57px !important;
-  opacity: 0 !important;
-  overflow: hidden !important;
+  .upload input {
+    display: block !important;
+    width: 157px !important;
+    height: 57px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+  }
 }

@@ -1,17 +1,15 @@
 header {
-  padding: 25px 0px 28px;
-  background: url(bg-header.jpg) center 0px; position: relative;
+  padding-top: 25px;
+  .fake_bg { visibility: hidden; width: 100%; max-width: 1366px;}
+  .wrap1 { position: absolute; top: 25px; width: 100%; }
   .languages {
-    position: absolute;
-    top: 15px;
-    right: 292px;
     width: 60px;
     text-align: right;
     a {
       display: inline-block;
       vertical-align: top;
       font-size: 12px;
-      color: #ffffff;
+      color: #fff;
       text-decoration: underline;
       margin-left: 7px;
       text-transform: uppercase;
@@ -22,58 +20,60 @@ header {
   }
   .wrap {
     .logo-block {
-      width: 175px;
       float: left;
       .logo-header {
-        width: 168px;
-        height: 97px;
         display: block;
-        margin: 0px 0px 21px -24px;
-        img {
-          display: block;
-          width: 100%;
-          height: 100%;
-        }
+        img { display: block; width: 100%; height: 100%; }
       }
-      .logo-text {
-        font-family: "PFCSProBold";
-        font-size: 18px;
-        color: #ffd800;
-      }
+      .logo-text { font-family: "PFCSProBold"; }
     }
     .nav-block {
-      width: 570px;
       float: left;
-      margin-left: 140px;
-      padding-top: 20px;
       .menu-head {
         margin-bottom: 25px;
         li {
           min-width: 118px;
           margin-bottom: 12px;
-          &:nth-child(4n) {
-            margin-left: 35px;
-          }
           a {
             font-family: "PTSansRegular";
             font-size: 18px;
             color: #ffffff;
             border-bottom: 1px dashed #ffffff;
+            &:hover { border-bottom: none; }
           }
         }
       }
     }
+    &:after { clear: both; content: ""; display: table; }
+    .search {
+      input[type="text"] {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid #ffffff;
+        @include border-radius(50px);
+        background-color: transparent;
+        height: 40px;
+        font-family: "PTSansRegular";
+        font-size: 14px;
+        color: #ffffff;
+        padding: 0px 50px 0px 24px;
+      }
+      .btn-search {
+        display: block;
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        top: 13px;
+        right: 25px;
+      }
+    }
     .user-block {
-
+      float: right;
+      min-width: 235px;
     }
   }
 }
-header .wrap:after { clear: both; content: ""; display: table; }
-header .wrap .nav-block .menu-head li a:hover { border-bottom: none; }
-header .wrap .nav-block .search { width: 525px; position: relative; }
-header .wrap .nav-block .search input[type="text"] { width: 100%; box-sizing: border-box; border: 1px solid #ffffff; -webkit-border-radius: 50px; -moz-border-radius: 50px; border-radius: 50px; background-color: transparent; height: 40px; font-family: "PTSansRegular"; font-size: 14px; color: #ffffff; padding: 0px 50px 0px 24px; }
-header .wrap .nav-block .search .btn-search { display: block; width: 14px; height: 14px; position: absolute; top: 13px; right: 25px; }
-header .wrap .user-block { float: right; min-width: 235px; padding-top: 16px; }
+
 header .wrap .user-block .user { margin-bottom: 29px; }
 header .wrap .user-block .user:after { clear: both; content: ""; display: table; }
 header .wrap .user-block .user .img-user { display: block; width: 75px; height: 75px; -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%; overflow: hidden; float: right; }
@@ -82,3 +82,87 @@ header .wrap .user-block .user .name-user span { position: absolute; width: 9px;
 header .wrap .user-block .basket-block { float: right; display: block; margin-right: 24px; }
 header .wrap .user-block .basket-block .basket { width: 35px; height: 30px; display: block; position: relative; margin: 0 0 0 0; }
 header .wrap .user-block .basket-block .basket .basket-num { width: 19px; height: 19px; background: #ffd800; font-family: "PTSansRegular"; font-size: 11px; line-height: 19px; position: absolute; top: -9px; right: -9px; -webkit-border-radius: 50%; -moz-border-radius: 50%; border-radius: 50%; text-align: center; }
+
+
+header.guest {
+  background: url(header_guest_bg.jpg) center 0px no-repeat;
+  .languages { float: right; margin-right: 20px; }
+  .wrap {
+    .logo-block {
+      width: 294px;
+      .logo-header {
+        width: 294px;
+        height: 171px;
+        margin: 0px 0px 21px -36px;
+      }
+      .logo-text {
+        color: #fff;
+        span.logo-text1 { font-size: 72px; line-height: 64px; }
+        span.logo-text2 { font-size: 46px; line-height: 38px; }
+        span.logo-text3 { font-size: 50px; line-height: 42px;}
+      }
+    }
+    .wrap2 {
+      float: right;
+      padding-top: 50px;
+      width: 535px;
+      .wrap3 {
+        &:after { clear: both; content: ""; display: table; }
+        float: left;
+        .nav-block {
+          width: 300px;
+          .menu-head li:nth-child(2n) { margin-left: 35px; }
+        }
+        .search {
+          width: 200px;
+          float: right;
+          margin-top: 10px;
+        }
+        .user-block {
+          padding-top: 5px;
+          text-align: right;
+        }
+      }
+      .slogan {
+        float: right;
+        overflow: hidden;
+        margin-right: -80px;
+        width: calc(100% + 80px);
+        border: 1px dashed #ffffff;
+        border-right: none;
+        padding: 20px;
+        padding-right: 80px;
+        color: #fff;
+        @include border-radius(50px 0 0 50px);
+      }
+    }
+  }
+}
+
+header.user {
+  background: url(header_user_bg.jpg) center 0px; position: relative;
+  .languages { position: absolute; top: 15px; right: 292px; }
+  .wrap {
+    .logo-block {
+      width: 175px;
+      .logo-header {
+        width: 168px;
+        height: 97px;
+        margin: 0px 0px 21px -24px;
+      }
+      .logo-text { font-size: 18px; color: #ffd800; }
+    }
+    .nav-block {
+      width: 570px;
+      margin-left: 140px;
+      padding-top: 20px;
+      .menu-head li:nth-child(4n) { margin-left: 35px; }
+    }
+    .search {
+      width: 525px;
+    }
+    .user-block {
+      padding-top: 16px;
+    }
+  }
+}

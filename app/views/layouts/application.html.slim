@@ -7,9 +7,17 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = render 'header'
-    = render 'menu_top'
-    .main
+    - if user_signed_in?
+      = render 'header_user'
+      = render 'menu_top'
+    - else
+      = render 'header_guest'
+
+    main
       .container
+        - if notice
+        p.notice = notice
+        - if alert
+        p.alert = alert
         = yield
     = render 'footer'

@@ -53,6 +53,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+gem 'devise-i18n'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 gem 'slim-rails'
@@ -68,3 +69,5 @@ gem 'active_link_to'
 gem 'virtus'
 gem "font-awesome-rails"
 gem 'jquery-ui-rails'
+gem 'dotenv-rails', :groups => [:development, :test]
+gem 'russian'

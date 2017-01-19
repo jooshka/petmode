@@ -1,0 +1,71 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin display_box { display: -webkit-box; display: -moz-box; display: box; }
+@mixin display_flex { display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; }
+@mixin box-orient($orient) { -webkit-box-orient: $orient; -moz-box-orient: $orient; box-orient: $orient;}
+
+@mixin box-direction($direction) {
+  -webkit-box-direction: $direction;
+     -moz-box-direction: $direction;
+          box-direction: $direction;
+}
+
+@mixin flex-direction($direction) {
+  -webkit-flex-direction: $direction;
+     -moz-flex-direction: $direction;
+          flex-direction: $direction;
+      -ms-flex-direction: $direction;
+}
+
+@mixin box-pack($v) {
+  -webkit-box-pack: $v;
+     -moz-box-pack: $v;
+          box-pack: $v;
+}
+
+@mixin flex-pack($v) {
+  -ms-flex-pack: $v;
+}
+
+@mixin justify-content($v) {
+  -webkit-justify-content: $v;
+     -moz-justify-content: $v;
+      -ms-justify-content: $v;
+       -o-justify-content: $v;
+          justify-content: $v;
+}
+
+@mixin box-lines($v) {
+  -webkit-box-lines: $v;
+     -moz-box-lines: $v;
+          box-lines: $v;
+}
+
+@mixin flex-wrap ($v) {
+  -webkit-flex-wrap: $v;
+     -moz-flex-wrap: $v;
+      -ms-flex-wrap: $v;
+          flex-wrap: $v;
+}
+
+@mixin rounded-button($fs, $bg) {
+  min-width: 200px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: $fs;
+  height: $fs * 2 + 20px;
+  line-height: $fs * 2 + 20px;
+  background-color: $bg;
+  text-transform: uppercase;
+  @include border-radius(($fs * 2 + 20px) / 2);
+}
+
+@mixin rounded-button-uppercase($fs, $bg) {
+  @include rounded-button($fs, $bg);
+  text-transform: uppercase;
+}
