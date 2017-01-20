@@ -12,6 +12,6 @@
         =active_link_to '', new_pet_path, class: 'footprint', :active => [['pets'],['new']]
       li
         =link_to '#', class: 'share'
-          span.num 5
+          span.num = current_user.followers.count
       li
         =link_to 'PRO', '#', class: 'base'

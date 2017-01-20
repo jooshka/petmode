@@ -14,8 +14,9 @@
 
       - if @user != current_user
         .btn-block
-          =button_to 'Написать сообщение', '#', class: 'btn'
-          =button_to 'Добавить в избранное', '#', class: 'btn'
+          =button_to 'Написать сообщение', '#'
+          - unless current_user.liked?(@user)
+            =button_to 'Добавить в избранное', like_user_path
 
     .about-me
       h2.title-one Обо мне:

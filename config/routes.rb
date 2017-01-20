@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: "home#index"
-  resources :users, only: [:index, :show, :settings, :update]
+  resources :users, only: [:index, :show, :update]
   get '/users/:id/settings', to: 'users#settings', as: 'settings_user'
+  post '/users/:id/like', to: 'users#like', as: 'like_user'
 end

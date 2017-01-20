@@ -9,6 +9,21 @@ class User < ApplicationRecord
 
   has_many :pets
 
+  has_many :like_relationships
+  has_many :favorites, through: :like_relationships, class_name: 'User'
+  has_many :followers, through: :like_relationships, class_name: 'User'
+
+  def liked?(user)
+    self.favorites.find_by(id: user.id)
+  end
+
+  def like(user)
+    unless liked?(user)
+      self.favorites << user
+      user.followers << self
+    end
+  end
+
   def fio
     "#{last_name} #{first_name} #{patronymic}".strip
   end

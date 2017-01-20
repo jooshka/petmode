@@ -26,6 +26,15 @@ class UsersController < ApplicationController
     render layout: 'user'
   end
 
+  def like
+    @user = User.find_by(id: params[:id])
+    if @user && current_user.like(@user)
+      redirect_to @user, notice: "#{@user.full_name} успешно добавлен(-а) в ваш список избранных."
+    else
+      redirect_to @user, notice: 'Этот пользователь уже есть у вас в контактах.'
+    end
+  end
+
   # POST /users
   # POST /users.json
   def create
