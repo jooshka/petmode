@@ -1,16 +1,34 @@
-= simple_form_for @user do |f|
-  .form-inputs
-    = f.input :last_name, label: false, placeholder: t('Last name')
-    = f.input :first_name, label: false, placeholder: t('First name')
-    = f.input :breeder, label: t('Breeder')
-    = f.input :about, label: false, input_html: { placeholder: t('About me'), cols: 100, rows: 4 }
-    .upload
-      = f.input :avatar, label: false, as: :file
-  .form-actions
-    = f.button :submit, t('Save')
+#tabs
+  = simple_form_for @user do |f|
+    .menu-settings
+      ul.wrap-flex
+        li.item
+          = link_to t('Main data'), '#tabs-1', class: 'settings'
+        li.item =link_to t('Organization'), '#tabs-2'
+        li.item =link_to t('Subscriptions'), '#tabs-3'
+        li.item =link_to t('Verification'), '#tabs-4'
+    .form-inputs
+      #tabs-1
+        = f.input :last_name, label: false, placeholder: t('Last name')
+        = f.input :first_name, label: false, placeholder: t('First name')
+        = f.input :breeder, label: t('Breeder')
+
+      #tabs-2
+        = f.input :about, label: false, input_html: { placeholder: t('About me'), cols: 100, rows: 4 }
+        .upload
+          = f.input :avatar, label: false, as: :file
+
+      #tabs-3
+        <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+        <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+
+    .form-actions
+      = f.button :submit, t('Save')
 
 javascript:
   $(function() {
+    $('.user-info-top').hide();
+    $("#tabs").tabs();
     $('.user-photo').first().children(':first-child').addClass('change');
     $('#user_avatar').on('change', function(event) {
       var files = event.target.files;
