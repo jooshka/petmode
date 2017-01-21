@@ -1,18 +1,15 @@
-= simple_form_for @pet_form do |f|
-  = f.error_notification
-
+= simple_form_for @pet do |f|
   .form-inputs
     = f.hidden_field :user_id, value: current_user.id
     = f.input :name, label: false, placeholder: 'Кличка'
     .gender-block
       ul
-        li class=('active' if @pet_form.gender_id==1)
+        li class=('active' if @pet.gender_id==1)
           = fa_icon 'mars'
           span< Мальчик
-        li class=('active' if @pet_form.gender_id==2)
+        li class=('active' if @pet.gender_id==2)
           = fa_icon 'venus'
           span< Девочка
-    = f.hidden_field :gender_id, value: @pet_form.gender_id
-    = f.input :weight, label: false, placeholder: 'Вес (кг)'
+    = f.hidden_field :gender_id, value: @pet.gender_id
   .form-actions
     = f.button :submit, 'Сохранить'

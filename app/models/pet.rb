@@ -4,11 +4,6 @@ class Pet < ApplicationRecord
 
   belongs_to :user
   belongs_to :gender
-  has_many :weights, class_name: 'PetWeight', dependent: :destroy
-
-  def last_weight
-    weights.empty? ? nil : weights.last.weight
-  end
 
   def display_name
     name.empty? ? "№#{id}" : name

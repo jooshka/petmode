@@ -3,20 +3,16 @@
     = image_tag @pet.avatar.url(:avatar)
 .content
   .user-content
-    p#notice = notice
     .user-info-top
       .actions
         ul
           li
-            =link_to 'Изменить', edit_pet_path(@pet), class: 'btn'
+            =link_to 'Изменить', edit_pet_path
           li
-            =link_to 'Удалить', @pet, method: :delete, class: 'btn'
+            =link_to 'Удалить', @pet, method: :delete
       ul.title-info
         li.title-user = @pet.display_name
       ul
         li
           | Пол>
           span< = @pet.gender.name
-        li
-          | Вес>
-          span< = @pet.last_weight
