@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :pets
   devise_for :users #, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -11,4 +10,6 @@ Rails.application.routes.draw do
   post '/users/:id/like', to: 'users#like', as: 'like_user'
   post '/users/:id/unlike', to: 'users#unlike', as: 'unlike_user'
 
+  resources :pets
+  get '/pets/:id/control', to: 'pets#control', as: 'control_pet'
 end

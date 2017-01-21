@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: [:show, :edit, :settings, :update, :destroy]
+  before_action :set_pet, only: [:show, :edit, :settings, :update, :destroy, :control]
 
   # GET /pets
   # GET /pets.json
@@ -21,6 +21,9 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
+  end
+
+  def control
   end
 
   # POST /pets

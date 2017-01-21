@@ -3,13 +3,9 @@
     = image_tag @pet.avatar.url(:avatar)
 .content
   .user-content
+    .control-panel-link
+      = link_to t('Control panel'), control_pet_path(@pet)
     .user-info-top
-      .actions
-        ul
-          li
-            =link_to t('Edit'), edit_pet_path
-          li
-            =link_to t('Delete'), @pet, method: :delete
       ul.title-info
         li.title-user = @pet.display_name
       ul
