@@ -14,15 +14,15 @@
 
       - if @user != current_user
         .btn-block
-          =button_to 'Написать сообщение', '#'
+          =button_to t('Send message'), '#'
           - unless current_user.liked?(@user)
-            =button_to 'Добавить в избранное', like_user_path
+            =button_to t('Add to favorite'), like_user_path
 
     .about-me
-      h2.title-one Обо мне:
+      h2.title-one =t('About me')+':'
       p.text-one =@user.about
     .my-pets
-      h2.title-one Мои питомцы:
+      h2.title-one =t('My pets')+':'
       .wrap
         - @pets.each do |pet|
           = link_to pet_path(pet), class:'pets-block' do

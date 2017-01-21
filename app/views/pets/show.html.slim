@@ -7,12 +7,12 @@
       .actions
         ul
           li
-            =link_to 'Изменить', edit_pet_path
+            =link_to t('Edit'), edit_pet_path
           li
-            =link_to 'Удалить', @pet, method: :delete
+            =link_to t('Delete'), @pet, method: :delete
       ul.title-info
         li.title-user = @pet.display_name
       ul
         li
-          | Пол>
-          span< = @pet.gender.name
+          =t('Gender')+'>'
+          span< = t(@pet.gender)

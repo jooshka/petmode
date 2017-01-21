@@ -1,15 +1,15 @@
 = simple_form_for @pet do |f|
   .form-inputs
     = f.hidden_field :user_id, value: current_user.id
-    = f.input :name, label: false, placeholder: 'Кличка'
+    = f.input :name, label: false, placeholder: t('Nickname')
     .gender-block
       ul
-        li class=('active' if @pet.gender_id==1)
+        li class=('active' if @pet.male?)
           = fa_icon 'mars'
-          span< Мальчик
-        li class=('active' if @pet.gender_id==2)
+          span< =t('male')
+        li class=('active' if @pet.female?)
           = fa_icon 'venus'
-          span< Девочка
-    = f.hidden_field :gender_id, value: @pet.gender_id
+          span< =t('female')
+    = f.hidden_field :gender, value: @pet.gender
   .form-actions
-    = f.button :submit, 'Сохранить'
+    = f.button :submit, t('Save')

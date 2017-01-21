@@ -2,10 +2,10 @@
   .menu-settings
     ul.wrap-flex
       li.item
-        = link_to 'Основные данные', '#tabs-1', class: 'settings'
-      li.item =link_to 'Ваша организация', '#tabs-2'
-      li.item =link_to 'Уведомления', '#tabs-3'
-      li.item =link_to 'Верификация', '#tabs-4'
+        = link_to t('Main data'), '#tabs-1', class: 'settings'
+      li.item =link_to t('Organization'), '#tabs-2'
+      li.item =link_to t('Subscriptions'), '#tabs-3'
+      li.item =link_to t('Verification'), '#tabs-4'
 
     <div id="tabs-1">
       == render 'form'

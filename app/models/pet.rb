@@ -3,10 +3,10 @@ class Pet < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   belongs_to :user
-  belongs_to :gender
+  enum gender: ['male', 'female']
 
   def display_name
-    name.empty? ? "№#{id}" : name
+    name.empty? ? I18n.t('no name') : name
   end
 
   before_validation do |pet|

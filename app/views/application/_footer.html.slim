@@ -3,11 +3,11 @@ footer
     .wrap-flex
       .first-block
         .partners
-          h3.title-first Наши партнеры:
+          h3.title-first =t('Our partners')+':'
           =link_to '#', class: "logo-footer"
             =image_tag 'logo-footer.png'
         .social-block
-          h3.title-first Мы в социальных сетях
+          h3.title-first =t('We are in social networks')
           ul.social-ic.wrap-flex
             li
               =link_to '', '#', class: "social"
@@ -23,19 +23,19 @@ footer
               =link_to '', '#', class: "social6"
         p.text-first Petmode.ru | "Петмод" © 2017
       ul.menu-footer.wrap-flex2
-        li =link_to 'Продажа', '#'
-        li =link_to 'Зоомагазин', '#'
-        li =link_to 'Новости', '#'
-        li =link_to 'Случка', '#'
-        li =link_to 'Выставки', '#'
-        li =link_to 'Помощь', '#'
-        li =link_to 'В добрые руки', '#'
-        li =link_to 'Конкурсы', '#'
-        li =link_to 'Правила', '#'
-        li =link_to 'Специалисты', '#'
-        li =link_to 'Благотворительность', '#'
-        li =link_to 'Команда', '#'
+        li =link_to t('Sale'), '#'
+        li =link_to t('Pet shop'), '#'
+        li =link_to t('News'), '#'
+        li =link_to t('Copulations'), '#'
+        li =link_to t('Exhibitions'), '#'
+        li =link_to t('Help'), '#'
+        li =link_to t('In good hands'), '#'
+        li =link_to t('Competitions'), '#'
+        li =link_to t('Rules'), '#'
+        li =link_to t('Experts'), '#'
+        li =link_to t('Charity'), '#'
+        li =link_to t('Team'), '#'
       .development-block
         p.development
-          | Разработка сайта
+          = t('Site development')
           span< yo_brnd

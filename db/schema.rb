@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121061132) do
+ActiveRecord::Schema.define(version: 20170121140347) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -26,12 +26,6 @@ ActiveRecord::Schema.define(version: 20170121061132) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
   end
 
-  create_table "genders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "like_relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "user_id"
     t.integer "favorite_id"
@@ -42,16 +36,15 @@ ActiveRecord::Schema.define(version: 20170121061132) do
   end
 
   create_table "pets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "user_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "name"
-    t.integer  "gender_id"
-    t.index ["gender_id"], name: "index_pets_on_gender_id", using: :btree
+    t.integer  "gender",              default: 0
     t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
   end
 
@@ -86,6 +79,5 @@ ActiveRecord::Schema.define(version: 20170121061132) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "pets", "genders"
   add_foreign_key "pets", "users"
 end
