@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :settings, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :settings, :update, :destroy, :like, :unlike]
 
   # GET /users
   # GET /users.json
@@ -27,7 +27,6 @@ class UsersController < ApplicationController
   end
 
   def like
-    @user = User.find_by(id: params[:id])
     if @user && current_user.like(@user)
       redirect_to @user, notice: "#{@user.full_name} успешно добавлен(-а) в ваш список избранных."
     else
@@ -36,12 +35,16 @@ class UsersController < ApplicationController
   end
 
   def unlike
-    @user = User.find_by(id: params[:id])
     if @user && current_user.unlike(@user)
       redirect_to @user, notice: "#{@user.full_name} успешно удален(-а) из вашего списка избранных."
     else
       redirect_to @user, notice: 'Этого пользователя нет у вас в контактах.'
     end
+  end
+
+  def followers
+    @users = current_user.followers
+    render :index, layout: 'user'
   end
 
   # POST /users

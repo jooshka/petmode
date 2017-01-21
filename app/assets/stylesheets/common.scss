@@ -59,3 +59,22 @@ main {
     }
   }
 }
+
+.thumb-block {
+  width: calc( 100% / 6 );
+  float: left;
+  .image-wrapper {
+    width: 80%;
+    max-width: 160px;
+    margin: auto;
+    img {
+      width: 100%;
+      height: auto;
+      @include border-radius(20px);
+    }
+  }
+  .info-wrapper {
+    text-align: center;
+    font-size: 14px;
+  }
+}
