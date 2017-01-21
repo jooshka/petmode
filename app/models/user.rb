@@ -13,15 +13,28 @@ class User < ApplicationRecord
   has_many :favorites, through: :like_relationships, class_name: 'User'
   has_many :followers, through: :like_relationships, class_name: 'User'
 
-  def liked?(user)
+  def like?(user)
     self.favorites.find_by(id: user.id)
   end
 
   def like(user)
-    unless liked?(user)
-      self.favorites << user
-      user.followers << self
+    unless like?(user)
+      self.transaction do
+        self.favorites << user
+        user.followers << self
+      end
     end
+    like?(user)
+  end
+
+  def unlike(user)
+    if like?(user)
+      self.transaction do
+        self.favorites = self.favorites.to_a - [user]
+        user.followers = user.followers.to_a - [self]
+      end
+    end
+    !like?(user)
   end
 
   def fio

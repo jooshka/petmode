@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :update]
   get '/users/:id/settings', to: 'users#settings', as: 'settings_user'
   post '/users/:id/like', to: 'users#like', as: 'like_user'
+  post '/users/:id/unlike', to: 'users#unlike', as: 'unlike_user'
 end
