@@ -2,6 +2,15 @@
   .form-inputs
     = f.hidden_field :user_id, value: current_user.id
     = f.input :name, label: false, placeholder: t('Nickname')
+    .pet-type-block
+      ul
+        li class=('active' if @pet.pet_type.name=='cat')
+          = fa_icon 'mars'
+          span< =t('cat')
+        li class=('active' if @pet.pet_type.name=='dog')
+          = fa_icon 'venus'
+          span< =t('dog')
+    = f.hidden_field :pet_type_id, value: @pet.pet_type.id
     .gender-block
       ul
         li class=('active' if @pet.male?)
@@ -11,5 +20,18 @@
           = fa_icon 'venus'
           span< =t('female')
     = f.hidden_field :gender, value: @pet.gender
+    = f.input :weight, as: :integer,  label: false, placeholder: t('Weight (g)')
   .form-actions
     = f.button :submit, t('Save')
+
+coffee:
+  $ ->
+    $('.pet-type-block>ul>li').click ->
+      $(this).parent().children(':first-child').toggleClass 'active'
+      $(this).parent().children(':last-child').toggleClass 'active'
+      el = $('#pet_pet_type_id')
+      v = el.val()
+      if v == '1' then v = '2' else v = '1'
+      el.val(v)
+      return
+    return

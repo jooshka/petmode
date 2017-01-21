@@ -15,6 +15,7 @@ class PetsController < ApplicationController
   # GET /pets/new
   def new
     @pet = Pet.new
+    @pet.pet_type_id = 1
     @pet.gender = 'male'
     render layout: 'user'
   end
@@ -71,6 +72,6 @@ class PetsController < ApplicationController
     end
 
     def pet_params
-      params.fetch(:pet).permit(:name, :user_id, :gender)
+      params.fetch(:pet).permit(:name, :user_id, :gender, :pet_type_id, :weight)
     end
 end

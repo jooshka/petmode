@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121140347) do
+ActiveRecord::Schema.define(version: 20170121215048) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -35,6 +35,12 @@ ActiveRecord::Schema.define(version: 20170121140347) do
     t.index ["user_id"], name: "index_like_relationships_on_user_id", using: :btree
   end
 
+  create_table "pet_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
@@ -45,6 +51,9 @@ ActiveRecord::Schema.define(version: 20170121140347) do
     t.datetime "avatar_updated_at"
     t.string   "name"
     t.integer  "gender",              default: 0
+    t.integer  "pet_type_id"
+    t.integer  "weight"
+    t.index ["pet_type_id"], name: "index_pets_on_pet_type_id", using: :btree
     t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
   end
 
@@ -79,5 +88,6 @@ ActiveRecord::Schema.define(version: 20170121140347) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "pets", "pet_types"
   add_foreign_key "pets", "users"
 end
