@@ -14,6 +14,9 @@ ActiveAdmin.register Pet do
     column :gender do |pet|
       I18n.t(pet.gender)
     end
+    column I18n.t('Age') do |pet|
+      I18n.t(pet.gender)
+    end
     column :avatar do |pet|
       image_tag(pet.avatar.url(:thumb))
     end

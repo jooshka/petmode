@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121215048) do
+ActiveRecord::Schema.define(version: 20170121224220) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20170121215048) do
     t.index ["favorite_id"], name: "index_like_relationships_on_favorite_id", using: :btree
     t.index ["follower_id"], name: "index_like_relationships_on_follower_id", using: :btree
     t.index ["user_id"], name: "index_like_relationships_on_user_id", using: :btree
+  end
+
+  create_table "pet_birthdays", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "pet_id"
+    t.integer  "day"
+    t.integer  "month"
+    t.integer  "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_id"], name: "index_pet_birthdays_on_pet_id", using: :btree
   end
 
   create_table "pet_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -88,6 +98,7 @@ ActiveRecord::Schema.define(version: 20170121215048) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "pet_birthdays", "pets"
   add_foreign_key "pets", "pet_types"
   add_foreign_key "pets", "users"
 end

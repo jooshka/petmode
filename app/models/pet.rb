@@ -5,6 +5,8 @@ class Pet < ApplicationRecord
   belongs_to :user
   belongs_to :pet_type
   enum gender: ['male', 'female']
+  has_one :birthday, class_name: 'PetBirthday'
+  accepts_nested_attributes_for :birthday
 
   def display_name
     name.empty? ? I18n.t('no name') : name

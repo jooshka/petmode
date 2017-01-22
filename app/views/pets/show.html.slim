@@ -8,13 +8,16 @@
     .user-info-top
       ul.title-info
         li.title-user = @pet.display_name
-      ul
-      li
-        =t('Pet type')+'>'
-        span< = t(@pet.pet_type.name)
-      li
-        =t('Gender')+'>'
-        span< = t(@pet.gender)
-      li
-        =t('Weight')+'>'
-        span< = @pet.display_weight
+      ul.info-text
+        li
+          span.title-info-text =t('Pet type')+':'
+          span.info-text.r< = t(@pet.pet_type.name)
+        li
+          =t('Gender')+':'
+          span< = t(@pet.gender)
+        li
+          =t('Age')+':'
+          span< = t(@pet.birthday.age)
+        li
+          =t('Weight')+':'
+          span< = @pet.display_weight

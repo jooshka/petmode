@@ -20,6 +20,12 @@
           = fa_icon 'venus'
           span< =t('female')
     = f.hidden_field :gender, value: @pet.gender
+
+    = f.simple_fields_for :birthday do |birthday_form|
+      = birthday_form.input :day, collection: 1..31
+      = birthday_form.input :month, collection: 1..12
+      = birthday_form.input :year, collection: Time.now.year-30..Time.now.year
+
     = f.input :weight, as: :integer,  label: false, placeholder: t('Weight (g)')
   .form-actions
     = f.button :submit, t('Save')

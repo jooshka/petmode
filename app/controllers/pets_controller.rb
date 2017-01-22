@@ -17,6 +17,7 @@ class PetsController < ApplicationController
     @pet = Pet.new
     @pet.pet_type_id = 1
     @pet.gender = 'male'
+    @pet.build_birthday
     render layout: 'user'
   end
 
@@ -72,6 +73,7 @@ class PetsController < ApplicationController
     end
 
     def pet_params
-      params.fetch(:pet).permit(:name, :user_id, :gender, :pet_type_id, :weight)
+      params.fetch(:pet).permit(:name, :user_id, :gender, :pet_type_id, :weight,
+         birthday_attributes: [:day, :month, :year])
     end
 end
