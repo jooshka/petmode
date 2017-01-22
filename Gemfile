@@ -72,3 +72,7 @@ gem 'jquery-ui-rails'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'russian'
 gem 'time_diff'
+
+group :test do
+  gem 'rails-controller-testing'
+end

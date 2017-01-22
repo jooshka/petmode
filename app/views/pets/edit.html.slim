@@ -1,5 +1,4 @@
-.left-sidebar
-  .avatar-block
-    = image_tag @pet.avatar.url(:avatar)
-.content
-  == render 'form'
+= content_for :avatar_img
+  = image_tag @pet.avatar.url(:avatar)
+
+= render 'form'

@@ -36,14 +36,6 @@ RSpec.describe PetsController, type: :controller do
   # PetsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all pets as @pets" do
-      pet = Pet.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(assigns(:pets)).to eq([pet])
-    end
-  end
-
   describe "GET #show" do
     it "assigns the requested pet as @pet" do
       pet = Pet.create! valid_attributes
@@ -56,14 +48,6 @@ RSpec.describe PetsController, type: :controller do
     it "assigns a new pet as @pet" do
       get :new, params: {}, session: valid_session
       expect(assigns(:pet)).to be_a_new(Pet)
-    end
-  end
-
-  describe "GET #edit" do
-    it "assigns the requested pet as @pet" do
-      pet = Pet.create! valid_attributes
-      get :edit, params: {id: pet.to_param}, session: valid_session
-      expect(assigns(:pet)).to eq(pet)
     end
   end
 

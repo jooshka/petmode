@@ -17,12 +17,11 @@ html
               = image_tag current_user.avatar.url(:avatar)
           .list-block
           .banner-block
-        .content
-          .user-content
-            p#notice = notice
-            .user-info-top
+        .card-content-wrapper
+          .card-content
+            .info-top
               ul.title-info
-                li.title-user = current_user.full_name
+                li.title = current_user.full_name
                 li.pro PRO
                 li.club CLUB
                 - if current_user.breeder

@@ -7,8 +7,6 @@ body {
   color: #343434;
 }
 
-.container { width: 100%; max-width: 1170px; margin: 0 auto; }
-
 .title-one { font-family: "PFCSProBold"; font-size: 24px; }
 
 .text-one {
@@ -36,6 +34,7 @@ body {
   @include  flex-wrap(wrap);
 }
 
+.container { width: 100%; max-width: 1170px; margin: 0 auto; }
 main {
   .container {
     &:after { clear: both; content: ""; display: table; }
@@ -52,7 +51,7 @@ main {
         }
       }
     }
-    .content {
+    .card-content-wrapper {
       float: right;
       width: 922px;
       padding-top: 11px;

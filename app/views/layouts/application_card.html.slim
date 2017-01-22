@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title
+      | Petmode
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    - if user_signed_in?
+      = render 'header_user'
+      = render 'menu_top'
+    - else
+      = render 'header_guest'
+
+    main
+      .container
+
+        - if notice
+          p.notice = notice
+        - if alert
+          p.alert = alert
+
+        .left-sidebar
+          .avatar-block
+            div#target
+              = yield :avatar_img
+        .card-content-wrapper
+          .control-link
+            = yield :control_link
+          .card-content
+            .info-top
+              = yield :info_top
+            .about-me
+              = yield :about_me
+
+    = render 'footer'

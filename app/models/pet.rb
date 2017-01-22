@@ -8,8 +8,10 @@ class Pet < ApplicationRecord
   has_one :birthday, class_name: 'PetBirthday'
   accepts_nested_attributes_for :birthday
 
+  validates :pet_type, presence: true
+
   def display_name
-    name.empty? ? I18n.t('no name') : name
+    name && name.empty? ? I18n.t('no name') : name
   end
 
   def display_weight

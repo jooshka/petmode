@@ -1,34 +1,33 @@
-.left-sidebar
-  .avatar-block
-    = image_tag @user.avatar.url(:avatar)
-.content
-  .user-content
-    .user-info-top
-      ul.title-info
-        li.title-user = @user.full_name
-        li.pro PRO
-        li.club CLUB
-        - if @user.breeder
-          li.breeder breeder
-        li.check
+= content_for :avatar_img
+  = image_tag @user.avatar.url(:avatar)
 
-      - if @user != current_user
-        .btn-block
-          =button_to t('Send message'), '#'
-          - if current_user.like?(@user)
-            =button_to t('Remove from favorite'), unlike_user_path
-          - else
-            =button_to t('Add to favorite'), like_user_path
+= content_for :info_top
+  ul.title-info
+    li.title = @user.full_name
+    li.pro PRO
+    li.club CLUB
+    - if @user.breeder
+      li.breeder breeder
+    li.check
 
-    .about-me
-      h2.title-one =t('About me')+':'
-      p.text-one =@user.about
-    .my-pets
-      h2.title-one =t('My pets')+':'
-      .wrap
-        - @pets.each do |pet|
-          = link_to pet_path(pet), class:'pets-block' do
-              .img-block
-                = image_tag pet.avatar.url(:thumb)
-              h3.title-name = pet.display_name
-              p.text-breed Перс
+  - if @user != current_user
+    .btn-block
+      =button_to t('Send message'), '#'
+      - if current_user.like?(@user)
+        =button_to t('Remove from favorite'), unlike_user_path
+      - else
+        =button_to t('Add to favorite'), like_user_path
+
+= content_for :about_me
+  h2.title-one =t('About me')+':'
+  p.text-one =@user.about
+
+.my-pets
+  h2.title-one =t('My pets')+':'
+  .wrap
+    - @pets.each do |pet|
+      = link_to pet_path(pet), class:'pets-block' do
+          .img-block
+            = image_tag pet.avatar.url(:thumb)
+          h3.title-name = pet.display_name
+          p.text-breed Перс
