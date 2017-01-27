@@ -1,5 +1,5 @@
-= content_for :avatar_img
-  = image_tag @pet.avatar.url(:avatar)
+== render 'avatar', resource: @pet
+== render 'info_title'
 
 =link_to t('Back to show'), @pet
 #tabs

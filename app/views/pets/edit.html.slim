@@ -1,4 +1,2 @@
-= content_for :avatar_img
-  = image_tag @pet.avatar.url(:avatar)
-
-= render 'form'
+== render 'avatar', resource: @pet
+== render 'form'

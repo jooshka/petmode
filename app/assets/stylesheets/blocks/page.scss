@@ -1,0 +1,10 @@
+.page {
+  max-width: 1366px;
+  margin: auto;
+  font-family: "PTSansRegular";
+  font-size: 16px;
+}
+
+.page__section {
+  &:after { @include clearfix; }
+}

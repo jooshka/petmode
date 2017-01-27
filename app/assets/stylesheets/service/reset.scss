@@ -1,22 +1,27 @@
-* { outline: none; border: none; }
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  background: transparent;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+}
 
-html, body{width:100%; height:100%;}
+html, body { width:100%; height:100%; }
 
-html, body, div, span, object, iframe, img, strong, b, u, i,table,tbody,
-tfoot, thead,td,th,tr, form, label, legend, button, header, footer, article,
-section, aside, figcaption, figure, hgroup, time,
-p, ul, li, a, h1, h2, h3, h4, h5, h6
-{ margin:0; padding:0; border:0; vertical-align:baseline; background:transparent;}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
 
-header, footer, article, section, aside, figcaption, figure, hgroup, time
-{ display: block; }
+table,td,th,tr { border-collapse: collapse; border-spacing: 0; }
 
-table,td,th,tr { border-collapse:collapse; border-spacing:0; }
-
-input, select, textarea {font-family: 'Arial', sans-serif; font-weight:normal;}
-input:focus, select:focus, textarea:focus, button:active {outline: none;}
+//input:focus, select:focus, textarea:focus, button:active {outline: none;}
 input[type="button"], input[type="submit"], input[type="reset"], button
 { cursor: pointer; }
 
-a { display:inline-block;text-decoration: none;font-size: 14px;color: #000; }
+a { display:inline-block; text-decoration: none; color: #000; }
 ul { list-style: none; }
+ul li { display: inline-block; }

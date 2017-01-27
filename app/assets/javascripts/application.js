@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require jquery-ui/widgets/tabs
 //= require turbolinks
-//= require bootstrap-sprockets
 //= require_tree .

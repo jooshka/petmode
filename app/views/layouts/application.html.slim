@@ -3,21 +3,59 @@ html
   head
     title
       | Petmode
+    meta name='viewport' content='width=device-width, initial-scale=1'
+    meta name='turbolinks-cache-control' content='no-cache'
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    - if user_signed_in?
-      = render 'header_user'
-      = render 'menu_top'
-    - else
-      = render 'header_guest'
-
-    main
-      .container
-        - if notice
+body
+  .page
+    .page__section
+      - if user_signed_in?
+        = render 'head_user'
+        = render 'curr_user_menu'
+      - else
+        = render 'head_guest'
+    .page__section
+      - if notice
         p.notice = notice
-        - if alert
+      - if alert
         p.alert = alert
+
+      - if content_for? :avatar
+        .left-sidebar-wrapper
+          .avatar-wrapper
+            div#target
+              = yield :avatar
+
+        .card-content-wrapper
+
+          - if content_for? :control_link
+            .control-link
+              = yield :control_link
+
+          .card-content
+
+            - if content_for? :info_title
+              section.card.info-title
+                = yield :info_title
+
+            - if content_for? :info_text
+              section.card.info-text-wrapper
+                = yield :info_text
+
+            - if content_for? :card_share_actions
+              section.card.card-share-actions-wrapper
+                = yield :card_share_actions
+
+            - if content_for? :about
+              section.card.about-wrapper
+                = yield :about
+
+            = yield
+
+      - unless content_for? :avatar
         = yield
-    = render 'footer'
+
+    .page__section
+      = render 'foot'

@@ -1,10 +1,10 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :settings, :update, :destroy, :control]
+  before_action :set_user, only: [:new, :create]
 
   # GET /pets/1
   # GET /pets/1.json
   def show
-    render layout: 'application_card'
   end
 
   # GET /pets/new
@@ -13,16 +13,13 @@ class PetsController < ApplicationController
     @pet.pet_type_id = 1
     @pet.gender = 'male'
     @pet.build_birthday
-    render layout: 'current_user'
   end
 
   # GET /pets/1/edit
   def edit
-    render layout: 'application_card'
   end
 
   def control
-    render layout: 'application_card'
   end
 
   # POST /pets
@@ -34,7 +31,7 @@ class PetsController < ApplicationController
         format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
         format.json { render :show, status: :created, location: @pet }
       else
-        format.html { render :new, layout: 'current_user' }
+        format.html { render :new }
         format.json { render json: @pet.errors, status: :unprocessable_entity }
       end
     end
@@ -48,7 +45,7 @@ class PetsController < ApplicationController
         format.html { redirect_to @pet, notice: 'Pet was successfully updated.' }
         format.json { render :show, status: :ok, location: @pet }
       else
-        format.html { render :edit, layout: 'application_card' }
+        format.html { render :edit }
         format.json { render json: @pet.errors, status: :unprocessable_entity }
       end
     end
@@ -67,6 +64,10 @@ class PetsController < ApplicationController
   private
     def set_pet
       @pet = Pet.find(params[:id])
+    end
+
+    def set_user
+      @user = current_user
     end
 
     def pet_params

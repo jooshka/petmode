@@ -1,0 +1,8 @@
+= content_for :info_title
+  ul.title-info
+    li.title = @user.full_name
+    li.pro PRO
+    li.club CLUB
+    - if @user.breeder
+      li.breeder breeder
+    li.check

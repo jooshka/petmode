@@ -1,0 +1,60 @@
+.menu {}
+.menu--main {}
+.menu--social {}
+.menu--lang { text-align: right; font-size: 12px; }
+.menu--partners {}
+
+.menu__item {}
+.menu__item--guest { line-height: 2.0em; font-size: 18px; width: 50%; padding-left: 20px; }
+.menu__item--user  { line-height: 2.0em; font-size: 18px; width: 25%; &:nth-child(4n){text-align: right;}}
+.menu__item--partners { margin-bottom: 20px; margin-right: 4px; }
+.menu__item--social { margin-bottom: 20px; }
+.menu__item--foot  { font-size: 16px; width: 33.33%; margin-bottom: 26px; padding-left: 50px; }
+
+.menu__link { white-space: nowrap; color: inherit; }
+.menu__link--head {  line-height: 1.2em; font-size: 18px; border-bottom: 1px dashed #fff; }
+.menu__link--foot {  line-height: 1.2em; font-size: 15px; }
+.menu__link--lang {
+  text-transform: uppercase;
+  margin-left: 7px;
+  font-size: 12px;
+  text-decoration: underline;
+  color: #fff;
+}
+.menu__link--lang--active { text-decoration: none; }
+.menu__link--social {
+  width: 25px;
+  height: 25px;
+  @include border-radius(50%);
+  color: #fff;
+  background-color: #1384CE;
+  margin-right: 10px;
+  &:hover { background-color: #ffd800; }
+  text-align: center;
+}
+.menu__link--partners { width: 76px; height: 23px; }
+.menu__link--partners--yobrand {
+  background-image: url(partner-yobrand.png);
+  background-size: contain;
+}
+
+.menu__icon {}
+.menu__icon--social { color: #fff; line-height: 25px; }
+
+@media (max-width: 830px) {
+  .menu__item--guest { font-size: 16px; }
+  .menu__link--head  { font-size: 16px; }
+}
+
+@media (max-width: 768px) {
+  .menu__item--guest { font-size: 14px; }
+  .menu__link--head  { font-size: 14px; }
+}
+
+@media (max-width: 640px) {
+  .menu__item--user { line-height: 1.8em; }
+  .menu__link--head--guest { font-size: 12px; }
+}
+
+@media (max-width: 540px) { .menu__item--foot  { padding-left: 20px;} }
+@media (max-width: 320px) { .menu__item--foot  { width: 50%;} }

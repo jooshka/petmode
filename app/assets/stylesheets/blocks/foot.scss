@@ -1,0 +1,29 @@
+.foot {
+  padding: 25px 30px;
+  background: #fafafa;
+  &:after { @include clearfix; }
+}
+
+.foot__col { float: left; }
+.foot__col--brand { width: 25%; }
+.foot__col--menu  { width: 50%; }
+.foot__col--dev   { width: 25%; text-align: right; }
+
+.foot__title {
+  font-weight: bold;
+  font-size: 12px;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.foot__brand {  }
+.foot__dev { color: #8e47a4;}
+
+@media screen and (max-width: 960px) {
+  .foot__col { float: none; }
+  .foot__col--brand { width: 100%; padding-bottom: 20px; border-bottom: 1px dotted #ddd;}
+  .foot__col--menu  { width: 100%; margin-top: 30px; border-bottom: 1px dotted #ddd;}
+  .foot__col--dev   { width: 100%; margin-top: 30px; text-align: left; }
+  .foot__partners { float: right; width: 40%; }
+  .foot__social   { width: 60%; }
+}

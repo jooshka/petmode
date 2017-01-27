@@ -1,22 +1,6 @@
-= content_for :avatar_img
-  = image_tag @pet.avatar.url(:avatar)
+== render 'avatar', resource: @pet
+== render 'info_title'
+== render 'info_text'
 
 = content_for :control_link
   = link_to t('Control panel'), control_pet_path(@pet)
-
-= content_for :info_top
-  ul.title-info
-    li.title-user = @pet.display_name
-  ul.info-text
-    li
-      span.title-info-text =t('Pet type')+':'
-      span.info-text.r< = t(@pet.pet_type.name)
-    li
-      =t('Gender')+':'
-      span< = t(@pet.gender)
-    li
-      =t('Age')+':'
-      span< = t(@pet.birthday.age)
-    li
-      =t('Weight')+':'
-      span< = @pet.display_weight

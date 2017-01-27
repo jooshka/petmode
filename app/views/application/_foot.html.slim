@@ -1,0 +1,29 @@
+footer.foot
+  .foot__col.foot__col--brand
+
+    .foot__partners
+      .foot__title =t('Our partners')+':'
+      ul.menu.menu--partners
+        li.menu__item.menu__item--partners
+          - Menu.visible(Menu.kinds[:partner]).each do |m|
+            = link_to '', m[:url], class: "menu__link menu__link--partners menu__link--partners--#{m[:class_name]}"
+
+    .foot__social
+      .foot__title =t('We are in social networks')+':'
+      ul.menu.menu--social
+        - Menu.visible(Menu.kinds[:social]).each do |m|
+          li.menu__item.menu__item--social
+            = link_to m[:url], class: 'menu__link menu__link--social'
+              = fa_icon m[:icon], class: 'menu__icon menu__icon--social'
+
+    span.foot__brand Petmode.ru | "Петмод" © 2017
+
+  .foot__col.foot__col--menu
+    ul.menu
+      - Menu.visible(Menu.kinds[:foot]).each do |m|
+        li.menu__item.menu__item--foot
+          = link_to t(m[:text]), m[:url], class: 'menu__link menu__link--foot'
+
+  .foot__col.foot__col--dev
+    = t('Site development')
+    span.foot__dev< yo_brnd

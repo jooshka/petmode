@@ -1,0 +1,14 @@
+= content_for :info_text
+  ul.info-text
+    li
+      span.title-info-text =t('Pet type')+':'
+      span.info-text.r< = t(@pet.pet_type.name)
+    li
+      =t('Gender')+':'
+      span< = t(@pet.gender)
+    li
+      =t('Age')+':'
+      span< = t(@pet.birthday.age)
+    li
+      =t('Weight')+':'
+      span< = @pet.display_weight

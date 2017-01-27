@@ -1,0 +1,42 @@
+.head.head--guest
+  .head__lang.head__lang--guest
+    = render 'lang'
+
+  .head__col-logo
+    .head__logo
+      .logo.logo--guest
+        = image_tag 'logo.png', class: 'logo__img logo__img--guest'
+        span.logo__text.logo__text--guest.logo__text--big Сервис
+        br
+        span.logo__text.logo__text--guest.logo__text--small1 домашних
+        br
+        span.logo__text.logo__text--guest.logo__text--small2 питомцев
+
+  .head__col-user
+    .head__user
+      ul.auth
+        li.auth__item.auth__item--signin
+          = link_to t('Sign in'), new_user_session_path, class: 'auth__text auth__text--signin'
+        li.auth__item.auth__item--signup
+          = link_to new_user_registration_path do
+            .auth__signup-wrap
+              i.auth__icon.auth__icon--signup
+              span.auth__text.auth__text--signup = t('Sign up')
+
+    .head__search.head__search--guest
+      .search
+        input.search__input(type='text' placeholder= t('Search'))
+        button.search__button
+         = fa_icon 'search', class: 'search__icon'
+
+  .head__col-menu.head__col-menu--guest
+    .head__menu
+      ul.menu
+        - Menu.visible(Menu.kinds[:head]).each do |m|
+          li.menu__item.menu__item--guest
+            = link_to t(m[:text]), m[:url], class: 'menu__link menu__link--head menu__link--head--guest'
+
+  .head__slogan
+    .slogan
+      p.slogan__text
+        | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat

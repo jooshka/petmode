@@ -1,0 +1,3 @@
+ul.menu.menu--lang
+  li = link_to 'ru', locales_path('ru'), class: (['menu__link--lang', I18n.locale==:ru ? 'menu__link--lang--active':''].join(' '))
+  li = link_to 'en', locales_path('en'), class: (['menu__link--lang', I18n.locale==:en ? 'menu__link--lang--active':''].join(' '))

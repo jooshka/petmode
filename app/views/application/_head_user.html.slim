@@ -1,0 +1,24 @@
+.head.head--user
+  .head__lang.head__lang--user
+    = render 'lang'
+
+  .head__col-logo
+    .head__logo
+      .logo.logo--user
+        = image_tag 'logo.png', class: 'logo__img logo__img--user'
+        .logo__text-wrap
+          .logo__text.logo__text--user Сервис домашних питомцев
+
+  .head__col-menu.head__col-menu--user
+
+    .head__menu.head__menu--user
+      ul.menu
+        - Menu.visible(Menu.kinds[:head]).each do |m|
+          li.menu__item.menu__item--user
+            = link_to t(m[:text]), m[:url], class: 'menu__link menu__link--head'
+
+    .head__search.head__search--user
+      .search
+        input.search__input(type='text' placeholder= t('Search'))
+        button.search__button
+         = fa_icon 'search', class: 'search__icon'

@@ -1,9 +1,8 @@
 @import 'font-awesome';
-@import 'jquery-ui/core';
-@import 'jquery-ui/tabs';
 
 @import 'service/reset';
 @import 'service/mixins';
 @import 'service/font';
 
-@import "*";
+@import 'blocks/head/*';
+@import 'blocks/*';

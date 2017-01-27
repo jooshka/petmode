@@ -1,0 +1,15 @@
+.user-menu-top
+  ul
+    li =active_link_to('', user_path(current_user), class: 'profile', :active => [['users'], ['show']])
+    li
+      =link_to '#', class: 'messages'
+        span.num 2
+    li
+      =active_link_to '', edit_user_path(current_user), class: 'settings', :active => [['users'], ['edit']]
+    li
+      =active_link_to '', new_pet_path, class: 'footprint', :active => [['pets'],['new']]
+    li
+      =active_link_to followers_path, class: 'share', :active => [['users'],['followers']]
+        span.num = current_user.followers.count
+    li
+      =link_to 'PRO', '#', class: 'base'
