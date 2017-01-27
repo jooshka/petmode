@@ -23,6 +23,7 @@ module Petmode
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = :ru
     config.time_zone = 'Moscow'
+    config.assets.paths << Rails.root.join('/app/assets/fonts')
     # config.autoload_paths << "#{Rails.root}/app/values"
   end
 end
