@@ -57,7 +57,6 @@ gem 'devise-i18n'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 gem 'slim-rails'
-gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -66,7 +65,6 @@ end
 gem "paperclip", "~> 5.0.0"
 gem 'simple_form'
 gem 'active_link_to'
-gem 'virtus'
 gem "font-awesome-rails"
 gem 'jquery-ui-rails'
 gem 'dotenv-rails', :groups => [:development, :test]
@@ -76,3 +74,5 @@ gem 'time_diff'
 group :test do
   gem 'rails-controller-testing'
 end
+
+gem 'high_voltage', '~> 3.0.0'
