@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121224220) do
+ActiveRecord::Schema.define(version: 20170126062621) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20170121224220) do
     t.index ["favorite_id"], name: "index_like_relationships_on_favorite_id", using: :btree
     t.index ["follower_id"], name: "index_like_relationships_on_follower_id", using: :btree
     t.index ["user_id"], name: "index_like_relationships_on_user_id", using: :btree
+  end
+
+  create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "url",        default: "#"
+    t.string   "text"
+    t.string   "icon"
+    t.string   "class_name"
+    t.integer  "kind"
+    t.integer  "order_num"
+    t.boolean  "visible",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "pet_birthdays", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
