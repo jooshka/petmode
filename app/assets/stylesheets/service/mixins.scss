@@ -10,3 +10,25 @@
   display: block;
   clear: both;
 }
+
+@mixin display_flex {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex-wrap ($v) {
+  -webkit-flex-wrap: $v;
+     -moz-flex-wrap: $v;
+      -ms-flex-wrap: $v;
+          flex-wrap: $v;
+}
+
+@mixin justify-content($v) {
+  -webkit-justify-content: $v;
+    -moz-justify-content:  $v;
+     -ms-justify-content:  $v;
+      -o-justify-content:  $v;
+         justify-content:  $v;
+ }

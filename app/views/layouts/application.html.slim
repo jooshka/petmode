@@ -22,40 +22,7 @@ body
       - if alert
         p.alert = alert
 
-      - if content_for? :avatar
-        .left-sidebar-wrapper
-          .avatar-wrapper
-            div#target
-              = yield :avatar
+      = yield
 
-        .card-content-wrapper
-
-          - if content_for? :control_link
-            .control-link
-              = yield :control_link
-
-          .card-content
-
-            - if content_for? :info_title
-              section.card.info-title
-                = yield :info_title
-
-            - if content_for? :info_text
-              section.card.info-text-wrapper
-                = yield :info_text
-
-            - if content_for? :card_share_actions
-              section.card.card-share-actions-wrapper
-                = yield :card_share_actions
-
-            - if content_for? :about
-              section.card.about-wrapper
-                = yield :about
-
-            = yield
-
-      - unless content_for? :avatar
-        = yield
-
-    .page__section
+    .page__section.page__section--footer
       = render 'foot'

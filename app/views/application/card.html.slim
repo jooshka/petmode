@@ -1,0 +1,18 @@
+.card
+  .card__sidebar
+    - @card_sections[:sidebar].each do |s|
+      .card__section
+        .card__sidebar-block
+          .titled-block
+            - if s[:title]
+              .titled-block__title =t(s[:title])
+            .titled-block__body
+              = render s[:tpl], s[:options]
+  .card__body
+    - @card_sections[:body].each do |s|
+      .card__section
+        .titled-block
+          - if s[:title]
+            .titled-block__title =t(s[:title])
+          .titled-block__body
+            = render s[:tpl], s[:options]

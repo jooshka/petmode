@@ -1,0 +1,8 @@
+= link_to resource, class: "bcard bcard--#{size}" do
+  .bcard__img-block
+    = image_tag resource.avatar.url(:thumb), class: "bcard__img bcard__img--#{size}"
+  .bcard__text-block
+    .bcard__title1 = resource.display_name
+    .bcard__title2 Перс
+    - if size=='lg'
+      .bcard__text   = resource.about

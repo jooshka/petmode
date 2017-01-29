@@ -3,6 +3,11 @@
 .menu--social {}
 .menu--lang { text-align: right; font-size: 12px; }
 .menu--partners {}
+.menu--curr-user {
+  background: #ffd800;
+  padding: 21px 20px 19px;
+  &:after { @include clearfix; }
+}
 
 .menu__item {}
 .menu__item--guest { line-height: 2.0em; font-size: 18px; width: 50%; padding-left: 20px; }
@@ -10,6 +15,7 @@
 .menu__item--partners { margin-bottom: 20px; margin-right: 4px; }
 .menu__item--social { margin-bottom: 20px; }
 .menu__item--foot  { font-size: 16px; width: 33.33%; margin-bottom: 26px; padding-left: 50px; }
+.menu__item--curr-user { float: left; }
 
 .menu__link { white-space: nowrap; color: inherit; }
 .menu__link--head {  line-height: 1.2em; font-size: 18px; border-bottom: 1px dashed #fff; }
@@ -37,9 +43,94 @@
   background-image: url(partner-yobrand.png);
   background-size: contain;
 }
+.menu__link--curr-user {
+  position: relative;
+}
+
+.menu__link--curr-user--profile {
+  margin-right: 40px;
+  width: 32px;
+  height: 31px;
+  background: url(ic-profile.png) no-repeat;
+  &:hover, &.active {
+    background: url(ic-profile-w.png) no-repeat;
+  }
+}
+
+.menu__link--curr-user--messages {
+  margin: 1px 40px 0px 0px;
+  width: 40px;
+  height: 30px;
+  background: url(ic-message.png) no-repeat;
+  &:hover, &.active {
+    background: url(ic-message-w.png) no-repeat;
+  }
+}
+
+.menu__link--curr-user--settings {
+  margin: 0px 33px 0px 0px;
+  width: 31px;
+  height: 31px;
+  background: url(ic-setting.png) no-repeat;
+  &:hover, &.active {
+    background: url(ic-setting-w.png) no-repeat;
+  }
+}
+
+.menu__link--curr-user--footprint {
+  margin: -2px 33px 0px 0px;
+  width: 35px;
+  height: 35px;
+  background: url(ic-footprint.png) no-repeat;
+  &:hover, &.active {
+    background: url(ic-footprint-w.png) no-repeat;
+  }
+}
+
+.menu__link--curr-user--share {
+  margin: 1px 42px 0px 0px;
+  width: 36px;
+  height: 32px;
+  background: url(ic-share.png) no-repeat;
+  &:hover, &.active {
+    background: url(ic-share-w.png) no-repeat;
+  }
+}
+
+.menu__link--curr-user--pro {
+  margin-top: -1px;
+  width: 75px;
+  height: 35px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 35px;
+  background: #343434;
+  @include border-radius(3px);
+  &:hover, &.active {
+    color: #343434;
+    background: #fff;
+    font-weight: bold;
+  }
+}
 
 .menu__icon {}
 .menu__icon--social { color: #fff; line-height: 25px; }
+
+.menu__badge {
+  position: absolute;
+  top: -10px;
+  right: -11px;
+  width: 23px;
+  height: 23px;
+  @include border-radius(50%);
+  background: #343434;
+  border: 3px solid #ffd800;
+  text-align: center;
+  font-size: 14px;
+  color: #ffd800;
+}
 
 @media (max-width: 830px) {
   .menu__item--guest { font-size: 16px; }

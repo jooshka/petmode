@@ -1,10 +1,30 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :settings, :update, :destroy, :control]
-  before_action :set_user, only: [:new, :create]
+  before_action :set_user, only: [:new, :edit, :create]
 
   # GET /pets/1
   # GET /pets/1.json
   def show
+    respond_to do |format|
+      format.html do
+        @card_sections = {
+          sidebar: [
+            { title: nil, tpl: 'avatar', options: { resource: @pet }  },
+            { title: nil, tpl: 'banner', options: {}  }
+          ],
+          body:    [
+            { title: nil, tpl: 'pets/info_title', options: { resource: @pet } },
+            { title: nil, tpl: 'pets/info_text', options: { resource: @pet } },
+            { title: 'About me', tpl: 'about', options: { resource: @pet } }
+          #  { title: 'My pedigree',  tpl: 'bcards', options: { resource: @user.pets, size: 'md'}  },
+          #  { title: 'My dignities', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
+          #  { title: 'My awards', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
+          ]
+        }
+        render 'card'
+      end
+      format.json { render :show }
+    end
   end
 
   # GET /pets/new
@@ -13,10 +33,32 @@ class PetsController < ApplicationController
     @pet.pet_type_id = 1
     @pet.gender = 'male'
     @pet.build_birthday
+    @card_sections = {
+      sidebar: [
+        { title: nil, tpl: 'avatar', options: { resource: @user }  },
+        { title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+        { title: nil, tpl: 'banner', options: {}  }
+      ],
+      body:    [
+        { title: nil, tpl: 'form', options: { resource: @pet } },
+      ]
+    }
+    render 'card'
   end
 
   # GET /pets/1/edit
   def edit
+    @card_sections = {
+      sidebar: [
+        { title: nil, tpl: 'avatar', options: { resource: @user }  },
+        { title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+        { title: nil, tpl: 'banner', options: {}  }
+      ],
+      body:    [
+        { title: nil, tpl: 'form', options: { resource: @pet } },
+      ]
+    }
+    render 'card'
   end
 
   def control

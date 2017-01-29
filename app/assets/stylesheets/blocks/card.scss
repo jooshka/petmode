@@ -1,0 +1,19 @@
+.card {
+  width: 100%;
+  padding: 0 20px;
+}
+.card__section { margin-bottom: 23px; }
+.card__sidebar { width: 220px; float: left; }
+.card__sidebar-block { width: 220px; margin: auto; }
+.card__img { width: 100%; }
+
+.card__body {
+  width: calc(100% - 220px);
+  margin-left: 220px;
+  padding: 0 20px;
+}
+
+@media (max-width: 719px) {
+  .card__sidebar { width: 100%; }
+  .card__body    { width: 100%; margin-left: 0; padding: 0; }
+}

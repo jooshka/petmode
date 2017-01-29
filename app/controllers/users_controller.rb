@@ -5,14 +5,60 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @pets = @user.pets
+    respond_to do |format|
+      format.html do
+        @card_sections = {
+          sidebar: [
+            { title: nil, tpl: 'avatar', options: { resource: @user }  },
+            { title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+            { title: nil, tpl: 'banner', options: {}  }
+          ],
+          body:    [
+            { title: nil, tpl: 'users/info_title', options: { resource: @user } },
+            { title: 'About me', tpl: 'about', options: { resource: @user } },
+            { title: 'My pets',  tpl: 'bcards', options: { resource: @user.pets, size: 'md'}  },
+            { title: 'My adverts', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
+            { title: 'My specialities', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
+          ]
+        }
+        render 'card'
+      end
+      format.json { render :show }
+    end
   end
 
   def edit
+    @card_sections = {
+      sidebar: [
+        { title: nil, tpl: 'avatar', options: { resource: @user }  },
+        { title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+        { title: nil, tpl: 'banner', options: {}  }
+      ],
+      body:    [
+        { title: nil, tpl: 'users/info_title', options: { resource: @user } },
+        { title: 'About me', tpl: 'form', options: { resource: @user } },
+      ]
+    }
+    render 'card'
   end
 
   def followers
-    @users = current_user.followers
+    respond_to do |format|
+      format.html do
+        @card_sections = {
+          sidebar: [
+            { title: nil, tpl: 'avatar', options: { resource: @user }  },
+            { title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+            { title: nil, tpl: 'banner', options: {}  }
+          ],
+          body:    [
+            { title: 'My followers', tpl: 'bcards', options: { resource: @user.followers, size: 'md' } },
+          ]
+        }
+        render 'card'
+      end
+      format.json { render :followers }
+    end
   end
 
   def like

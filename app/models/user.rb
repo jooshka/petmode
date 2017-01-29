@@ -37,11 +37,7 @@ class User < ApplicationRecord
     !like?(user)
   end
 
-  def fio
-    "#{last_name} #{first_name} #{patronymic}".strip
-  end
-
-  def full_name
+  def display_name
     "#{last_name} #{first_name}".strip
   end
 end
