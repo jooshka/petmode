@@ -1,5 +1,5 @@
 ActiveAdmin.register Pet do
-  permit_params :name, :user_id, :avatar, :gender, :pet_type_id, :weight
+  permit_params :name, :user_id, :avatar, :gender, :pet_type_id, :weight, :about
 
   index do
     selectable_column
@@ -34,6 +34,7 @@ ActiveAdmin.register Pet do
       f.input :pet_type
       f.input :gender
       f.input :weight
+      f.input :about, as: :text
     end
     f.actions
   end
