@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129082327) do
+ActiveRecord::Schema.define(version: 20170129141551) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20170129082327) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
+
+  create_table "adverts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "pet_id"
+    t.integer  "advert_type"
+    t.decimal  "price",                     precision: 10, scale: 2
+    t.integer  "status"
+    t.text     "comment",     limit: 65535
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.index ["pet_id"], name: "index_adverts_on_pet_id", using: :btree
   end
 
   create_table "like_relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -76,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170129082327) do
     t.integer  "pet_type_id"
     t.integer  "weight"
     t.text     "about",               limit: 65535
+    t.string   "home_name"
     t.index ["pet_type_id"], name: "index_pets_on_pet_type_id", using: :btree
     t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
   end
