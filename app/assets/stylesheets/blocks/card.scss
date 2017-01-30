@@ -1,19 +1,23 @@
 .card {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 30px;
+  &:after { @include clearfix; }
 }
 .card__section { margin-bottom: 23px; }
-.card__sidebar { width: 220px; float: left; }
-.card__sidebar-block { width: 220px; margin: auto; }
+.card__sidebar { width: 210px; float: left; }
 .card__img { width: 100%; }
 
 .card__body {
-  width: calc(100% - 220px);
-  margin-left: 220px;
-  padding: 0 20px;
+  width: calc(100% - 210px);
+  float: right;
+  padding-left: 40px;
+}
+
+@media (max-width: 720px) {
+  .card__body    { padding-left: 30px };
 }
 
 @media (max-width: 719px) {
   .card__sidebar { width: 100%; }
-  .card__body    { width: 100%; margin-left: 0; padding: 0; }
+  .card__body    { width: 100%; padding-left: 0; padding: 0; }
 }

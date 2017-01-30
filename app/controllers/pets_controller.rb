@@ -30,13 +30,13 @@ class PetsController < ApplicationController
   # GET /pets/new
   def new
     @pet = Pet.new
-    @pet.pet_type_id = 1
+    @pet.family = 'cat'
     @pet.gender = 'male'
     @pet.build_birthday
     @card_sections = {
       sidebar: [
-        { title: nil, tpl: 'avatar', options: { resource: @user }  },
-        { title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+        { title: nil, tpl: 'avatar', options: { resource: @pet }  },
+        { title: 'Parents', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
         { title: nil, tpl: 'banner', options: {}  }
       ],
       body:    [

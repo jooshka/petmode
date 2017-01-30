@@ -5,7 +5,7 @@
 .menu--partners {}
 .menu--curr-user {
   background: #ffd800;
-  padding: 21px 20px 19px;
+  padding: 21px 20px 19px 30px;
   &:after { @include clearfix; }
 }
 
@@ -148,4 +148,5 @@
 }
 
 @media (max-width: 540px) { .menu__item--foot  { padding-left: 20px;} }
+@media (max-width: 480px) { .menu--curr-user { padding-left: 20px; } }
 @media (max-width: 320px) { .menu__item--foot  { width: 50%;} }

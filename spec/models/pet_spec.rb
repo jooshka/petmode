@@ -12,10 +12,10 @@
 #  avatar_updated_at   :datetime
 #  name                :string(255)
 #  gender              :integer          default("male")
-#  pet_type_id         :integer
 #  weight              :integer
 #  about               :text(65535)
 #  home_name           :string(255)
+#  family              :integer
 #
 
 require 'rails_helper'

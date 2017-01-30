@@ -1,7 +1,7 @@
 .bcards {
   @include display_flex;
   @include flex-wrap(wrap);
-  @include justify-content(space-around);
+  @include justify-content(space-between);
 }
 
 .bcards__item { margin-bottom: 30px; }

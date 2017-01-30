@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129141551) do
+ActiveRecord::Schema.define(version: 20170129150300) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -68,12 +68,6 @@ ActiveRecord::Schema.define(version: 20170129141551) do
     t.index ["pet_id"], name: "index_pet_birthdays_on_pet_id", using: :btree
   end
 
-  create_table "pet_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "pets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
@@ -84,11 +78,10 @@ ActiveRecord::Schema.define(version: 20170129141551) do
     t.datetime "avatar_updated_at"
     t.string   "name"
     t.integer  "gender",                            default: 0
-    t.integer  "pet_type_id"
     t.integer  "weight"
     t.text     "about",               limit: 65535
     t.string   "home_name"
-    t.index ["pet_type_id"], name: "index_pets_on_pet_type_id", using: :btree
+    t.integer  "family"
     t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
   end
 
@@ -124,6 +117,5 @@ ActiveRecord::Schema.define(version: 20170129141551) do
   end
 
   add_foreign_key "pet_birthdays", "pets"
-  add_foreign_key "pets", "pet_types"
   add_foreign_key "pets", "users"
 end

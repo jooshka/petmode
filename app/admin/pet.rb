@@ -1,5 +1,6 @@
 ActiveAdmin.register Pet do
-  permit_params :name, :user_id, :avatar, :gender, :pet_type_id, :weight, :about
+  permit_params :user_id, :name, :home_name,
+                :avatar, :gender, :family, :weight, :about
 
   index do
     selectable_column
@@ -8,8 +9,8 @@ ActiveAdmin.register Pet do
     column :name do |pet|
       pet.display_name
     end
-    column :pet_type do |pet|
-      I18n.t(pet.pet_type.name)
+    column :family do |pet|
+      I18n.t(pet.family)
     end
     column :gender do |pet|
       I18n.t(pet.gender)
@@ -31,7 +32,8 @@ ActiveAdmin.register Pet do
     f.inputs "Admin Details" do
       f.input :user
       f.input :name
-      f.input :pet_type
+      f.input :home_name
+      f.input :family
       f.input :gender
       f.input :weight
       f.input :about, as: :text

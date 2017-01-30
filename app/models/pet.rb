@@ -12,10 +12,10 @@
 #  avatar_updated_at   :datetime
 #  name                :string(255)
 #  gender              :integer          default("male")
-#  pet_type_id         :integer
 #  weight              :integer
 #  about               :text(65535)
 #  home_name           :string(255)
+#  family              :integer
 #
 
 class Pet < ApplicationRecord
@@ -23,13 +23,11 @@ class Pet < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   belongs_to :user
-  belongs_to :pet_type
+  enum family: ['cat', 'dog']
   enum gender: ['male', 'female']
   has_one :advert
   has_one :birthday, class_name: 'PetBirthday'
   accepts_nested_attributes_for :birthday
-
-  validates :pet_type, presence: true
 
   def display_name
     name && name.empty? ? I18n.t('no name') : name
