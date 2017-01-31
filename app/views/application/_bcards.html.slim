@@ -1,4 +1,4 @@
-ul.bcards
+ul class="bcards bcards--#{size}"
   - resource.each do |item|
-    li.bcards__item
+    li class="bcards__item bcards__item--#{size}"
       = render 'bcard', resource: item, size: size

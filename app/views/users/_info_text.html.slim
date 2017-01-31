@@ -1,14 +1,14 @@
 ul.info-text
   li.info-text__item
     span.info-text__title = t('Locality')+':'
-    span.info-text__text = resource.city.description
+    span.info-text__text = resource.city.description if resource.city
   li.info-text__item
     span.info-text__title = t('Phone')+':'
     span.info-text__text = resource.phone
   li.info-text__item
     span.info-text__title = t('Site')+':'
     span.info-text__text
-      = link_to resource.site, resource.site, class: 'info-text__link'
+      = link_to resource.site, resource.site, class: 'info-text__link' if resource.site
   li.info-text__item
     span.info-text__title = t('E-mail')+':'
     span.info-text__text

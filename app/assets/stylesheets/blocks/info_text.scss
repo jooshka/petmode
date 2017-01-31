@@ -1,10 +1,11 @@
 .info-text {}
 
 .info-text__item {
-  display: list-item;
+  display: block;
   margin-bottom: 12px;
   color: #4a4a4a;
   font-size: 14px;
+  &:after { @include clearfix; }
 }
 
 .info-text__title {
@@ -14,5 +15,5 @@
   float: left;
 }
 
-.info-text__text {}
+.info-text__text { display: block; }
 .info-text__link { color: #3498DB; }
