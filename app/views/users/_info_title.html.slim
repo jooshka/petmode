@@ -1,7 +1,6 @@
-ul.title-info
-  li.title = @user.display_name
-  li.pro PRO
-  li.club CLUB
+ul.info-title
+  li.info-title__item.info-title__item--name = @user.display_name
+  li.info-title__item.info-title__item--pro PRO
+  li.info-title__item.info-title__item--club CLUB
   - if @user.breeder
-    li.breeder breeder
-  li.check
+    li.info-title__item.info-title__item--breeder breeder

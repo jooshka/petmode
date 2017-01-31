@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/widgets/autocomplete
 //= require jquery-ui/widgets/tabs
 //= require turbolinks
+//= require app/app.js
+//= require app/cities.js
+//= require simple_form_autocomplete
 //= require_tree .

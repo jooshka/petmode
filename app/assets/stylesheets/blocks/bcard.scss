@@ -9,21 +9,25 @@
 .bcard {
   display: block;
   float: left;
-  @include border-radius(6px);
-  padding: 25px 15px;
   &:hover { background-color: #f3f3f3; }
 }
 .bcard--lg { width: 380px; }
-.bcard--md { width: 215px; }
-.bcard--sm { width: 120px; }
+.bcard--md { width: 120px; }
+.bcard--sm { width: 215px; }
 
 .bcard__img-block { float: left; margin-right: 20px; }
 .bcard__text-block {}
 
 .bcard__img {}
-.bcard__img--lg { width: 130px; }
-.bcard__img--md { width: 66px;  }
-.bcard__img--sm { width: 120px; }
+.bcard__img--lg {
+  width: 130px;
+}
+.bcard__img--md {
+  width: 120px;
+  @include border-radius(20px);
+  margin-bottom: 15px;
+}
+.bcard__img--sm { width: 66px; }
 
 .bcard__title1 {
   font-family: "PTSansBold";

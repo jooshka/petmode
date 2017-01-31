@@ -1,0 +1,50 @@
+.info-title {
+  margin-bottom: 7px;
+  &::after { @include clearfix; }
+}
+
+.info-title__item {
+  @include border-radius(3px);
+  font-family: "PTSansBold";
+  font-size: 11px;
+  line-height: 24px;
+  text-align: center;
+  height: 25px;
+  text-transform: uppercase;
+  float: left;
+}
+
+.info-title__item--name {
+  font-family: 'PFCentroSerifBold';
+  font-size: 24px;
+  margin-right: 15px;
+  text-align: left;
+  text-transform: capitalize;
+  letter-spacing: 0.7px;
+}
+
+.info-title__item--pro {
+  width: 48px;
+  color: #4a4a4a;
+  background: #eaeaea;
+  margin-right: 9px;
+  @include border-radius(3px);
+  margin-right: 9px;
+  &::active { background: #ffd800; }
+}
+
+.info-title__item--club {
+  width: 55px;
+  color: #fff;
+  background: #30a9de;
+  margin-right: 11px;
+  @include border-radius(3px);
+}
+
+.info-title__item--breeder {
+  width: 74px;
+  color: #fff;
+  background: #f1404b;
+  margin-right: 10px;
+  @include border-radius(3px);
+}

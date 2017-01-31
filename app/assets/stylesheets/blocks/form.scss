@@ -6,7 +6,7 @@
   border: 1px solid #ddd;
   @include border-radius(4px);
   padding: 11px 18px;
-  color: #a2a2a2;
+  color: #343434;
   &:focus {
     border-color: #bababa;
     color: #343434;
@@ -41,4 +41,63 @@
   margin: 10px 15px 5px;
   opacity: 0.2;
   &.active { opacity: 1; }
+}
+
+.form__checkbox {
+  display: inline-block;
+  margin: 20px auto;
+}
+
+.checkbox {
+  vertical-align: top;
+  margin: 0 3px 0 0;
+  width: 17px;
+  height: 17px;
+}
+
+.checkbox + label {
+  cursor: pointer;
+}
+
+.checkbox:not(checked) {
+  position: absolute;
+  opacity: 0;
+}
+.checkbox:not(checked) + label {
+  position: relative;
+  padding: 0 0 0 60px;
+}
+
+.checkbox:not(checked) + label:before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 50px;
+  height: 26px;
+  border-radius: 13px;
+  background: #CDD1DA;
+  box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+}
+
+
+.checkbox:not(checked) + label:after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  border-radius: 10px;
+  background: #FFF;
+  box-shadow: 0 2px 5px rgba(0,0,0,.3);
+  transition: all .2s;
+}
+
+.checkbox:checked + label:before {
+  background: #9FD468;
+}
+
+.checkbox:checked + label:after {
+  left: 26px;
 }

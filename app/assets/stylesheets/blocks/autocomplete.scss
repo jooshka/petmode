@@ -1,0 +1,33 @@
+.ui-autocomplete {
+  background: #fff;
+  border: 1px solid #c6cbd0;
+  border-radius: 4px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.196);
+  font: 14px inherit;
+  margin: 0px;
+  padding: 4px 0px;
+  color: #222;
+  width: 380px !important;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 3000;
+  position: absolute;
+  .ui-menu-item {
+    padding: 5px 10px 6px;
+    display: list-item;
+    cursor: pointer;
+  }
+}
+
+.ui-autocomplete .ui-menu-item:hover {
+  background-color: #ffd800;
+}
+
+.ui-item-description {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.ui-autocomplete-loading {
+  background: white url("ui-anim_basic_16x16.gif") 95% center no-repeat;
+}

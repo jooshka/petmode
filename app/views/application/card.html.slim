@@ -1,7 +1,7 @@
 .card
   .card__sidebar
     - @card_sections[:sidebar].each do |s|
-      .card__section
+      div class="card__section card__section--#{s[:mod]}"
         .titled-block
           - if s[:title]
             .titled-block__title =t(s[:title])
@@ -9,7 +9,7 @@
             = render s[:tpl], s[:options]
   .card__body
     - @card_sections[:body].each do |s|
-      .card__section
+      div class="card__section card__section--#{s[:mod]}"
         .titled-block
           - if s[:title]
             .titled-block__title =t(s[:title])

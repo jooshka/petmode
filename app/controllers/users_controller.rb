@@ -9,16 +9,17 @@ class UsersController < ApplicationController
       format.html do
         @card_sections = {
           sidebar: [
-            { title: nil, tpl: 'avatar', options: { resource: @user }  },
-            { title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
-            { title: nil, tpl: 'banner', options: {}  }
+            { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @user } },
+            { mod: 'fvt', title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+            { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
           ],
           body:    [
-            { title: nil, tpl: 'users/info_title', options: { resource: @user } },
-            { title: 'About me', tpl: 'about', options: { resource: @user } },
-            { title: 'My pets',  tpl: 'bcards', options: { resource: @user.pets, size: 'md'}  },
-            { title: 'My adverts', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
-            { title: 'My specialities', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
+            { mod: 'ttl', title: nil, tpl: 'users/info_title', options: { resource: @user } },
+            { mod: 'ttt', title: nil, tpl: 'users/info_text', options: { resource: @user } },
+            { mod: 'abt', title: 'About me', tpl: 'about', options: { resource: @user } },
+            { mod: 'pts', title: 'My pets',  tpl: 'bcards', options: { resource: @user.pets, size: 'md'}  },
+            { mod: 'adw', title: 'My adverts', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
+            { mod: 'spc', title: 'My specialities', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
           ]
         }
         render 'card'
@@ -30,13 +31,13 @@ class UsersController < ApplicationController
   def edit
     @card_sections = {
       sidebar: [
-        { title: nil, tpl: 'avatar', options: { resource: @user }  },
-        { title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
-        { title: nil, tpl: 'banner', options: {}  }
+        { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @user }  },
+        { mod: 'fvt', title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+        { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
       ],
       body:    [
-        { title: nil, tpl: 'users/info_title', options: { resource: @user } },
-        { title: 'About me', tpl: 'form', options: { resource: @user } },
+        { mod: 'ttl', title: nil, tpl: 'users/info_title', options: { resource: @user } },
+        { mod: 'edt', title: nil, tpl: 'form', options: { resource: @user } },
       ]
     }
     render 'card'
@@ -47,12 +48,12 @@ class UsersController < ApplicationController
       format.html do
         @card_sections = {
           sidebar: [
-            { title: nil, tpl: 'avatar', options: { resource: @user }  },
-            { title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
-            { title: nil, tpl: 'banner', options: {}  }
+            { mod: 'avt', title: nil, tpl: 'avatar', options: { resource: @user }  },
+            { mod: 'fvr', title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+            { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
           ],
           body:    [
-            { title: 'My followers', tpl: 'bcards', options: { resource: @user.followers, size: 'md' } },
+            { mod: 'flw', title: 'My followers', tpl: 'bcards', options: { resource: @user.followers, size: 'md' } },
           ]
         }
         render 'card'
@@ -105,10 +106,12 @@ class UsersController < ApplicationController
         .permit(
           :last_name,
           :first_name,
-          :patronymic,
           :breeder,
           :about,
-          :avatar
+          :avatar,
+          :phone,
+          :site,
+          :city_id
         )
     end
 end

@@ -1,22 +1,31 @@
 #tabs
-  = simple_form_for @user do |f|
+  = simple_form_for @user, html:{class:'form'},defaults: { input_html: { class: 'form__input' } }  do |f|
     .menu-settings
       ul.wrap-flex
         li.item
           = link_to t('Main data'), '#tabs-1', class: 'settings'
         li.item =link_to t('Organization'), '#tabs-2'
-        li.item =link_to t('Subscriptions'), '#tabs-3'
-        li.item =link_to t('Verification'), '#tabs-4'
+        li.item =link_to t('Subscriptions'),'#tabs-3'
     .form-inputs
       #tabs-1
         = f.input :last_name, label: false, placeholder: t('Last name')
         = f.input :first_name, label: false, placeholder: t('First name')
-        = f.input :breeder, label: t('Breeder')
 
-      #tabs-2
+        = f.hidden_field :city_id
+        input type='text' id='cities-search-txt' value=(City.find_by(id: @user.city_id).description) class='form__input' placeholder=t('Locality')
+        #cities-search-results
+
+        = f.input :phone, label: false, placeholder: t('Phone')
+        = f.input :site, label: false, placeholder: t('Site')
+
+        .form__checkbox
+          = f.check_box :breeder, class: 'checkbox'
+          = f.label :breeder, label: t('Breeder')
+
         = f.input :about, label: false, input_html: { placeholder: t('About me'), cols: 100, rows: 4 }
         .upload
-          = f.input :avatar, label: false, as: :file
+          = f.input :avatar, label: false, as: :file, input_html: {class:''}
+      #tabs-2
 
       #tabs-3
         <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
@@ -27,6 +36,7 @@
 
 javascript:
   $(function() {
+    new app.Cities;
     $('.user-info-top').hide();
     $("#tabs").tabs();
     $('.user-photo').first().children(':first-child').addClass('change');

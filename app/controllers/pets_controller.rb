@@ -9,16 +9,16 @@ class PetsController < ApplicationController
       format.html do
         @card_sections = {
           sidebar: [
-            { title: nil, tpl: 'avatar', options: { resource: @pet }  },
-            { title: nil, tpl: 'banner', options: {}  }
+            { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @pet }  },
+            { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
           ],
           body:    [
-            { title: nil, tpl: 'pets/info_title', options: { resource: @pet } },
-            { title: nil, tpl: 'pets/info_text', options: { resource: @pet } },
-            { title: 'About me', tpl: 'about', options: { resource: @pet } }
-          #  { title: 'My pedigree',  tpl: 'bcards', options: { resource: @user.pets, size: 'md'}  },
-          #  { title: 'My dignities', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
-          #  { title: 'My awards', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
+            { mod: 'ttl', title: nil, tpl: 'pets/info_title', options: { resource: @pet } },
+            { mod: 'ttt', title: nil, tpl: 'pets/info_text', options: { resource: @pet } },
+            { mod: 'abt', title: 'About me', tpl: 'about', options: { resource: @pet } }
+          #  { mod: '', title: 'My pedigree',  tpl: 'bcards', options: { resource: @user.pets, size: 'md'}  },
+          #  { mod: '', title: 'My dignities', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
+          #  { mod: '', title: 'My awards', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
           ]
         }
         render 'card'
@@ -35,12 +35,12 @@ class PetsController < ApplicationController
     @pet.build_birthday
     @card_sections = {
       sidebar: [
-        { title: nil, tpl: 'avatar', options: { resource: @pet }  },
-        { title: 'Parents', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
-        { title: nil, tpl: 'banner', options: {}  }
+        { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @pet }  },
+        { mod: 'prt', title: 'Parents', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+        { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
       ],
       body:    [
-        { title: nil, tpl: 'form', options: { resource: @pet } },
+        { mod: 'new', title: nil, tpl: 'form', options: { resource: @pet } },
       ]
     }
     render 'card'
@@ -50,12 +50,12 @@ class PetsController < ApplicationController
   def edit
     @card_sections = {
       sidebar: [
-        { title: nil, tpl: 'avatar', options: { resource: @user }  },
-        { title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
-        { title: nil, tpl: 'banner', options: {}  }
+        { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @user }  },
+        { mod: 'prt', title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+        { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
       ],
       body:    [
-        { title: nil, tpl: 'form', options: { resource: @pet } },
+        { mod: 'edt', title: nil, tpl: 'form', options: { resource: @pet } },
       ]
     }
     render 'card'

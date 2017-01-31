@@ -3,7 +3,9 @@
   padding: 0 30px;
   &:after { @include clearfix; }
 }
-.card__section { margin-bottom: 23px; }
+.card__section { margin-bottom: 30px; }
+.card__section--abt { border-top: 1px solid #dddddd; padding-top: 20px; }
+.card__section--edt { border-top: 1px solid #dddddd; padding-top: 20px; }
 .card__sidebar { width: 210px; float: left; }
 .card__img { width: 100%; }
 

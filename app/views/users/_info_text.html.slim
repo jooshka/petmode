@@ -1,0 +1,15 @@
+ul.info-text
+  li.info-text__item
+    span.info-text__title = t('Locality')+':'
+    span.info-text__text = resource.city.description
+  li.info-text__item
+    span.info-text__title = t('Phone')+':'
+    span.info-text__text = resource.phone
+  li.info-text__item
+    span.info-text__title = t('Site')+':'
+    span.info-text__text
+      = link_to resource.site, resource.site, class: 'info-text__link'
+  li.info-text__item
+    span.info-text__title = t('E-mail')+':'
+    span.info-text__text
+      = mail_to resource.email, nil, class: 'info-text__link'

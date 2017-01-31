@@ -1,0 +1,18 @@
+.info-text {}
+
+.info-text__item {
+  display: list-item;
+  margin-bottom: 12px;
+  color: #4a4a4a;
+  font-size: 14px;
+}
+
+.info-text__title {
+  display: block;
+  color: #989898;
+  width: 125px;
+  float: left;
+}
+
+.info-text__text {}
+.info-text__link { color: #3498DB; }
