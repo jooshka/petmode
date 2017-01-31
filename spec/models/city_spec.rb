@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: cities
+#
+#  id               :integer          not null, primary key
+#  region_id        :integer
+#  locality_type_id :integer
+#  name_ru          :string(255)
+#  name_en          :string(255)
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe City, type: :model do

@@ -19,7 +19,7 @@
 #
 
 class Pet < ApplicationRecord
-  has_attached_file :avatar, styles: { avatar: "219x200>", thumb: "120x120>" }, default_url: "/assets/missing.png"
+  has_attached_file :avatar, styles: { avatar: "219x200>", thumb: "120x120>" }, default_url: "/assets/pet_miss.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   belongs_to :user

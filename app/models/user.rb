@@ -28,6 +28,9 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
+#  city_id                :integer
+#  phone                  :string(255)
+#  site                   :string(255)
 #
 
 class User < ApplicationRecord
@@ -44,6 +47,7 @@ class User < ApplicationRecord
   has_many :like_relationships
   has_many :favorites, through: :like_relationships, class_name: 'User'
   has_many :followers, through: :like_relationships, class_name: 'User'
+  belongs_to  :city
 
   def like?(user)
     self.favorites.find_by(id: user.id)

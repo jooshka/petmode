@@ -28,6 +28,9 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string(255)
+#  city_id                :integer
+#  phone                  :string(255)
+#  site                   :string(255)
 #
 
 require 'rails_helper'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130112536) do
+ActiveRecord::Schema.define(version: 20170130214155) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -39,14 +39,21 @@ ActiveRecord::Schema.define(version: 20170130112536) do
 
   create_table "cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "region_id"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "locality_type_id"
+    t.string   "name_ru"
+    t.string   "name_en"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["locality_type_id"], name: "index_cities_on_locality_type_id", using: :btree
     t.index ["region_id"], name: "index_cities_on_region_id", using: :btree
   end
 
   create_table "countries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.string   "name_ru"
+    t.string   "name_en"
+    t.string   "iso"
+    t.string   "iso3"
+    t.string   "iso_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -58,6 +65,13 @@ ActiveRecord::Schema.define(version: 20170130112536) do
     t.index ["favorite_id"], name: "index_like_relationships_on_favorite_id", using: :btree
     t.index ["follower_id"], name: "index_like_relationships_on_follower_id", using: :btree
     t.index ["user_id"], name: "index_like_relationships_on_user_id", using: :btree
+  end
+
+  create_table "locality_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name_en"
+    t.string   "name_ru"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "menus", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -101,10 +115,13 @@ ActiveRecord::Schema.define(version: 20170130112536) do
 
   create_table "regions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "country_id"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "locality_type_id"
+    t.string   "name_ru"
+    t.string   "name_en"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.index ["country_id"], name: "index_regions_on_country_id", using: :btree
+    t.index ["locality_type_id"], name: "index_regions_on_locality_type_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -133,6 +150,10 @@ ActiveRecord::Schema.define(version: 20170130112536) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.integer  "city_id"
+    t.string   "phone"
+    t.string   "site"
+    t.index ["city_id"], name: "index_users_on_city_id", using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

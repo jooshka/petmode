@@ -15,4 +15,7 @@ Rails.application.routes.draw do
 
   get '/locales/:locale', to: 'locales#show', as: 'locales'
 
+  resources :cities do
+    get :search, :on => :collection
+  end
 end
