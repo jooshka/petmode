@@ -1,0 +1,22 @@
+= form.input :last_name, label: false, placeholder: t('Last name')
+= form.input :first_name, label: false, placeholder: t('First name')
+
+= form.hidden_field :city_id
+input type='text' id='cities-search-txt' value=(City.find_by(id: @user.city_id).description) class='form__input' placeholder=t('Locality')
+#cities-search-results
+
+= form.input :phone, label: false, placeholder: t('Phone')
+= form.input :site, label: false, placeholder: t('Site')
+
+.form__checkbox
+  = form.check_box :breeder, class: 'checkbox'
+  = form.label :breeder, label: t('Breeder')
+
+= form.input :about, label: false, input_html: { placeholder: t('About me'), cols: 100, rows: 4 }
+
+
+javascript:
+  $(function() {
+    new app.Cities;
+    $("#tabs").tabs();
+  });

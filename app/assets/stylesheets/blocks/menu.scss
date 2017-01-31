@@ -3,11 +3,8 @@
 .menu--social {}
 .menu--lang { text-align: right; font-size: 12px; }
 .menu--partners {}
-.menu--curr-user {
-  background: #ffd800;
-  padding: 21px 20px 19px 30px;
-  &:after { @include clearfix; }
-}
+.menu--curr-user { background: #ffd800; padding: 21px 20px 19px 30px; &:after { @include clearfix; }}
+.menu--pet { background: #ffd800; padding: 21px 20px 19px 30px; &:after { @include clearfix; }}
 
 .menu__item {}
 .menu__item--guest { line-height: 2.0em; font-size: 18px; width: 50%; padding-left: 20px; }
@@ -16,6 +13,7 @@
 .menu__item--social { margin-bottom: 20px; }
 .menu__item--foot  { font-size: 16px; width: 33.33%; margin-bottom: 26px; padding-left: 50px; }
 .menu__item--curr-user { float: left; }
+.menu__item--pet { float: left; }
 
 .menu__link { white-space: nowrap; color: inherit; }
 .menu__link--head {  line-height: 1.2em; font-size: 18px; border-bottom: 1px dashed #fff; }
@@ -43,8 +41,14 @@
   background-image: url(partner-yobrand.png);
   background-size: contain;
 }
-.menu__link--curr-user {
+.menu__link--curr-user { position: relative; }
+.menu__link--pet {
   position: relative;
+  margin-right: 45px;
+  font-size: 35px;
+  line-height: 1em;
+  color: #343434;
+  &:hover, &.active { color: #fff; }
 }
 
 .menu__link--curr-user--profile {
@@ -129,6 +133,7 @@
   border: 3px solid #ffd800;
   text-align: center;
   font-size: 14px;
+  line-height: normal;
   color: #ffd800;
 }
 

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
     respond_to do |format|
       format.html do
+        @menu_tpl = 'menu'
         @card_sections = {
           sidebar: [
             { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @user } },
@@ -29,26 +30,29 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @menu_tpl = 'menu'
+    @resource = @user
     @card_sections = {
       sidebar: [
-        { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @user }  },
-        { mod: 'fvt', title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+        { mod: 'ava', title: nil, tpl: 'f_avatar', options: {}  },
         { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
       ],
-      body:    [
-        { mod: 'ttl', title: nil, tpl: 'users/info_title', options: { resource: @user } },
-        { mod: 'edt', title: nil, tpl: 'form', options: { resource: @user } },
+      body: [
+        { mod: 'fmn', title: 'Main data', tpl: 'f_main', options: {}  },
+        { mod: 'fsb', title: 'Subscriptions', tpl: 'f_subscribes', options: {}  },
+        { mod: 'fst', title: nil, tpl: 'f_submit', options: {}  }
       ]
     }
-    render 'card'
+    render 'f_card'
   end
 
   def followers
+    @menu_tpl = 'menu'
     respond_to do |format|
       format.html do
         @card_sections = {
           sidebar: [
-            { mod: 'avt', title: nil, tpl: 'avatar', options: { resource: @user }  },
+            { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @user }  },
             { mod: 'fvr', title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
             { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
           ],
@@ -104,14 +108,8 @@ class UsersController < ApplicationController
     def user_params
       params.fetch(:user, {})
         .permit(
-          :last_name,
-          :first_name,
-          :breeder,
-          :about,
-          :avatar,
-          :phone,
-          :site,
-          :city_id
+          :last_name, :first_name, :breeder, :about, :avatar,
+          :phone, :site, :city_id
         )
     end
 end

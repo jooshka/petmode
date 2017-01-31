@@ -1,0 +1,8 @@
+= content_for(:menu) do
+  = render @menu_tpl
+
+= simple_form_for @resource, defaults: { input_html: { class: 'form__input' } }  do |form|
+  - @card_sections[:sidebar].each { |s| s[:options].merge!({form: form}) }
+  - @card_sections[:body].each { |s| s[:options].merge!({form: form}) }
+
+  = render 'card'

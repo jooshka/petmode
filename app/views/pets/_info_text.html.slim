@@ -1,13 +1,15 @@
 ul.info-text
   li.info-text__item
-    span.info-text__title = t('Family')+':'
-    span.info-text__text = t(resource.family)
+    = image_tag 'cat-icon.png', class: 'info-text__family' if @pet.cat?
+    = image_tag 'dog-icon.png', class: 'info-text__family' if @pet.dog?
+    = fa_icon 'mars',  class: 'info-text__gender info-text__gender--male' if @pet.male?
+    = fa_icon 'venus', class: 'info-text__gender info-text__gender--female' if @pet.female?
   li.info-text__item
-    span.info-text__title = t('Gender')+':'
-    span.info-text__text = t(resource.gender)
+    span.info-text__title = t('Home name')+':'
+    span.info-text__text = @pet.home_name
   li.info-text__item
     span.info-text__title = t('Age')+':'
-    span.info-text__text = t(resource.birthday.age)
+    span.info-text__text = t(@pet.birthday.age) if @pet.birthday
   li.info-text__item
     span.info-text__title = t('Weight')+':'
     span.info-text__text = resource.display_weight

@@ -5,6 +5,7 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
+    @menu_tpl = 'menu'
     respond_to do |format|
       format.html do
         @card_sections = {
@@ -29,10 +30,13 @@ class PetsController < ApplicationController
 
   # GET /pets/new
   def new
+    @menu_tpl = 'users/menu'
     @pet = Pet.new
     @pet.family = 'cat'
     @pet.gender = 'male'
     @pet.build_birthday
+
+    @resource = @pet
     @card_sections = {
       sidebar: [
         { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @pet }  },
@@ -48,17 +52,19 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
+    @menu_tpl = 'menu'
+    @resource = @pet
     @card_sections = {
       sidebar: [
-        { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @user }  },
-        { mod: 'prt', title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
+        { mod: 'ava', title: nil, tpl: 'f_avatar', options: {}  },
         { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
       ],
-      body:    [
-        { mod: 'edt', title: nil, tpl: 'form', options: { resource: @pet } },
+      body: [
+        { mod: 'fmn', title: 'Main data', tpl: 'f_main', options: {}  },
+        { mod: 'fst', title: nil, tpl: 'f_submit', options: {}  }
       ]
     }
-    render 'card'
+    render 'f_card'
   end
 
   def control
@@ -113,7 +119,7 @@ class PetsController < ApplicationController
     end
 
     def pet_params
-      params.fetch(:pet).permit(:name, :user_id, :gender, :pet_type_id, :weight,
+      params.fetch(:pet).permit(:user_id, :avatar, :name, :home_name, :gender, :family, :weight,
          birthday_attributes: [:day, :month, :year])
     end
 end

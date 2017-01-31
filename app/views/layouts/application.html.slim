@@ -13,7 +13,7 @@ body
     .page__section
       - if user_signed_in?
         = render 'head_user'
-        = render 'curr_user_menu'
+        = yield (:menu)
       - else
         = render 'head_guest'
     .page__section

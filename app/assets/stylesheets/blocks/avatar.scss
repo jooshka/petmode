@@ -1,0 +1,50 @@
+.avatar {
+  position: relative;
+}
+
+.blur {
+  -webkit-filter: url(#blur);
+  filter: url(#blur);
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='2');
+}
+
+.avatar__upload {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 220px;
+  background-color: #000;
+  opacity: 0.2;
+  overflow: hidden;
+}
+
+.avatar__upload input {
+  cursor: pointer;
+  display: block !important;
+  width: 220px !important;
+  height: 220px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+}
+
+.avatar__upload-icon {
+  position: absolute;
+  top:  98px;
+  left: 98px;
+  width: 25px;
+  height: 24px;
+  background: url(change.png) center no-repeat;
+  opacity: 1;
+}
+
+.avatar__upload-text {
+  position: absolute;
+  top: 134px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  opacity: 1;
+}

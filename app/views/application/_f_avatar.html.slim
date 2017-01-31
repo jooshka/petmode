@@ -1,0 +1,22 @@
+.avatar
+  #avatar
+    = image_tag @resource.avatar.url(:avatar), class: 'card__img'
+  .avatar__upload
+    .avatar__upload-icon
+    .avatar__upload-text =t('Load image')
+    = form.input :avatar, label: false, as: :file, input_html: { class:'', id: 'avatar_input' }
+
+javascript:
+  $(function() {
+    $('#avatar_input').on('change', function(event) {
+      var files = event.target.files;
+      var image = files[0]
+      var reader = new FileReader();
+      reader.onload = function(file) {
+        var img = new Image(220);
+        img.src = file.target.result;
+        $('#avatar').html(img);
+      }
+      reader.readAsDataURL(image);
+    });
+  });
