@@ -22,3 +22,21 @@
         input.search__input(type='text' placeholder= t('Search'))
         button.search__button
          = fa_icon 'search', class: 'search__icon'
+
+  .head__col-menu.head__col-user
+    .user-block
+      .user-block__user
+        #user-block__name.user-block__name
+          = current_user.display_name
+          = fa_icon 'angle-down', class: 'user-block__down'
+        = link_to user_path(current_user)
+          = image_tag current_user.avatar.url(:icon), class: 'user-block__img'
+      .user-block__basket
+        .menu__item.menu__item--curr-user
+          =link_to '#', class: 'menu__link menu__link--curr-user menu__link--curr-user--basket'
+            span.menu__badge.menu__badge--basket 0
+
+coffee:
+  $ ->
+    $('#user-block__name').click ->
+      alert(1);

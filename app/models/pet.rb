@@ -30,15 +30,23 @@ class Pet < ApplicationRecord
   accepts_nested_attributes_for :birthday
 
   def display_name
-    name && name.empty? ? I18n.t('no name') : name
+    name && !name.empty? ? name : '--'
+  end
+
+  def display_home_name
+    home_name && !home_name.empty? ? home_name : '--'
   end
 
   def display_weight
     if weight
       weight<1000 ? "#{weight} #{I18n.t('g')}" : "#{weight/1000.0} #{I18n.t('kg')}"
     else
-      I18n.t('undefined')
+      '--'
     end
+  end
+
+  def display_birth
+    birthday ? "#{birthday.day}-#{'%02d' % birthday.month if birthday.month}-#{birthday.year}" : ""
   end
 
   before_validation do |pet|

@@ -19,8 +19,8 @@ class UsersController < ApplicationController
             { mod: 'ttt', title: nil, tpl: 'users/info_text', options: { resource: @user } },
             { mod: 'abt', title: 'About me', tpl: 'about', options: { resource: @user } },
             { mod: 'pts', title: 'My pets',  tpl: 'bcards', options: { resource: @user.pets, size: 'md'}  },
-            { mod: 'adw', title: 'My adverts', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
-            { mod: 'spc', title: 'My specialities', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
+            { mod: 'adw', title: 'My adverts', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  }
+          #  { mod: 'spc', title: 'My specialities', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
           ]
         }
         render 'card'

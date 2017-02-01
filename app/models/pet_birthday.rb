@@ -27,7 +27,7 @@ class PetBirthday < ApplicationRecord
         apx + Time.diff(b, now, '%y')[:diff]
       end
     else
-      I18n.t('undefined')
+      '--'
     end
   end
 

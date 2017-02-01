@@ -6,10 +6,13 @@ ul.info-text
     = fa_icon 'venus', class: 'info-text__gender info-text__gender--female' if @pet.female?
   li.info-text__item
     span.info-text__title = t('Home name')+':'
-    span.info-text__text = @pet.home_name
+    span.info-text__text = @pet.display_home_name
+  li.info-text__item
+    span.info-text__title = t('Date of Birth')+':'
+    span.info-text__text = @pet.display_birth
   li.info-text__item
     span.info-text__title = t('Age')+':'
-    span.info-text__text = t(@pet.birthday.age) if @pet.birthday
+    span.info-text__text = @pet.birthday.age if @pet.birthday
   li.info-text__item
     span.info-text__title = t('Weight')+':'
-    span.info-text__text = resource.display_weight
+    span.info-text__text = @pet.display_weight

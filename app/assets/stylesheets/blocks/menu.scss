@@ -101,6 +101,13 @@
   }
 }
 
+.menu__link--curr-user--basket {
+  width: 35px;
+  height: 30px;
+  background: url(ic-basket.png) no-repeat;
+}
+
+
 .menu__link--curr-user--pro {
   margin-top: -1px;
   width: 75px;
@@ -135,6 +142,14 @@
   font-size: 14px;
   line-height: normal;
   color: #ffd800;
+}
+
+.menu__badge--basket {
+  border: 3px solid #343434;
+  color: #343434;
+  background: #ffd800;
+  right: -12px;
+  top: -12px;
 }
 
 @media (max-width: 830px) {

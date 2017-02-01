@@ -19,7 +19,9 @@
 .head__col-menu {}
 .head__col-menu--guest { margin-top: 30px; width: 32%; height: 171px; float: right; }
 .head__col-menu--user  { width: 50%; float: left;  }
-.head__col-user  { margin-top: 30px; width: 16%; height: 171px; float: right; }
+.head__col-user  {}
+.head__col-user--guest { margin-top: 30px; width: 16%; height: 171px; float: right; }
+.head__col-user--user  { width:25%; float: right; }
 
 .head__lang {}
 .head__lang--guest { margin-left: calc(100% - 61px); }

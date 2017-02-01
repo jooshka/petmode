@@ -1,0 +1,22 @@
+.user-block { margin-top: 15px; float: right;}
+
+.user-block__user {
+  margin-bottom: 25px;
+  &::after {@include clearfix;}
+}
+
+.user-block__name { cursor: pointer; float: left; margin-top: 30px; }
+.user-block__down { cursor: pointer; margin-left: 4px; }
+
+.user-block__img {
+  margin-left: 25px;
+  float: right;
+  width:75px;
+  height: 75px;
+  @include border-radius(50%);
+}
+.user-block__basket {
+  float: right;
+  margin-right: 23px;
+  &::after {@include clearfix;}
+}
