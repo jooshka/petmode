@@ -43,6 +43,7 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   has_many :pets
+  has_many :adverts
 
   has_many :like_relationships
   has_many :favorites, through: :like_relationships, class_name: 'User'
@@ -75,5 +76,13 @@ class User < ApplicationRecord
 
   def display_name
     "#{last_name} #{first_name}".strip
+  end
+
+  def my_pets
+    pets.without_advert_or_copulation
+  end
+
+  def pets_of_my_adverts
+    adverts.map {|advert| advert.pet}
   end
 end

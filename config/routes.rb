@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   post '/users/:id/unlike', to: 'users#unlike', as: 'unlike_user'
 
   resources :pets, only: [:show, :new, :edit, :create, :update, :destroy]
-  get '/pets/:id/control', to: 'pets#control', as: 'control_pet'
+  get '/pets/:id/advert', to: 'pets#advert', as: 'advert_pet'
 
   get '/locales/:locale', to: 'locales#show', as: 'locales'
+  delete '/pets/:id/advert_destroy', to: 'pets#advert_destroy', as: 'advert_destroy'
 
-  resources :cities do
+  resources :cities, only: [] do
     get :search, :on => :collection
   end
 end

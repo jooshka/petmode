@@ -1,0 +1,17 @@
+ul.info-text
+  li.info-text__item
+    span.info-text__title = t('Advert type')+':'
+    span.info-text__text = t(@pet.advert.advert_type.capitalize)
+  - if !@pet.advert.goodhands?
+    li.info-text__item
+      span.info-text__title = t('Price')+':'
+      span.info-text__text = "%.2f" % @pet.advert.price
+  li.info-text__item
+    span.info-text__title = t('Status')+':'
+    span.info-text__text = t(@pet.advert.status.capitalize)
+  - if @pet.advert.rejected?
+    li.info-text__item
+      span.info-text__title = t('Comment')+':'
+      span.info-text__text = @pet.advert.comment
+
+= link_to t('Delete'), advert_destroy_path(@pet), confirm: 'Are you sure?', method: :delete

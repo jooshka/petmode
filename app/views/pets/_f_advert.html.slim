@@ -1,0 +1,5 @@
+= form.simple_fields_for :advert do |advert_form|
+  = advert_form.hidden_field :user_id, value: @pet.advert.user_id
+  = advert_form.hidden_field :status,  value: @pet.advert.status
+  = advert_form.input :advert_type, collection: Advert.advert_types.keys, label_method: proc {|v| t(v.capitalize)}, value_method: proc {|v|v}, as: :radio_buttons, label:false, input_html: {class:''}
+  = advert_form.input :price, placeholder: t('Price')

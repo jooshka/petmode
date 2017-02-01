@@ -28,6 +28,7 @@ class Pet < ApplicationRecord
   has_one :advert
   has_one :birthday, class_name: 'PetBirthday'
   accepts_nested_attributes_for :birthday
+  accepts_nested_attributes_for :advert
 
   def display_name
     name && !name.empty? ? name : '--'
@@ -48,6 +49,15 @@ class Pet < ApplicationRecord
   def display_birth
     birthday ? "#{birthday.day}-#{'%02d' % birthday.month if birthday.month}-#{birthday.year}" : ""
   end
+
+  def lock?
+    advert && !advert.editing?
+  end
+
+  scope :without_advert_or_copulation, -> {
+    left_joins(:advert)
+    .where('advert_type is null or advert_type=1')
+  }
 
   before_validation do |pet|
     pet.name.try(:strip!)

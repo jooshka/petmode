@@ -11,9 +11,6 @@ ul.menu.menu--pet
       = fa_icon 'cutlery'
       span.menu__badge 3
   li.menu__item.menu__item--pet
-    =active_link_to edit_pet_path(@pet), class: 'menu__link menu__link--pet menu__link--pet--settings', :active => [['pets'], ['edit']]
-      = fa_icon 'gear'
-  li.menu__item.menu__item--pet
     =link_to '#', class: 'menu__link menu__link--pet menu__link--pet--share'
       = fa_icon 'heart'
       span.menu__badge 3
@@ -26,5 +23,8 @@ ul.menu.menu--pet
       = fa_icon 'bookmark'
       span.menu__badge 2
   li.menu__item.menu__item--pet
-    =link_to '#', class: 'menu__link menu__link--pet menu__link--pet--advert'
+    =active_link_to edit_pet_path(@pet), class: 'menu__link menu__link--pet menu__link--pet--settings', :active => [['pets'], ['edit']]
+      = fa_icon 'gear'
+  li.menu__item.menu__item--pet
+    =active_link_to advert_pet_path, class: 'menu__link menu__link--pet menu__link--pet--advert', :active => [['pets'], ['advert']]
       = fa_icon 'tag'

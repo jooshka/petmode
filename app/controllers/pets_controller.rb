@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: [:show, :edit, :settings, :update, :destroy, :control]
+  before_action :set_pet, only: [:show, :edit, :settings, :update, :destroy, :advert, :advert_destroy]
   before_action :set_user, only: [:new, :edit, :create]
 
   # GET /pets/1
@@ -39,19 +39,24 @@ class PetsController < ApplicationController
     @resource = @pet
     @card_sections = {
       sidebar: [
-        { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @pet }  },
+        { mod: 'ava', title: nil, tpl: 'f_avatar', options: {}  },
         { mod: 'prt', title: 'Parents', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
         { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
       ],
       body:    [
-        { mod: 'new', title: nil, tpl: 'form', options: { resource: @pet } },
+        { mod: 'fmn', title: 'Main data', tpl: 'f_main', options: {}  },
+        { mod: 'fst', title: nil, tpl: 'f_submit', options: {}  }
       ]
     }
-    render 'card'
+    render 'f_card'
   end
 
   # GET /pets/1/edit
   def edit
+    if @pet.lock?
+      redirect_to @pet, notice: 'Advert locked card.'
+      return
+    end
     @menu_tpl = 'menu'
     @resource = @pet
     @card_sections = {
@@ -67,7 +72,36 @@ class PetsController < ApplicationController
     render 'f_card'
   end
 
-  def control
+  def advert
+    @menu_tpl = 'menu'
+    @resource = @pet
+    @card_sections = {
+      sidebar: [
+        { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @pet } },
+        { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
+      ],
+      body: [
+      ]
+    }
+    if !@pet.advert || @pet.advert.editing?
+      @pet.build_advert unless @pet.advert
+      @pet.advert.user = current_user
+      @pet.advert.status = 'moderation'
+      @pet.advert.advert_type = 'sale'
+      @card_sections[:body].push ({ mod: 'fad', title: 'Advert', tpl: 'f_advert', options: {} })
+      @card_sections[:body].push ({ mod: 'fst', title: nil, tpl: 'f_submit', options: {}  })
+    else
+      @card_sections[:body].push ({ mod: 'fad', title: 'Advert', tpl: 'advert', options: {} })
+    end
+    render 'f_card'
+  end
+
+  def advert_destroy
+    @pet.advert.destroy
+    respond_to do |format|
+      format.html { redirect_to @pet, notice: 'Advert was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   # POST /pets
@@ -120,6 +154,8 @@ class PetsController < ApplicationController
 
     def pet_params
       params.fetch(:pet).permit(:user_id, :avatar, :name, :home_name, :gender, :family, :weight,
-         birthday_attributes: [:day, :month, :year])
+         birthday_attributes: [ :day, :month, :year  ],
+         advert_attributes:   [ :advert_type, :price, :status, :user_id ]
+      )
     end
 end
