@@ -2,6 +2,16 @@ class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :settings, :update, :destroy, :advert, :advert_destroy]
   before_action :set_user, only: [:new, :edit, :create]
 
+  has_scope :by_family
+  has_scope :by_gender
+  has_scope :by_city
+  has_scope :by_price, :using => [:started_at, :ended_at], :type => :hash
+
+  def sale
+    @resource = apply_scopes(Pet).sale
+    render 'adverts'
+  end
+
   # GET /pets/1
   # GET /pets/1.json
   def show
@@ -15,7 +25,9 @@ class PetsController < ApplicationController
           ],
           body:    [
             { mod: 'ttl', title: nil, tpl: 'pets/info_title', options: { resource: @pet } },
+            { mod: 'tlc', title: nil, tpl: 'pets/locality', options: { resource: @pet } },
             { mod: 'ttt', title: nil, tpl: 'pets/info_text', options: { resource: @pet } },
+            { mod: 'tab', title: nil, tpl: 'pets/advert_brief', options: { resource: @pet } },
             { mod: 'abt', title: 'About me', tpl: 'about', options: { resource: @pet } }
           #  { mod: '', title: 'My pedigree',  tpl: 'bcards', options: { resource: @user.pets, size: 'md'}  },
           #  { mod: '', title: 'My dignities', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },

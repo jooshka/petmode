@@ -1,0 +1,12 @@
+.filter {
+  background: #ffd800;
+  padding: 30px 20px 20px 30px;
+  &:after { @include clearfix; }
+}
+
+.wave {
+  width: 100%;
+  background: url(wave.svg);
+  height: 10px;
+  margin-top: -10px;
+}

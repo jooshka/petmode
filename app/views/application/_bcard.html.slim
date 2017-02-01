@@ -2,7 +2,16 @@
   div class="bcard__img-block bcard__img-block--#{size}"
     = image_tag resource.avatar.url(:thumb), class: "bcard__img bcard__img--#{size}"
   div class="bcard__text-block bcard__text-block--#{size}"
-    div class="bcard__title1 bcard__title1--#{size}" = resource.display_name
+    div class="bcard__title1 bcard__title1--#{size}"
+      = resource.display_name
+      - if resource.advert
+        .bcard__type = t(resource.advert.advert_type.capitalize)
     div class="bcard__title2 bcard__title2--#{size}" Перс
     - if size=='lg'
       div class="bcard__text bcard__text--lg" = resource.about
+  .bcard_info
+    - if size=='lg'
+      - if resource.advert.price
+        .bcard__price
+          = "#{'%d' % resource.advert.price}"
+          = fa_icon 'rub', class: 'bcard__currency'

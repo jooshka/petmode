@@ -3,8 +3,8 @@
 .menu--social {}
 .menu--lang { text-align: right; font-size: 12px; }
 .menu--partners {}
-.menu--curr-user { background: #ffd800; padding: 21px 20px 19px 30px; &:after { @include clearfix; }}
-.menu--pet { background: #ffd800; padding: 21px 20px 19px 30px; &:after { @include clearfix; }}
+.menu--curr-user { background: #ffd800; padding: 20px 20px 20px 40px; &:after { @include clearfix; }}
+.menu--pet { background: #ffd800; padding: 20px 20px 20px 40px; &:after { @include clearfix; }}
 
 .menu__item {}
 .menu__item--guest { line-height: 2.0em; font-size: 18px; width: 50%; padding-left: 20px; }

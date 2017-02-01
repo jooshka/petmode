@@ -301,6 +301,7 @@ DEPENDENCIES
   devise-i18n
   dotenv-rails
   font-awesome-rails
+  has_scope
   high_voltage (~> 3.0.0)
   inherited_resources!
   jbuilder (~> 2.5)

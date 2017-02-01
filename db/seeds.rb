@@ -8,9 +8,9 @@ puts 'Create pet types...'
 
 puts 'Create menu...'
 [
-  { text: 'Sale',          url: '#' },
+  { text: 'Sale',          url: sale_path },
   { text: 'News',          url: '#' },
-  { text: 'Good hands', url: '#' },
+  { text: 'Good hands',    url: '#' },
   { text: 'Competitions',  url: '#' },
   { text: 'Copulations',   url: '#' },
   { text: 'Pet shop',      url: '#' },
@@ -21,7 +21,7 @@ puts 'Create menu...'
 end
 
 [
-  { text: 'Sale',          url: '#' },
+  { text: 'Sale',          url: sale_path },
   { text: 'Pet shop',      url: '#' },
   { text: 'News',          url: '#' },
   { text: 'Copulations',   url: '#' },

@@ -30,6 +30,8 @@ class Pet < ApplicationRecord
   accepts_nested_attributes_for :birthday
   accepts_nested_attributes_for :advert
 
+  has_one :city, through: :advert
+
   def display_name
     name && !name.empty? ? name : '--'
   end
@@ -57,6 +59,19 @@ class Pet < ApplicationRecord
   scope :without_advert_or_copulation, -> {
     left_joins(:advert)
     .where('advert_type is null or advert_type=1')
+  }
+
+  scope :sale, -> {
+    joins(:advert) #&& advert.published?
+  }
+
+  scope :by_gender, -> gender { where(gender: gender) }
+  scope :by_family, -> family { where(family: family) }
+  scope :by_city,   -> city_id { joins(:city).where('cities.id' => city_id ) }
+
+  scope :by_price,  -> started_at, ended_at {
+    joins(:advert)
+   .where("price >= ? AND price <= ?", started_at, ended_at)
   }
 
   before_validation do |pet|

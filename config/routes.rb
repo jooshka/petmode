@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/users/:id/like', to: 'users#like', as: 'like_user'
   post '/users/:id/unlike', to: 'users#unlike', as: 'unlike_user'
 
+  get '/pets/sale', to: 'pets#sale', as: 'sale'
   resources :pets, only: [:show, :new, :edit, :create, :update, :destroy]
   get '/pets/:id/advert', to: 'pets#advert', as: 'advert_pet'
 

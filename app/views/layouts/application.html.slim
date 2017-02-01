@@ -16,6 +16,7 @@ body
         = yield (:menu)
       - else
         = render 'head_guest'
+      = yield (:filter)
     .page__section
       - if notice
         p.notice = notice

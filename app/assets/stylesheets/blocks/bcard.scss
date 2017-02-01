@@ -1,22 +1,28 @@
-.bcards {}
+.bcards {
+  @include display_flex;
+  @include flex-wrap(wrap);
+  @include justify-content(space-around);
+}
 
 .bcards__item {}
-.bcards__item--lg { margin-bottom: 30px; margin-right: 30px; }
-.bcards__item--md { margin-bottom: 30px; margin-right: 25px; }
+.bcards__item--lg { margin-bottom: 30px; }
+.bcards__item--md { margin-bottom: 30px; }
 .bcards__item--sm { margin-bottom: 11px; }
 
 .bcard {
+  position: relative;
   display: block;
   float: left;
   @include border-radius(6px);
   &:hover {
     background-color: #f3f3f3;
+    .bcard__type { visibility: visible; }
   }
 }
 
 .bcard--lg {
-  width: 440px;
-  padding: 25px 10px 25px 15px;
+  width: 380px;
+  padding: 25px 15px 25px 15px;
 }
 
 .bcard--md { width: 128px; padding: 15px 4px;  }
@@ -25,7 +31,6 @@
 .bcard__img-block {}
 .bcard__img-block--lg {
   width: 130px;
-  height: 130px;
   @include border-radius(6px);
   overflow: hidden;
   float: left;
@@ -33,7 +38,6 @@
 }
 .bcard__img-block--md {
   width: 120px;
-  height: 120px;
   @include border-radius(20px);
   overflow: hidden;
   margin-bottom: 15px;
@@ -41,7 +45,6 @@
 
 .bcard__img-block--sm {
   width: 66px;
-  height: 66px;
   @include border-radius(10px);
   overflow: hidden;
   float: left;
@@ -49,12 +52,20 @@
 }
 
 .bcard__img { width: 100%; height: 100%; }
-.bcard__img--lg {}
-.bcard__img--md {}
-.bcard__img--sm { width: 66px; }
+.bcard__img--lg {@include border-radius(6px);}
+.bcard__img--md {@include border-radius(20px);}
+.bcard__img--sm { width: 66px; @include border-radius(10px); }
 
 .bcard__text-block {}
 .bcard__text-block--md { padding-left: 20px; }
+
+.bcard__type {
+  visibility: hidden;
+  float: right;
+  margin-right: 10px;
+  font-size: 12px;
+  color: #8b8b8b;
+}
 
 .bcard__title1 {}
 
@@ -94,4 +105,26 @@
   text-align: justify;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.bcard_info {
+  margin-top: 10px;
+}
+
+.bcard__price {
+  float: left;
+  width: 109px;
+  height: 36px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 35px;
+  background: #ffd800;
+  @include border-radius(18px);
+  margin: 0px 0px 0px 10px;
+}
+
+.bcard__currency {
+  font-size: 14px;
+  line-height: normal;
+  margin-left: 8px;
 }
