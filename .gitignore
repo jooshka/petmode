@@ -18,3 +18,4 @@
 
 /public/system/*
 .env
+/config/database.yml
