@@ -54,8 +54,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'devise-i18n'
-gem 'inherited_resources', github: 'activeadmin/inherited_resources'
-gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources'
+gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 gem 'slim-rails'
 
 group :development, :test do
@@ -79,3 +79,5 @@ gem 'high_voltage', '~> 3.0.0'
 gem 'annotate'
 gem 'simple_form_autocomplete'
 gem 'has_scope'
+
+gem 'therubyracer'

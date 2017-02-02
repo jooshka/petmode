@@ -62,13 +62,13 @@ Rails.application.configure do
 #  config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: ENV['GMAIL_DOMAIN'],
+    address: ENV['SMTP'],
+    port: ENV['SMTP_PORT'],
+    domain: ENV['MAIL_DOMAIN'],
     authentication: 'plain',
     enable_starttls_auto: true,
-    user_name: ENV['GMAIL_USERNAME'],
-    password: ENV['GMAIL_PASSWORD']
+    user_name: ENV['MAIL_USERNAME'],
+    password: ENV['MAIL_PASSWORD']
   }
 
   config.action_mailer.raise_delivery_errors = true
