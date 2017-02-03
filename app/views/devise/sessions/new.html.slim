@@ -1,11 +1,15 @@
-.devise
-  .title-one = t(".sign_in")
-  .wrap
-    = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      .form-inputs
+.titled-block.titled-block--auth
+  .titled-block__title = t(".sign_in")
+  .titled-block__body
+    = simple_form_for(resource,
+      as: resource_name,
+      url: session_path(resource_name),
+      html: {class:'form'},
+      defaults: { input_html: { class: 'form__input' } }) do |f|
+      .form__inputs
         = f.input :email, required: false, autofocus: true, label:false, placeholder: 'Адрес электронной почты'
         = f.input :password, required: false, label:false, placeholder: 'Пароль'
         = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-      .form-actions
-        = f.button :submit, t(".sign_in")
+      .form__actions
+        = f.button :submit, t(".sign_in"), class: 'button'
     = render "devise/shared/links"

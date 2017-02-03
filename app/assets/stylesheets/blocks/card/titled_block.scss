@@ -1,4 +1,13 @@
 .titled-block {}
+.titled-block--auth {
+  text-align: center;
+  margin: auto;
+  width: 440px;
+  padding: 20px 40px;
+  background-color: #f8f8f8;
+  margin-top: -70px;
+}
+
 .titled-block__title {
   font-family: 'PFCentroSerifBold';
   font-size: 24px;

@@ -1,4 +1,9 @@
-.form { width: 420px; }
+.form {}
+
+.form__actions {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
 .form__input {
   width: 100%;
@@ -7,6 +12,8 @@
   @include border-radius(4px);
   padding: 11px 18px;
   color: #343434;
+  font-family: "PTSansRegular";
+  font-size: 14px;
   &:focus {
     border-color: #bababa;
     color: #343434;

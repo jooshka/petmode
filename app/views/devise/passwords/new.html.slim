@@ -1,10 +1,13 @@
-.devise
-  .title-one = t(".forgot_your_password")
-  .wrap
-    = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-      = f.error_notification
-      .form-inputs
+.titled-block.titled-block--auth
+  .titled-block__title = t(".forgot_your_password")
+  .titled-block__body
+    = simple_form_for(resource,
+      as: resource_name,
+      url: password_path(resource_name),
+      html: { method: :post, class: 'form' },
+      defaults: { input_html: { class: 'form__input' } } ) do |f|
+      .form__inputs
         = f.input :email, required: true, autofocus: true, label:false, placeholder: 'Адрес электронной почты'
-      .form-actions
-        = f.button :submit, t(".send_me_reset_password_instructions")
+      .form__actions
+        = f.button :submit, t(".send_me_reset_password_instructions"), class: 'button'
     = render "devise/shared/links"
