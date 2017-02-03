@@ -5,7 +5,13 @@
   &::after {@include clearfix;}
 }
 
-.user-block__name { cursor: pointer; float: left; margin-top: 30px; }
+.user-block__name {
+  cursor: pointer;
+  float: left;
+  margin-top: 30px;
+  text-transform: capitalize;
+}
+
 .user-block__down { cursor: pointer; margin-left: 4px; }
 
 .user-block__img {

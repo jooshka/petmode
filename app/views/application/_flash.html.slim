@@ -1,0 +1,14 @@
+.flash
+  .flash__body
+    - if notice
+      = fa_icon 'info-circle', class: 'flash__icon'
+      span = notice
+    - if alert
+      = fa_icon 'exclamation-triangle', class: 'flash__icon'
+      span = alert
+    = fa_icon 'times', class: 'flash__close'
+
+coffee:
+  $ ->
+    $('.flash__close').click ->
+      $('.flash').hide( 'blind', {}, 400 );

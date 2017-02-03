@@ -3,7 +3,7 @@
   padding: 0 40px;
   &:after { @include clearfix; }
 }
-.card__section { margin-bottom: 30px; }
+.card__section { margin-bottom: 70px; }
 .card__section--abt { border-top: 1px solid #dddddd; padding-top: 20px; }
 .card__section--edt { border-top: 1px solid #dddddd; padding-top: 20px; }
 .card__sidebar { width: 220px; float: left; }

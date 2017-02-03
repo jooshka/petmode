@@ -1,6 +1,7 @@
 = link_to resource, class: "bcard bcard--#{size}" do
   div class="bcard__img-block bcard__img-block--#{size}"
-    = image_tag resource.avatar.url(:thumb), class: "bcard__img bcard__img--#{size}"
+    - sz = size=='sm' ? :sm : :md
+    = image_tag resource.avatar.img.url(sz), class: "bcard__img bcard__img--#{size}"
   div class="bcard__text-block bcard__text-block--#{size}"
     div class="bcard__title1 bcard__title1--#{size}"
       = resource.display_name

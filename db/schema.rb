@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201032751) do
+ActiveRecord::Schema.define(version: 20170202231938) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "namespace"
@@ -37,6 +37,18 @@ ActiveRecord::Schema.define(version: 20170201032751) do
     t.integer  "user_id"
     t.index ["pet_id"], name: "index_adverts_on_pet_id", using: :btree
     t.index ["user_id"], name: "index_adverts_on_user_id", using: :btree
+  end
+
+  create_table "avatars", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "imageable_type"
+    t.integer  "imageable_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "img_file_name"
+    t.string   "img_content_type"
+    t.integer  "img_file_size"
+    t.datetime "img_updated_at"
+    t.index ["imageable_type", "imageable_id"], name: "index_avatars_on_imageable_type_and_imageable_id", using: :btree
   end
 
   create_table "cities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -99,19 +111,15 @@ ActiveRecord::Schema.define(version: 20170201032751) do
   end
 
   create_table "pets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "user_id"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string   "name"
-    t.integer  "gender",                            default: 0
+    t.integer  "gender",                   default: 0
     t.integer  "weight"
-    t.text     "about",               limit: 65535
+    t.text     "about",      limit: 65535
     t.string   "home_name"
-    t.integer  "family"
+    t.integer  "family",                   default: 0
     t.index ["user_id"], name: "index_pets_on_user_id", using: :btree
   end
 
@@ -142,10 +150,6 @@ ActiveRecord::Schema.define(version: 20170201032751) do
     t.string   "last_name"
     t.string   "first_name"
     t.string   "patronymic"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.text     "about",                  limit: 65535
     t.boolean  "breeder"
     t.string   "confirmation_token"
@@ -161,6 +165,4 @@ ActiveRecord::Schema.define(version: 20170201032751) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "pet_birthdays", "pets"
-  add_foreign_key "pets", "users"
 end

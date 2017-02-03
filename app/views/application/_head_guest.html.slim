@@ -6,11 +6,8 @@
     .head__logo
       .logo.logo--guest
         = image_tag 'logo.png', class: 'logo__img logo__img--guest'
-        span.logo__text.logo__text--guest.logo__text--big Сервис
-        br
-        span.logo__text.logo__text--guest.logo__text--small1 домашних
-        br
-        span.logo__text.logo__text--guest.logo__text--small2 питомцев
+        .logo__imgtxt-wrap
+          = image_tag 'logo_text.svg', class: 'logo__imgtxt'
 
   .head__col-user.head__col-user--guest
     .head__user

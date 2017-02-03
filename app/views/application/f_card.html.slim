@@ -2,7 +2,10 @@
   = render @menu_tpl
 
 = simple_form_for @resource, defaults: { input_html: { class: 'form__input' } }  do |form|
-  - @card_sections[:sidebar].each { |s| s[:options].merge!({form: form}) }
-  - @card_sections[:body].each { |s| s[:options].merge!({form: form}) }
-
+  - [:sidebar, :body].each do |part| \
+    @card_sections[part].each do |s| \
+      s[:opt] = s[:opt] || {};       \
+      s[:opt].merge!( {form: form} ) \
+      end                            \
+    end
   = render 'card'

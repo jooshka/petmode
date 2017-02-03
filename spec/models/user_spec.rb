@@ -18,10 +18,6 @@
 #  last_name              :string(255)
 #  first_name             :string(255)
 #  patronymic             :string(255)
-#  avatar_file_name       :string(255)
-#  avatar_content_type    :string(255)
-#  avatar_file_size       :integer
-#  avatar_updated_at      :datetime
 #  about                  :text(65535)
 #  breeder                :boolean
 #  confirmation_token     :string(255)

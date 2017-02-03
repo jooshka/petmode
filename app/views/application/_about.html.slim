@@ -1,2 +1,5 @@
-.about
-  = resource.about
+- unless @resource.about.empty?
+  .about
+    = @resource.about
+- else
+  = image_tag 'missing.svg'

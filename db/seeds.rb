@@ -1,10 +1,4 @@
 Menu.destroy_all
-puts 'Create admin...'
-#User.create!( email: 'admin@example.com', password: 'password', password_confirmation: 'password')
-
-puts 'Create pet types...'
-#PetType.create!( id: 1, name: 'cat')
-#PetType.create!( id: 2, name: 'dog')
 
 puts 'Create menu...'
 [

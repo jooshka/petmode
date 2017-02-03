@@ -10,7 +10,6 @@
   line-height: 24px;
   text-align: center;
   height: 25px;
-  text-transform: uppercase;
   float: left;
 }
 
@@ -19,8 +18,8 @@
   font-size: 24px;
   margin-right: 15px;
   text-align: left;
-  text-transform: capitalize;
   letter-spacing: 0.7px;
+  text-transform: capitalize;
 }
 
 .info-title__item--pro {
@@ -31,6 +30,7 @@
   @include border-radius(3px);
   margin-right: 9px;
   &::active { background: #ffd800; }
+  text-transform: uppercase;
 }
 
 .info-title__item--club {
@@ -39,6 +39,7 @@
   background: #30a9de;
   margin-right: 11px;
   @include border-radius(3px);
+  text-transform: uppercase;
 }
 
 .info-title__item--breeder {
@@ -47,4 +48,5 @@
   background: #f1404b;
   margin-right: 10px;
   @include border-radius(3px);
+  text-transform: uppercase;
 }

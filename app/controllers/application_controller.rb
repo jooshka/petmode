@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def after_sign_in_path_for(resource)
-    current_user.sign_in_count == 1 ? settings_user_path(current_user) : user_path(current_user)
+    current_user.sign_in_count == 1 ? edit_user_path(current_user) : user_path(current_user)
   end
 
   def set_locale

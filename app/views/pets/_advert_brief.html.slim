@@ -1,7 +1,7 @@
-- if resource.advert
+- if @pet.advert
   .advert_brief
-    .advert_brief__type  = t(resource.advert.advert_type.capitalize)
-    - if resource.advert.price && resource.advert.price > 0
+    .advert_brief__type  = t(@pet.advert.advert_type.capitalize)
+    - if @pet.advert.price && @pet.advert.price > 0
       .advert_brief__price
-        = "#{'%d' % resource.advert.price}"
+        = "#{'%d' % @pet.advert.price}"
         = fa_icon 'rub', class: 'advert_brief__currency'

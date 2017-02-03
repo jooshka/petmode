@@ -1,4 +1,7 @@
-ul class="bcards bcards--#{size}"
-  - resource.each do |item|
-    li class="bcards__item bcards__item--#{size}"
-      = render 'bcard', resource: item, size: size
+- unless resource.empty?
+  ul class="bcards bcards--#{size}"
+    - resource.each do |item|
+      li class="bcards__item bcards__item--#{size}"
+        = render 'bcard', resource: item, size: size
+- else
+  = image_tag 'missing.svg'

@@ -2,7 +2,8 @@
 = form.input :first_name, label: false, placeholder: t('First name')
 
 = form.hidden_field :city_id
-input type='text' id='cities-search-txt' value=(City.find_by(id: @user.city_id).description) class='form__input' placeholder=t('Locality')
+- city_val = @user.city ? @user.city.description : ''
+input type='text' id='cities-search-txt' value=city_val class='form__input' placeholder=t('Locality')
 #cities-search-results
 
 = form.input :phone, label: false, placeholder: t('Phone')

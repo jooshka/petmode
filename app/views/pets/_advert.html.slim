@@ -5,7 +5,7 @@ ul.info-text
   - if !@pet.advert.goodhands?
     li.info-text__item
       span.info-text__title = t('Price')+':'
-      span.info-text__text = "%.2f" % @pet.advert.price
+      span.info-text__text = "%.2f" % @pet.advert.price if @pet.advert.price
   li.info-text__item
     span.info-text__title = t('Status')+':'
     span.info-text__text = t(@pet.advert.status.capitalize)

@@ -17,11 +17,11 @@ body
       - else
         = render 'head_guest'
       = yield (:filter)
+
+      - if notice || alert
+        = render 'flash'
+
     .page__section
-      - if notice
-        p.notice = notice
-      - if alert
-        p.alert = alert
 
       = yield
 

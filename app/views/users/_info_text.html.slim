@@ -1,15 +1,15 @@
 ul.info-text
   li.info-text__item
     span.info-text__title = t('Locality')+':'
-    span.info-text__text = resource.city.description if resource.city
+    span.info-text__text = @user.display_city
   li.info-text__item
     span.info-text__title = t('Phone')+':'
-    span.info-text__text = resource.phone
+    span.info-text__text = @user.display_phone
   li.info-text__item
     span.info-text__title = t('Site')+':'
     span.info-text__text
-      = link_to resource.site, resource.site, class: 'info-text__link' if resource.site
+      = link_to @user.display_site, @user.site, class: 'info-text__link' if @user.site
   li.info-text__item
     span.info-text__title = t('E-mail')+':'
     span.info-text__text
-      = mail_to resource.email, nil, class: 'info-text__link'
+      = mail_to @user.email, nil, class: 'info-text__link'

@@ -105,7 +105,7 @@ ActiveAdmin.setup do |config|
   #
   # Default:
   # config.logout_link_method = :get
-
+  config.logout_link_method = :delete
   # == Root
   #
   # Set the action to call for the root path. You can set different

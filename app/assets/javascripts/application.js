@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui/widgets/autocomplete
 //= require jquery-ui/widgets/tabs
+//= require jquery-ui/effects/effect-blind
 //= require turbolinks
 //= require app/app.js
 //= require app/cities.js

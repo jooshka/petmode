@@ -30,7 +30,7 @@
           = current_user.display_name
           = fa_icon 'angle-down', class: 'user-block__down'
         = link_to user_path(current_user)
-          = image_tag current_user.avatar.url(:icon), class: 'user-block__img'
+          = image_tag current_user.avatar.img.url(:sm), class: 'user-block__img'
       .user-block__basket
         .menu__item.menu__item--curr-user
           =link_to '#', class: 'menu__link menu__link--curr-user menu__link--curr-user--basket'

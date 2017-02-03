@@ -18,10 +18,6 @@
 #  last_name              :string(255)
 #  first_name             :string(255)
 #  patronymic             :string(255)
-#  avatar_file_name       :string(255)
-#  avatar_content_type    :string(255)
-#  avatar_file_size       :integer
-#  avatar_updated_at      :datetime
 #  about                  :text(65535)
 #  breeder                :boolean
 #  confirmation_token     :string(255)
@@ -36,19 +32,24 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
+  devise :database_authenticatable, :registerable, #:confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :avatar, styles: { avatar: "219x200>", icon: "75x75>" }, default_url: "/assets/missing.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
-
+  has_one :avatar, as: :imageable, dependent: :destroy
   has_many :pets
   has_many :adverts
-
   has_many :like_relationships
   has_many :favorites, through: :like_relationships, class_name: 'User'
   has_many :followers, through: :like_relationships, class_name: 'User'
   belongs_to  :city
+
+  accepts_nested_attributes_for :avatar
+
+  def club?
+  end
+
+  def pro?
+  end
 
   def like?(user)
     self.favorites.find_by(id: user.id)
@@ -75,7 +76,20 @@ class User < ApplicationRecord
   end
 
   def display_name
-    "#{last_name} #{first_name}".strip
+    name = "#{last_name} #{first_name}".strip
+    name = I18n.t('anonym') if name.empty?
+  end
+
+  def display_city
+    city ? city.description : '--'
+  end
+
+  def display_phone
+    phone && !phone.empty? ? phone : '--'
+  end
+
+  def display_site
+    site && !site.empty? ? site : '--'
   end
 
   def my_pets

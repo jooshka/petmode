@@ -1,0 +1,21 @@
+.flash {
+  text-align: center;
+  color: #777;
+}
+
+.flash__body {
+  display: inline-block;
+  background-color: #eee;
+  padding: 10px 20px 10px 60px;
+  @include border-radius(0 0 20px 20px);
+  border-top: 2px solid #bbb;
+  margin-top: -2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+}
+
+.flash__icon {  margin-right: 10px; }
+.flash__close {
+  margin-left: 60px;
+  font-size: 0.8em;
+  color: #bbb;
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg3215"
+   viewBox="0 0 264.00001 150.00001"
+   width="264"
+   height="150">
+  <defs
+     id="defs3221" />
+  <metadata
+     id="metadata3217">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <text
+     id="text3271"
+     y="53.714958"
+     x="-0.47501528"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:65.00000763px;line-height:82.99999833%;font-family:'PF Centro Serif Pro';-inkscape-font-specification:'PF Centro Serif Pro';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:75.00000763px;line-height:82.99999833%;font-family:'PF Centro Serif Pro';-inkscape-font-specification:'PF Centro Serif Pro Bold';fill:#ffffff;fill-opacity:1"
+       y="53.714958"
+       x="-0.47501528"
+       id="tspan3273">Сервис</tspan><tspan
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48.12500763px;line-height:82.99999833%;font-family:'PF Centro Serif Pro';-inkscape-font-specification:'PF Centro Serif Pro Bold';fill:#ffffff;fill-opacity:1"
+       id="tspan3275"
+       y="99.563812"
+       x="-0.47501528">домашних</tspan><tspan
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:52.50000763px;line-height:82.99999833%;font-family:'PF Centro Serif Pro';-inkscape-font-specification:'PF Centro Serif Pro Bold';fill:#ffffff;fill-opacity:1"
+       id="tspan3277"
+       y="142.17752"
+       x="-0.47501528">питомцев</tspan></text>
+</svg>

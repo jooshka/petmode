@@ -14,6 +14,23 @@
 class PetBirthday < ApplicationRecord
   belongs_to :pet
 
+  validate :date_less_now?
+
+  def date_less_now?
+    today = Date.today
+    res = true
+    if year
+      res &&= (year <= today.year)
+      if res && month
+        res &&= ((year == today.year && month <= today.month) || (year < today.year))
+        if res && day
+          Date.new(year,month,day) <= today
+        end
+      end
+    end
+    res
+  end
+
   def age
     now = DateTime.now
     apx = "\u2245".encode('utf-8')

@@ -1,24 +1,41 @@
-= form.hidden_field :user_id, value: current_user.id
+= form.hidden_field :user_id, value: @pet.user.id
 = form.input_field :name, label: false, placeholder: t('Nickname')
 = form.input_field :home_name, label: false, placeholder: t('Home name')
 ul.family-block
   li
-    = image_tag 'cat-icon.png', class:(['form__input-family','form__input-family--cat', @pet.cat? ? 'active':''].join(' '))
+    = image_tag 'cat-icon.png',
+      class:(['form__input-family','form__input-family--cat', @pet.cat? ? 'active':''].join(' '))
   li
-    = image_tag 'dog-icon.png', class:(['form__input-family','form__input-family--dog', @pet.dog? ? 'active':''].join(' '))
+    = image_tag 'dog-icon.png',
+      class:(['form__input-family','form__input-family--dog', @pet.dog? ? 'active':''].join(' '))
 = form.hidden_field :family, value: @pet.family
 ul.gender-block
   li
-    = fa_icon 'mars', class:(['form__input-gender','form__input-gender--male', @pet.male? ? 'active':''].join(' '))
+    = fa_icon 'mars',
+      class:(['form__input-gender','form__input-gender--male', @pet.male? ? 'active':''].join(' '))
   li
-    = fa_icon 'venus', class:(['form__input-gender','form__input-gender--female', @pet.female? ? 'active':''].join(' '))
+    = fa_icon 'venus',
+      class:(['form__input-gender','form__input-gender--female', @pet.female? ? 'active':''].join(' '))
 = form.hidden_field :gender, value: @pet.gender
 .form__label
   = t('Date of Birth')
 = form.simple_fields_for :birthday do |birthday_form|
-  = birthday_form.input_field :day, label:false, collection: 1..31, prompt: t('Day'), class: 'form__input form__input-day'
-  = birthday_form.input_field :month, label:false, collection: 1..12, prompt: t('Month'), class: 'form__input form__input-month'
-  = birthday_form.input_field :year, label:false, collection: Time.now.year-30..Time.now.year, prompt: t('Year'), class: 'form__input form__input-year'
+  = birthday_form.input_field :day,
+    label:false,
+    collection: 1..31,
+    prompt: t('Day'),
+    class: 'form__input form__input-day'
+
+  = birthday_form.input_field :month,
+    label:false, collection: 1..12,
+    prompt: t('Month'),
+    class: 'form__input form__input-month'
+
+  = birthday_form.input_field :year,
+    label:false,
+    collection: Time.now.year-30..Time.now.year,
+    prompt: t('Year'),
+    class: 'form__input form__input-year'
 
 = form.input_field :weight, as: :integer,  label: false, placeholder: t('Weight (g)')
 = form.input_field :about, label:false, as: :text, placeholder: t('About me'), rows: 5

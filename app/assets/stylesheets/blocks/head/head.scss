@@ -1,6 +1,6 @@
 .head {
   color: #fff;
-  padding: 15px 30px 50px 30px;
+  padding: 15px 30px 50px;
   &:after{ @include clearfix; }
 }
 
@@ -35,32 +35,3 @@
 .head__search--user  { margin-top: 25px; }
 .head__auth {}
 .head__slogan { width: 48%; float: right; margin-top: 10px; }
-
-@media (max-width: 900px) {
-  .head__col-menu--guest { height: 150px; }
-  .head__col-user { height: 150px; }
-}
-@media (max-width: 830px) {
-  .head__search--guest { margin-top: 9px; }
-  .head__col-menu--guest { height: 130px; }
-  .head__col-user { height: 130px; }
-}
-@media (max-width: 800px) {
-  .head { padding-bottom: 20px; }
-  .head__slogan { width: 65%; }
-}
-@media (max-width: 768px)  {
-  .head { padding-bottom: 10px; }
-  .head__menu--user { margin-top: 10px; }
-  .head__slogan { margin-top: 0; }
-  .head__col-logo { margin-top: -5px; }
-  .head__col-menu--guest { margin-top: 20px; height: 125px; }
-  .head__col-user { margin-top: 20px; height: 125px; }
-}
-@media (max-width: 640px)  {
-  .head__menu--user     { margin-top: 5px; }
-  .head__search--user   { margin-top: 10px; }
-  .head__col-menu--user { width: 60%; float: left;  }
-  .head__col-logo--user { width: 15%; float: left;  }
-  .head__slogan { width: calc( 100% - 20px); }
-}

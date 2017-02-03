@@ -6,7 +6,7 @@
           - if s[:title]
             .titled-block__title =t(s[:title])
           .titled-block__body
-            = render s[:tpl], s[:options]
+            = render s[:tpl], s[:opt]
   .card__body
     - @card_sections[:body].each do |s|
       div class="card__section card__section--#{s[:mod]}"
@@ -14,4 +14,4 @@
           - if s[:title]
             .titled-block__title =t(s[:title])
           .titled-block__body
-            = render s[:tpl], s[:options]
+            = render s[:tpl], s[:opt]

@@ -5,21 +5,22 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @resource = @user
     respond_to do |format|
       format.html do
         @menu_tpl = 'menu'
         @card_sections = {
           sidebar: [
-            { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @user } },
-            { mod: 'fvt', title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
-            { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
+            { tpl: 'avatar' },
+            { tpl: 'bcards', opt: { resource: @user.favorites, size: 'sm' }, title: 'Favorites' },
+            { tpl: 'banner' }
           ],
           body:    [
-            { mod: 'ttl', title: nil, tpl: 'users/info_title', options: { resource: @user } },
-            { mod: 'ttt', title: nil, tpl: 'users/info_text', options: { resource: @user } },
-            { mod: 'abt', title: 'About me', tpl: 'about', options: { resource: @user } },
-            { mod: 'pts', title: 'My pets',  tpl: 'bcards', options: { resource: @user.my_pets, size: 'md'}  },
-            { mod: 'adw', title: 'My adverts', tpl: 'bcards', options: { resource: @user.pets_of_my_adverts, size: 'lg'}  }
+            { tpl: 'users/info_title' },
+            { tpl: 'users/info_text'  },
+            { tpl: 'about', title: 'About me' },
+            { tpl: 'bcards', opt: { resource: @user.my_pets, size: 'md' }, title: 'My pets' },
+            { tpl: 'bcards', opt: { resource: @user.pets_of_my_adverts, size: 'lg' }, title: 'My adverts' }
           #  { mod: 'spc', title: 'My specialities', tpl: 'bcards', options: { resource: @user.pets, size: 'lg'}  },
           ]
         }
@@ -34,13 +35,13 @@ class UsersController < ApplicationController
     @resource = @user
     @card_sections = {
       sidebar: [
-        { mod: 'ava', title: nil, tpl: 'f_avatar', options: {}  },
-        { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
+        { tpl: 'f_avatar' },
+        { tpl: 'banner'   }
       ],
       body: [
-        { mod: 'fmn', title: 'Main data', tpl: 'f_main', options: {}  },
-        { mod: 'fsb', title: 'Subscriptions', tpl: 'f_subscribes', options: {}  },
-        { mod: 'fst', title: nil, tpl: 'f_submit', options: {}  }
+        { tpl: 'f_main', title: 'Main data' },
+        { tpl: 'f_subscribes', title: 'Subscriptions' },
+        { tpl: 'f_submit' }
       ]
     }
     render 'f_card'
@@ -48,16 +49,17 @@ class UsersController < ApplicationController
 
   def followers
     @menu_tpl = 'menu'
+    @resource = @user
     respond_to do |format|
       format.html do
         @card_sections = {
           sidebar: [
-            { mod: 'ava', title: nil, tpl: 'avatar', options: { resource: @user }  },
-            { mod: 'fvr', title: 'Favorites', tpl: 'bcards', options: { resource: @user.favorites, size: 'sm' }  },
-            { mod: 'bnr', title: nil, tpl: 'banner', options: {}  }
+            { tpl: 'avatar' },
+            { tpl: 'bcards', opt: { resource: @user.favorites, size: 'sm' }, title: 'Favorites' },
+            { tpl: 'banner' }
           ],
           body:    [
-            { mod: 'flw', title: 'My followers', tpl: 'bcards', options: { resource: @user.followers, size: 'md' } },
+            { tpl: 'bcards', opt: { resource: @user.followers, size: 'md' }, title: 'My followers' },
           ]
         }
         render 'card'
@@ -106,10 +108,10 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.fetch(:user, {})
-        .permit(
-          :last_name, :first_name, :breeder, :about, :avatar,
-          :phone, :site, :city_id
-        )
+      params.require(:user).permit(
+        :last_name, :first_name, :breeder, :about,
+        :phone, :site, :city_id,
+        avatar_attributes:   [ :img, :id ]
+      )
     end
 end

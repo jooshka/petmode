@@ -2,38 +2,36 @@
 #
 # Table name: pets
 #
-#  id                  :integer          not null, primary key
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  user_id             :integer
-#  avatar_file_name    :string(255)
-#  avatar_content_type :string(255)
-#  avatar_file_size    :integer
-#  avatar_updated_at   :datetime
-#  name                :string(255)
-#  gender              :integer          default("male")
-#  weight              :integer
-#  about               :text(65535)
-#  home_name           :string(255)
-#  family              :integer
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#  name       :string(255)
+#  gender     :integer          default("male")
+#  weight     :integer
+#  about      :text(65535)
+#  home_name  :string(255)
+#  family     :integer          default("cat")
 #
 
 class Pet < ApplicationRecord
-  has_attached_file :avatar, styles: { avatar: "219x200>", thumb: "120x120>" }, default_url: "/assets/pet_miss.jpg"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
-
+  has_one :avatar, as: :imageable, dependent: :destroy
   belongs_to :user
   enum family: ['cat', 'dog']
   enum gender: ['male', 'female']
-  has_one :advert
-  has_one :birthday, class_name: 'PetBirthday'
+  has_one :advert, dependent: :destroy
+  has_one :birthday, class_name: 'PetBirthday', dependent: :destroy
+
+  accepts_nested_attributes_for :avatar
   accepts_nested_attributes_for :birthday
   accepts_nested_attributes_for :advert
+
+  validates_associated :birthday
 
   has_one :city, through: :advert
 
   def display_name
-    name && !name.empty? ? name : '--'
+    name && !name.empty? ? name : I18n.t('anonym')
   end
 
   def display_home_name
@@ -78,4 +76,12 @@ class Pet < ApplicationRecord
     pet.name.try(:strip!)
   end
 
+  after_initialize :set_defaults, unless: :persisted?
+
+  def set_defaults
+    family = 'cat'
+    gender = 'male'
+    build_avatar
+    build_birthday
+  end
 end
