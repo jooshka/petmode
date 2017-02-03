@@ -11,7 +11,7 @@
 
 .bcards__item--lg { margin-bottom: 30px; }
 .bcards__item--md { margin-bottom: 30px; }
-.bcards__item--sm { margin-bottom: 11px; }
+.bcards__item--sm { margin-bottom: 11px; margin-right: 0; }
 
 .bcard {
   position: relative;
@@ -73,7 +73,7 @@
 
 .bcard__title1 { text-transform: capitalize; }
 
-.bcard__title1--lg {
+.bcard__title1--lg, .bcard__title1--sm {
   font-family: "PTSansBold";
   font-size: 15px;
   margin-bottom: 6px;
@@ -88,7 +88,7 @@
 
 .bcard__title2 {}
 
-.bcard__title2--lg {
+.bcard__title2--lg, .bcard__title2--sm {
   font-size: 14px;
   color: #565656;
   margin-bottom: 9px;

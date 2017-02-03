@@ -1,7 +1,6 @@
-= content_for :card_share_actions
-  - if @user != current_user
-    =button_to t('Send message'), '#'
-    - if current_user.like?(@user)
-      =button_to t('Remove from favorite'), unlike_user_path
-    - else
-      =button_to t('Add to favorite'), like_user_path
+- if user_signed_in? && @user != current_user
+  =link_to t('Send message'), '#', class: 'button'
+  - if current_user.like?(@user)
+    =link_to t('Remove from favorite'), unlike_user_path, class: 'button button__second', method: 'post'
+  - else
+    =link_to t('Add to favorite'), like_user_path, class: 'button button__second', method: 'post'

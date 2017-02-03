@@ -1,3 +1,4 @@
-= content_for(:menu) do
-  = render @menu_tpl
+- if user_signed_in?
+  = content_for(:menu) do
+    = render @menu_tpl
 = render 'card'

@@ -16,8 +16,9 @@ class UsersController < ApplicationController
             { tpl: 'banner' }
           ],
           body:    [
-            { tpl: 'users/info_title' },
-            { tpl: 'users/info_text'  },
+            { tpl: 'info_title' },
+            { tpl: 'info_text'  },
+            { tpl: 'card_share_actions'  },
             { tpl: 'about', title: 'About me' },
             { tpl: 'bcards', opt: { resource: @user.my_pets, size: 'md' }, title: 'My pets' },
             { tpl: 'bcards', opt: { resource: @user.pets_of_my_adverts, size: 'lg' }, title: 'My adverts' }
@@ -70,7 +71,7 @@ class UsersController < ApplicationController
 
   def like
     if @user && current_user.like(@user)
-      redirect_to @user, notice: "#{@user.full_name} успешно добавлен(-а) в ваш список избранных."
+      redirect_to @user, notice: "#{@user.display_name} успешно добавлен(-а) в ваш список избранных."
     else
       redirect_to @user, notice: 'Этот пользователь уже есть у вас в контактах.'
     end
@@ -78,7 +79,7 @@ class UsersController < ApplicationController
 
   def unlike
     if @user && current_user.unlike(@user)
-      redirect_to @user, notice: "#{@user.full_name} успешно удален(-а) из вашего списка избранных."
+      redirect_to @user, notice: "#{@user.display_name} успешно удален(-а) из вашего списка избранных."
     else
       redirect_to @user, notice: 'Этого пользователя нет у вас в контактах.'
     end

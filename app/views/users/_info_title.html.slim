@@ -6,3 +6,6 @@ ul.info-title
     li.info-title__item.info-title__item--club club
   - if @user.breeder
     li.info-title__item.info-title__item--breeder breeder
+  - unless @user == current_user
+    = link_to :back, class: 'button button--back'
+      = fa_icon 'backward'

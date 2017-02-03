@@ -16,6 +16,7 @@ body
         = yield (:menu)
       - else
         = render 'head_guest'
+        .wave.wave-w
       = yield (:filter)
 
       - if notice || alert
