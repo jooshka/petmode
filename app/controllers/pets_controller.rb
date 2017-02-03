@@ -79,8 +79,7 @@ class PetsController < ApplicationController
       ],
       body: [
         { title: 'Main data', tpl: 'f_main' },
-        { tpl: 'f_submit' },
-        { tpl: 'destroy'  }
+        { tpl: 'pets/f_edit_actions'  }
       ]
     }
     render 'f_card'

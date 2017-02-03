@@ -1,0 +1,3 @@
+.form-actions
+  = form.button :submit, t('Save'), class: 'button'
+  = link_to t('Delete'), pet_path(@pet), method: 'delete', class: 'button button__second'

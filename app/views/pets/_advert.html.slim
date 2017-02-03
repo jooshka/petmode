@@ -13,5 +13,10 @@ ul.info-text.info-text--advert
     li.info-text__item
       span.info-text__title = t('Comment')+':'
       span.info-text__text = @pet.advert.comment
-
-= link_to t('Delete'), advert_destroy_path(@pet), confirm: 'Are you sure?', method: :delete
+br
+br
+= link_to t('Delete'),
+  advert_destroy_path(@pet),
+  confirm: 'Are you sure?',
+  method: :delete,
+  class: 'button'
