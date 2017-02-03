@@ -76,12 +76,4 @@ class Pet < ApplicationRecord
     pet.name.try(:strip!)
   end
 
-  after_initialize :set_defaults, unless: :persisted?
-
-  def set_defaults
-    family = 'cat'
-    gender = 'male'
-    build_avatar
-    build_birthday
-  end
 end

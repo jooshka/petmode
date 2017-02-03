@@ -45,6 +45,10 @@ class PetsController < ApplicationController
   def new
     @menu_tpl = 'users/menu'
     @pet = Pet.new
+    @pet.family = 'cat'
+    @pet.gender = 'male'
+    @pet.build_avatar
+    @pet.build_birthday
     @pet.user = current_user
     @resource = @pet
     @card_sections = {
