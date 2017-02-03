@@ -78,6 +78,7 @@ class User < ApplicationRecord
   def display_name
     name = "#{last_name} #{first_name}".strip
     name = I18n.t('anonym') if name.empty?
+    name
   end
 
   def display_city

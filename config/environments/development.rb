@@ -72,5 +72,6 @@ Rails.application.configure do
   }
 
   config.action_mailer.raise_delivery_errors = true
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 
 end
