@@ -7,5 +7,6 @@ ul.info-title
   - if @user.breeder
     li.info-title__item.info-title__item--breeder breeder
   - unless @user == current_user
-    = link_to :back, class: 'button button--back'
+    /= link_to :back, class: 'button button--back'
+    = link_to 'javascript:history.go(-1);', class: 'button button--back'
       = fa_icon 'backward'
