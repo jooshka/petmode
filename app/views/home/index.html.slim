@@ -3,7 +3,8 @@
     ul id='j'
       - @pets_slick.each do |pet|
         li.slick__item
-          img data-lazy=pet.avatar.img.url(:lg) class='slick__img'
+          = link_to pet, class: 'slick__link'
+            img data-lazy=pet.avatar.img.url(:lg) class='slick__img'
   .home__section.home__section--sale
     .home__group.home__group--description
       .titled-block.titled-block--center
