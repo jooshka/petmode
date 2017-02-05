@@ -34,3 +34,20 @@
   margin-right: 10px;
   z-index: 1;
 }
+
+.filter__price { width: 120px; }
+.filter__price--start { text-align: right; }
+.filter__price--end   { text-align: left; }
+
+.ui-slider {
+  border: 1px solid #343434;
+  @include border-radius(10px);
+  margin-top: 4px;
+}
+.ui-slider-handle {
+
+}
+
+.ui-slider-range {
+  background: #343434;
+}

@@ -47,6 +47,14 @@
             City.have_pets.distinct.map {|l| [ "#{l.title} [#{l.pets.count}]", l.id ] },
             { selected: params[:by_city], prompt: t('Select city') },
             { class: 'filter__select' }  )
+      li.filter__group
+        p
+          label =t('Price range')+':   '
+          input type="text" id="price_start" name='by_price[started_at]' class='filter__price  filter__price--start'
+          = "  \u223b   "
+          input type="text" id="price_end" name='by_price[ended_at]' class='filter__price filter__price--end'
+
+        #slider-range
 
       li.filter__group
         = submit_tag t('Apply'), name: '', class: 'button button--filter', id: 'apply'
@@ -63,4 +71,30 @@ coffee:
         $('#_by_region').prop('selectedIndex',-1)
         $('#_by_city').prop('selectedIndex',-1)
       return
+
+    s = location.toString()
+
+    i = s.indexOf('by_price%5Bstarted_at%5D=')
+    price_start = if i>0 && i+25<s.length then parseInt(s.substring(i+25)) else 500
+    price_sart = if Number.isInteger(price_start) then price_end else 500
+
+    i = s.indexOf('by_price%5Bended_at%5D=')
+    price_end = if i>0 && i+23<s.length then parseInt(s.substring(i+23)) else 50000
+    price_end = if Number.isInteger(price_end) then price_end else 50000
+
+    $('#price_start').val price_start
+    $('#price_end').val price_end
+    $('#slider-range').slider
+      range: true
+      min: 0
+      max: 60000
+      values: [
+        price_start
+        price_end
+      ]
+      slide: (event, ui) ->
+        $('#price_start').val ui.values[0]
+        $('#price_end').val ui.values[1]
+        return
+    $('#amount').val '$' + $('#slider-range').slider('values', 0) + ' - $' + $('#slider-range').slider('values', 1)
     return
