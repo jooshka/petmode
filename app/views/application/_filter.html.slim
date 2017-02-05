@@ -1,4 +1,66 @@
 = content_for(:filter)
   .wave
-  .filter
-    | ttt
+  = form_tag '', method: :get, id: 'filter' do
+    ul.filter
+      li.filter__group
+        .filter__item.filter__item--family
+          = radio_button_tag(:by_family,
+            Pet.families[:cat],
+            params[:by_family]=="#{Pet.families[:cat]}",
+            class: 'form__input-radio' )
+          = label_tag("by_family_#{Pet.families[:cat]}", "", class: 'form__input-radio-label form__input-radio--cat')
+
+          = radio_button_tag(:by_family,
+            Pet.families[:dog],
+            params[:by_family]=="#{Pet.families[:dog]}",
+            class: 'form__input-radio')
+          = label_tag("by_family_#{Pet.families[:dog]}", "", class: 'form__input-radio-label form__input-radio--dog')
+
+        .form__item.filter__item--gender
+          = radio_button_tag(:by_gender,
+            Pet.genders[:male],
+            params[:by_gender]=="#{Pet.genders[:male]}",
+            class: 'form__input-radio' )
+          = label_tag("by_gender_#{Pet.genders[:male]}", "", class: 'form__input-radio-label form__input-radio--male')
+
+          = radio_button_tag(:by_gender,
+            Pet.genders[:female],
+            params[:by_gender]=="#{Pet.genders[:female]}",
+            class: 'form__input-radio' )
+          = label_tag("by_gender_#{Pet.genders[:female]}", "", class: 'form__input-radio-label form__input-radio--female')
+      li.filter__group
+        .filter__select-wrap
+          = fa_icon 'angle-down', class: 'filter__select-down'
+          = select(nil, :by_country,
+            Country.have_pets.distinct.map {|l| [ "#{l.title} [#{l.pets.count}]", l.id ] },
+            { selected: params[:by_country], prompt: t('Select country') },
+            { class: 'filter__select' } )
+        .filter__select-wrap
+          = fa_icon 'angle-down', class: 'filter__select-down'
+          = select(nil, :by_region,
+            Region.have_pets.distinct.map {|l| [ "#{l.title} [#{l.pets.count}]", l.id ] },
+            { selected: params[:by_region], prompt: t('Select region')},
+            { class: 'filter__select' } )
+        .filter__select-wrap
+          = fa_icon 'angle-down', class: 'filter__select-down'
+          = select(nil, :by_city,
+            City.have_pets.distinct.map {|l| [ "#{l.title} [#{l.pets.count}]", l.id ] },
+            { selected: params[:by_city], prompt: t('Select city') },
+            { class: 'filter__select' }  )
+
+      li.filter__group
+        = submit_tag t('Apply'), name: '', class: 'button button--filter', id: 'apply'
+        = submit_tag t('Reset'), name: '', class: 'button button--filter', id: 'reset'
+
+coffee:
+  $ ->
+    new app.PetFilter
+    $('#filter').submit ->
+      if $(document.activeElement).prop('id') == 'reset'
+        $('input[name="by_family"]').val(null)
+        $('input[name="by_gender"]').val(null)
+        $('#_by_country').prop('selectedIndex',-1)
+        $('#_by_region').prop('selectedIndex',-1)
+        $('#_by_city').prop('selectedIndex',-1)
+      return
+    return

@@ -2,7 +2,7 @@
 = form.input :first_name, label: false, placeholder: t('First name')
 
 = form.hidden_field :city_id
-- city_val = @user.city ? @user.city.description : ''
+- city_val = @user.city ? @user.city.title : ''
 input type='text' id='cities-search-txt' value=city_val class='form__input' placeholder=t('Locality')
 #cities-search-results
 

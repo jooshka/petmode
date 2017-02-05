@@ -101,3 +101,8 @@ ru:
   'Pet card was successfully destroyed': 'Карточка питомца успешно удалена'
   'Advert locking card': 'Объявление блокирует карточку'
   'User card was successfully updated': 'Карточка пользователя успешно обновлена'
+  'Apply': 'Применить'
+  'Select city': 'Выберите город'
+  'Select region': 'Выберите регион'
+  'Select country': 'Выберите страну'
+  'Reset': 'Сброс'

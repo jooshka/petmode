@@ -4,4 +4,5 @@
       li class="bcards__item bcards__item--#{size}"
         = render 'bcard', resource: item, size: size
 - else
-  = image_tag 'missing.svg'
+  .bcards__empty
+    = image_tag 'missing.svg'

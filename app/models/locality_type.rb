@@ -10,4 +10,10 @@
 #
 
 class LocalityType < ApplicationRecord
+
+  def title
+    v = self["name_#{I18n.locale}"] || ''
+    v.downcase
+  end
+
 end

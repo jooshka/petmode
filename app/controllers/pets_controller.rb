@@ -1,10 +1,12 @@
 class PetsController < ApplicationController
+  helper_method :params
   before_action :set_pet, only: [:show, :edit, :settings, :update, :destroy, :advert, :advert_destroy]
   before_action :set_user, only: [:new, :edit, :create, :destroy]
 
   has_scope :by_family
   has_scope :by_gender
   has_scope :by_city
+  has_scope :by_region
   has_scope :by_price, :using => [:started_at, :ended_at], :type => :hash
 
   def sale

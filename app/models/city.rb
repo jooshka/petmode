@@ -15,20 +15,15 @@ class City < ApplicationRecord
   belongs_to :region
   belongs_to :locality_type
 
-  def description
-    d = ''
-    if self
-      d = d + locality_type["name_#{I18n.locale}"].downcase if locality_type && locality_type["name_#{I18n.locale}"]
-      d = d + ' ' + self["name_#{I18n.locale}"] if self["name_#{I18n.locale}"]
-      if region
-        if region["name_#{I18n.locale}"] != self["name_#{I18n.locale}"]
-          d = d + ', ' + region["name_#{I18n.locale}"] if region["name_#{I18n.locale}"]
-          d = d + ' '  + region.locality_type["name_#{I18n.locale}"].downcase if region.locality_type && region.locality_type["name_#{I18n.locale}"]
-        end
-        d = d + ', ' + region.country["name_#{I18n.locale}"] if region.country && region.country["name_#{I18n.locale}"]
-      end
-    end
-    d
+  has_many :users
+  has_many :adverts, through: :users
+  has_many :pets, through: :adverts
+
+  def title
+    name = self["name_#{I18n.locale}"] || ''
+    v = locality_type ? locality_type.title : ''
+    v = v + ' ' + name if !name.empty?
+    v = v + ', ' + region.title if region && region.title && !region.title.empty?
   end
 
   def self.search(term)
@@ -36,4 +31,9 @@ class City < ApplicationRecord
    .order('name_en')
    .limit(30)
   end
+
+  scope :have_pets, -> {
+    joins(:pets)
+    .order("name_#{I18n.locale}")
+  }
 end

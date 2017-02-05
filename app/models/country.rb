@@ -13,4 +13,19 @@
 #
 
 class Country < ApplicationRecord
+  has_many :regions
+  has_many :cities, through: :regions
+  has_many :users, through: :cities
+  has_many :adverts, through: :users
+  has_many :pets, through: :adverts
+
+  def title
+    self["name_#{I18n.locale}"] || ''
+  end
+
+  scope :have_pets, -> {
+    joins(:pets)
+    .order("name_#{I18n.locale}")
+  }
+
 end

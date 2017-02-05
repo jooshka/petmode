@@ -1,5 +1,36 @@
 .filter {
   background: #ffd800;
-  padding: 30px 20px 20px 30px;
-  &:after { @include clearfix; }
+  padding: 25px 0 15px;
+  @include display_flex;
+  @include flex-wrap(wrap);
+  @include justify-content(space-around);
+}
+
+.filter__group {
+  //border: 1px dotted black;
+  margin-bottom: 10px;
+  height: 98px;
+}
+
+.filter__select {
+  padding: 4px;
+  width: 400px;
+  z-index: 2;
+}
+
+.filter__select-wrap {
+  position: relative;
+  width: 380px;
+  @include border-radius(20px);
+  border: 1px solid #343434;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.filter__select-down {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  margin-right: 10px;
+  z-index: 1;
 }

@@ -29,6 +29,8 @@ class Pet < ApplicationRecord
   validates_associated :birthday
 
   has_one :city, through: :advert
+  has_one :region, through: :city
+  has_one :country, through: :region
 
   def display_name
     name && !name.empty? ? name : I18n.t('anonym')
@@ -66,6 +68,8 @@ class Pet < ApplicationRecord
   scope :by_gender, -> gender { where(gender: gender) }
   scope :by_family, -> family { where(family: family) }
   scope :by_city,   -> city_id { joins(:city).where('cities.id' => city_id ) }
+  scope :by_region, -> region_id { joins(:region).where('regions.id' => region_id ) }
+  scope :by_country,-> country_id { joins(:country).where('countries.id' => country_id ) }
 
   scope :by_price,  -> started_at, ended_at {
     joins(:advert)
@@ -74,6 +78,10 @@ class Pet < ApplicationRecord
 
   before_validation do |pet|
     pet.name.try(:strip!)
+  end
+
+  after_create do |pet|
+    pet.build_avatar.save unless pet.avatar
   end
 
 end

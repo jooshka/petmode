@@ -18,5 +18,6 @@
 //= require turbolinks
 //= require app/app.js
 //= require app/cities.js
+//= require app/pet_filter.js
 //= require simple_form_autocomplete
 //= require_tree .

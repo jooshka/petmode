@@ -1,22 +1,19 @@
 = form.hidden_field :user_id, value: @pet.user.id
 = form.input_field :name, label: false, placeholder: t('Nickname')
 = form.input_field :home_name, label: false, placeholder: t('Home name')
-ul.family-block
-  li
-    = image_tag 'cat-icon.png',
-      class:(['form__input-family','form__input-family--cat', @pet.cat? ? 'active':''].join(' '))
-  li
-    = image_tag 'dog-icon.png',
-      class:(['form__input-family','form__input-family--dog', @pet.dog? ? 'active':''].join(' '))
-= form.hidden_field :family, value: @pet.family
-ul.gender-block
-  li
-    = fa_icon 'mars',
-      class:(['form__input-gender','form__input-gender--male', @pet.male? ? 'active':''].join(' '))
-  li
-    = fa_icon 'venus',
-      class:(['form__input-gender','form__input-gender--female', @pet.female? ? 'active':''].join(' '))
-= form.hidden_field :gender, value: @pet.gender
+
+.form__group
+  = radio_button_tag('pet[family]', 'cat', @pet.cat?, class: 'form__input-radio' )
+  = label_tag('pet_family_cat', '', class: 'form__input-radio--cat')
+  = radio_button_tag('pet[family]', 'dog', @pet.dog?, class: 'form__input-radio')
+  = label_tag('pet_family_dog', '', class: 'form__input-radio--dog')
+
+.form__group
+  = radio_button_tag('pet[gender]', 'male', @pet.male?, class: 'form__input-radio' )
+  = label_tag('pet_gender_male', '', class: 'form__input-radio--male')
+  = radio_button_tag('pet[gender]', 'female', @pet.dog?, class: 'form__input-radio')
+  = label_tag('pet_gender_female', '', class: 'form__input-radio--female')
+
 .form__label
   = t('Date of Birth')
 = form.simple_fields_for :birthday do |birthday_form|
@@ -39,23 +36,3 @@ ul.gender-block
 
 = form.input_field :weight, as: :integer,  label: false, placeholder: t('Weight (g)')
 = form.input_field :about, label:false, as: :text, placeholder: t('About me'), rows: 5
-
-coffee:
-  $ ->
-    $('.form__input-family').click ->
-      $('.form__input-family--cat').toggleClass 'active'
-      $('.form__input-family--dog').toggleClass 'active'
-      el = $('#pet_family')
-      v = el.val()
-      if v == 'cat' then v = 'dog' else v = 'cat'
-      el.val(v)
-      return
-    $('.form__input-gender').click ->
-      $('.form__input-gender--male').toggleClass 'active'
-      $('.form__input-gender--female').toggleClass 'active'
-      el = $('#pet_gender')
-      v = el.val()
-      if v == 'male' then v = 'female' else v = 'male'
-      el.val(v)
-      return
-    return

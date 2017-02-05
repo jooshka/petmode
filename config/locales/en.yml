@@ -101,3 +101,8 @@ en:
   'Pet card was successfully destroyed': 'Pet card was successfully destroyed'
   'Advert locking card': 'Advert locking card'
   'User card was successfully updated': 'User card was successfully updated'
+  'Apply': 'Apply'
+  'Select city': 'Select city'
+  'Select region': 'Select region'
+  'Select country': 'Select country'
+  'Reset': 'Reset'

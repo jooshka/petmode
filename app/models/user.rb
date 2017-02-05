@@ -82,7 +82,7 @@ class User < ApplicationRecord
   end
 
   def display_city
-    city ? city.description : '--'
+    city && city.title && !city.title.empty? ? city.title : '--'
   end
 
   def display_phone
