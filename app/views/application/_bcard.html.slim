@@ -5,7 +5,7 @@
   div class="bcard__text-block bcard__text-block--#{size}"
     div class="bcard__title1 bcard__title1--#{size}"
       = resource.display_name
-      - if resource.is_a?(Pet) && resource.advert
+      - if resource.is_a?(Pet) && resource.advert && size == 'lg'
         .bcard__type = t(resource.advert.advert_type.capitalize)
     div class="bcard__title2 bcard__title2--#{size}" Перс
     - if size=='lg'

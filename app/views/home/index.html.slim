@@ -1,2 +1,35 @@
-h1 Home#index
-p Find me in app/views/home/index.html.slim
+.home
+  .home__section.home__section--slider
+  .home__section.home__section--sale
+    .home__group.home__group--description
+      .titled-block.titled-block--center
+        .titled-block__title
+          = t('Pets for sale')
+        .titled-block__body
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          .form__actions
+            = link_to t('Post your advertisement'), '#', class: 'button button--inverse'
+    .home__group.home__group--sale
+      = render 'bcards', resource: @pets_sale, size: 'md'
+  .wave.wave--bottom
+  .home__section.home__section--copulation
+    .home__group.home__group--copulation
+      = render 'bcards', resource: @pets_copulation, size: 'md'
+    .home__group.home__group--wolf
+    .home__group.home__group--description
+      .titled-block.titled-block--center
+        .titled-block__title
+          = t('Pets for copulation')
+        .titled-block__body
+          | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          .form__actions
+            = link_to t('Find a couple'), '#', class: 'button button--transparent'
+  .home__section.home__section--composite
+    .home__group.home__group--goodhands
+    .home__group.home__group--experts
+    .home__group.home__group--news
+  .wave.wave--top
+  .home__section.home__section--shop
+    .titled-block
+      .titled-block__title.titled-block__title--center
+      .titled-block__body

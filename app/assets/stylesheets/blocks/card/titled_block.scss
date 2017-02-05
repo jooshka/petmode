@@ -1,4 +1,8 @@
 .titled-block {}
+.titled-block--center {
+  text-align: center;
+  margin: auto;
+}
 .titled-block--auth {
   text-align: center;
   margin: auto;
@@ -13,4 +17,6 @@
   font-size: 24px;
   margin-bottom: 26px;
 }
+.titled-block__title--center { text-align: center; }
+
 .titled-block__body {}

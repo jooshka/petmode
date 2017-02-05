@@ -4,10 +4,11 @@
 
   .head__col-logo
     .head__logo
-      .logo.logo--guest
-        = image_tag 'logo.png', class: 'logo__img logo__img--guest'
-        .logo__imgtxt-wrap
-          = image_tag 'logo_text.svg', class: 'logo__imgtxt'
+      = link_to root_path
+        .logo.logo--guest
+          = image_tag 'logo.png', class: 'logo__img logo__img--guest'
+          .logo__imgtxt-wrap
+            = image_tag 'logo_text.svg', class: 'logo__imgtxt'
 
   .head__col-user.head__col-user--guest
     .head__user

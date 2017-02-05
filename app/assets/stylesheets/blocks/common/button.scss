@@ -32,3 +32,14 @@
   width: 132px;
   margin-bottom: 16px;
 }
+
+.button--inverse {
+  background-color: #343434;
+  color: #ffd800;
+}
+
+.button--transparent {
+  background-color: transparent;
+  color: #343434;
+  border: 2px solid #343434;
+}

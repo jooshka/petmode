@@ -4,10 +4,11 @@
 
   .head__col-logo
     .head__logo
-      .logo.logo--user
-        = image_tag 'logo.png', class: 'logo__img logo__img--user'
-        .logo__text-wrap
-          .logo__text.logo__text--user Сервис домашних питомцев
+      = link_to root_path
+        .logo.logo--user
+          = image_tag 'logo.png', class: 'logo__img logo__img--user'
+          .logo__text-wrap
+            .logo__text.logo__text--user Сервис домашних питомцев
 
   .head__col-menu.head__col-menu--user
 

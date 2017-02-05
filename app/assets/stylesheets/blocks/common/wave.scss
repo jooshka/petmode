@@ -1,11 +1,18 @@
 .wave {
   width: 100%;
   height: 10px;
+}
+
+.wave--top {
   margin-top: -16px;
   background: url(wave.svg);
 }
 
-.wave_u {
+.wave--bottom {
+  background: url(wave-bottom.svg);
+}
+
+.wave--u {
   width: 100%;
   height: 6px;
   background-color: #ffd800;

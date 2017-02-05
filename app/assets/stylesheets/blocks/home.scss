@@ -1,0 +1,32 @@
+.home {}
+.home__section {
+  padding: 30px 30px 20px 30px;
+  &:after { @include clearfix; }
+}
+.home__section--slider { margin-top: -70px; padding: 0; }
+.home__section--sale {
+  background: #ffd800;
+}
+.home__section--shop {
+  background: #ffd800;
+}
+
+.home__group { float: left; }
+.home__group--description {
+  width: 300px;
+  padding-top: 30px;
+  margin-right: 20px;
+}
+
+.home__group--sale { width: calc(100% - 320px); }
+
+.home__group--copulation {
+  width: calc(100% - 320px - 320px);
+  margin-top: 30px;
+}
+.home__group--wolf {
+  background-image: url(wolf.png);
+  background-size: cover;
+  width: 320px;
+  height: 0.94 * 320px;
+}
