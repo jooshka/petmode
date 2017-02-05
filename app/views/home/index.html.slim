@@ -7,7 +7,7 @@
           = t('Pets for sale')
         .titled-block__body
           | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          .form__actions
+          .home__actions
             = link_to t('Post your advertisement'), '#', class: 'button button--inverse'
     .home__group.home__group--sale
       = render 'bcards', resource: @pets_sale, size: 'md'
@@ -16,13 +16,13 @@
     .home__group.home__group--copulation
       = render 'bcards', resource: @pets_copulation, size: 'md'
     .home__group.home__group--wolf
-    .home__group.home__group--description
+    .home__group.home__group--description.home__group--description--copulation
       .titled-block.titled-block--center
         .titled-block__title
           = t('Pets for copulation')
         .titled-block__body
           | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          .form__actions
+          .home__actions
             = link_to t('Find a couple'), '#', class: 'button button--transparent'
   .home__section.home__section--composite
     .home__group.home__group--goodhands

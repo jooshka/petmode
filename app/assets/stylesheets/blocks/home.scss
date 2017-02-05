@@ -18,10 +18,12 @@
   margin-right: 20px;
 }
 
+.home__group--description--copulation { padding-top: 50px; }
+
 .home__group--sale { width: calc(100% - 320px); }
 
 .home__group--copulation {
-  width: calc(100% - 320px - 320px);
+  width: calc(100% - 320px - 460px);
   margin-top: 30px;
 }
 .home__group--wolf {
@@ -29,4 +31,8 @@
   background-size: cover;
   width: 320px;
   height: 0.94 * 320px;
+  margin-left: 90px;
+  margin-right: 50px;
 }
+
+.home__actions { margin-top: 30px; }
