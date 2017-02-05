@@ -47,7 +47,7 @@
             City.have_pets.distinct.map {|l| [ "#{l.title}", l.id ] },
             { selected: params[:by_city], prompt: t('Select city') },
             { class: 'filter__select' }  )
-      - if @kind != 'copulation'
+      - if @kind != 'goodhands'
         li.filter__group
           p
             label =t('Price range')+':   '
