@@ -61,6 +61,10 @@ class Pet < ApplicationRecord
     .where('advert_type is null or advert_type=1')
   }
 
+  scope :advert, -> {
+   joins(:advert)
+  }
+
   scope :sale, -> {
     joins(:advert) #&& advert.published?
    .where('adverts.advert_type': Advert.advert_types['sale'])

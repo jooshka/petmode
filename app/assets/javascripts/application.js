@@ -21,4 +21,5 @@
 //= require app/cities.js
 //= require app/pet_filter.js
 //= require simple_form_autocomplete
+//= require slick.min
 //= require_tree .

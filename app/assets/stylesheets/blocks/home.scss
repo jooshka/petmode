@@ -29,10 +29,40 @@
 .home__group--wolf {
   background-image: url(wolf.png);
   background-size: cover;
-  width: 320px;
-  height: 0.94 * 320px;
-  margin-left: 90px;
+  width: 360px;
+  height: 0.94 * 360px;
+  margin-left: 40px;
   margin-right: 50px;
 }
 
 .home__actions { margin-top: 30px; }
+
+.slick__item {
+  width: 228px;
+  height: 228px;
+  overflow: hidden !important;
+}
+.slick__img {
+  width: 100%;
+}
+
+.slick-arrow {
+  position: absolute;
+  top: 114px - 17px;
+  height: 35px;
+  line-height: 35px;
+  width: 38px;
+  background-color: #343434;
+  color: #fff;
+  font-size: 24px;
+  padding-left: 14px;
+}
+.slick-prev {
+  left:  0;
+  z-index: 1000;
+  @include border-radius(0 20px 20px 0);
+}
+.slick-next {
+  right: 0;
+  @include border-radius(20px 0 0 20px);
+}
