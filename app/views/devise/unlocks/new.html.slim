@@ -1,11 +1,14 @@
-.devise
-  .title-one = t(".resend_unlock_instructions")
-  .wrap
-    = simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
-      = f.error_notification
+.titled-block.titled-block--auth
+  .titled-block__title = t(".resend_unlock_instructions")
+  .titled-block__body
+    = simple_form_for(resource,
+      as: resource_name,
+      url: unlock_path(resource_name),
+      html: { method: :post, class:'form'},
+      defaults: { input_html: { class: 'form__input' } }) do |f|
       = f.full_error :unlock_token
-      .form-inputs
+      .form__inputs
         = f.input :email, required: true, autofocus: true, label:false, placeholder: 'Адрес электронной почты'
-      .form-actions
-        = f.button :submit, t(".resend_unlock_instructions")
+      .form__actions
+        = f.button :submit, t(".resend_unlock_instructions"), class: 'button'
     = render "devise/shared/links"
