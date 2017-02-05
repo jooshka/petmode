@@ -47,14 +47,15 @@
             City.have_pets.distinct.map {|l| [ "#{l.title}", l.id ] },
             { selected: params[:by_city], prompt: t('Select city') },
             { class: 'filter__select' }  )
-      li.filter__group
-        p
-          label =t('Price range')+':   '
-          input type="text" id="price_start" name='by_price[started_at]' class='filter__price  filter__price--start'
-          = "  \u223b   "
-          input type="text" id="price_end" name='by_price[ended_at]' class='filter__price filter__price--end'
+      - if @kind != 'copulation'
+        li.filter__group
+          p
+            label =t('Price range')+':   '
+            input type="text" id="price_start" name='by_price[started_at]' class='filter__price  filter__price--start'
+            = "  \u223b   "
+            input type="text" id="price_end" name='by_price[ended_at]' class='filter__price filter__price--end'
 
-        #slider-range
+          #slider-range
 
       li.filter__group
         = submit_tag t('Apply'), name: '', class: 'button button--filter', id: 'apply'

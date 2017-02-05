@@ -11,16 +11,19 @@ class PetsController < ApplicationController
 
   def sale
     @resource = apply_scopes(Pet).sale
+    @kind = 'sale'
     render 'adverts'
   end
 
   def goodhands
     @resource = apply_scopes(Pet).goodhands
+    @kind = 'goodhands'
     render 'adverts'
   end
 
   def copulation
     @resource = apply_scopes(Pet).copulation
+    @kind = 'copulation'
     render 'adverts'
   end
 
