@@ -32,19 +32,19 @@
         .filter__select-wrap
           = fa_icon 'angle-down', class: 'filter__select-down'
           = select(nil, :by_country,
-            Country.have_pets.distinct.map {|l| [ "#{l.title} [#{l.pets.count}]", l.id ] },
+            Country.have_pets.distinct.map {|l| [ "#{l.title}", l.id ] },
             { selected: params[:by_country], prompt: t('Select country') },
             { class: 'filter__select' } )
         .filter__select-wrap
           = fa_icon 'angle-down', class: 'filter__select-down'
           = select(nil, :by_region,
-            Region.have_pets.distinct.map {|l| [ "#{l.title} [#{l.pets.count}]", l.id ] },
+            Region.have_pets.distinct.map {|l| [ "#{l.title}", l.id ] },
             { selected: params[:by_region], prompt: t('Select region')},
             { class: 'filter__select' } )
         .filter__select-wrap
           = fa_icon 'angle-down', class: 'filter__select-down'
           = select(nil, :by_city,
-            City.have_pets.distinct.map {|l| [ "#{l.title} [#{l.pets.count}]", l.id ] },
+            City.have_pets.distinct.map {|l| [ "#{l.title}", l.id ] },
             { selected: params[:by_city], prompt: t('Select city') },
             { class: 'filter__select' }  )
       li.filter__group

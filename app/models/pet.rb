@@ -84,7 +84,7 @@ class Pet < ApplicationRecord
 
   scope :by_price,  -> started_at, ended_at {
     joins(:advert)
-   .where("price >= ? AND price <= ?", started_at, ended_at)
+   .where("adverts.price >= ? AND adverts.price <= ?", started_at, ended_at)
   }
 
   before_validation do |pet|
