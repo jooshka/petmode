@@ -1,12 +1,12 @@
+include Rails.application.routes.url_helpers
 Menu.destroy_all
-
 puts 'Create menu...'
 [
-  { text: 'Sale',          url: app.sale_path },
+  { text: 'Sale',          url: sale_path },
   { text: 'News',          url: '#' },
-  { text: 'Good hands',    url: '#' },
+  { text: 'Good hands',    url: goodhands_path },
   { text: 'Competitions',  url: '#' },
-  { text: 'Copulations',   url: '#' },
+  { text: 'Copulations',   url: copulation_path },
   { text: 'Pet shop',      url: '#' },
   { text: 'Experts',       url: '#' },
   { text: 'Exhibitions',   url: '#' }
@@ -15,13 +15,13 @@ puts 'Create menu...'
 end
 
 [
-  { text: 'Sale',          url: app.sale_path },
+  { text: 'Sale',          url: sale_path },
   { text: 'Pet shop',      url: '#' },
   { text: 'News',          url: '#' },
-  { text: 'Copulations',   url: '#' },
+  { text: 'Copulations',   url: copulation_path },
   { text: 'Exhibitions',   url: '#' },
   { text: 'Help',          url: '/help' },
-  { text: 'Good hands',    url: '#' },
+  { text: 'Good hands',    url: goodhands_path },
   { text: 'Competitions',  url: '#' },
   { text: 'Rules',         url: '/rules' },
   { text: 'Experts',       url: '#' },

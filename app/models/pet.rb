@@ -63,6 +63,17 @@ class Pet < ApplicationRecord
 
   scope :sale, -> {
     joins(:advert) #&& advert.published?
+   .where('adverts.advert_type': Advert.advert_types['sale'])
+  }
+
+  scope :goodhands, -> {
+    joins(:advert) #&& advert.published?
+   .where('adverts.advert_type': Advert.advert_types['goodhands'])
+  }
+
+  scope :copulation, -> {
+    joins(:advert) #&& advert.published?
+   .where('adverts.advert_type': Advert.advert_types['copulation'])
   }
 
   scope :by_gender, -> gender { where(gender: gender) }

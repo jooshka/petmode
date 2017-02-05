@@ -14,6 +14,16 @@ class PetsController < ApplicationController
     render 'adverts'
   end
 
+  def goodhands
+    @resource = apply_scopes(Pet).goodhands
+    render 'adverts'
+  end
+
+  def copulation
+    @resource = apply_scopes(Pet).copulation
+    render 'adverts'
+  end
+
   # GET /pets/1
   # GET /pets/1.json
   def show
