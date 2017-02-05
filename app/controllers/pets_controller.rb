@@ -41,7 +41,6 @@ class PetsController < ApplicationController
           ],
           body:    [
             { tpl: 'pets/info_title' },
-            { tpl: 'pets/locality' },
             { tpl: 'pets/info_text' },
             { tpl: 'pets/advert_brief' },
             { tpl: 'about', title: 'About me' }

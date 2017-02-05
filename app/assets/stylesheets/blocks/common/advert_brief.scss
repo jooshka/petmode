@@ -1,8 +1,11 @@
 .advert_brief {}
 
 .advert_brief__locality {
-  font-family: "PTSansItalic";
-  font-weight: bold;
+  display: inline-block;
+  color: #343434;
+  font-family: "PTSansBold";
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 .advert_brief__type {

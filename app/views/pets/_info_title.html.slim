@@ -3,3 +3,5 @@ ul.info-title
   /= link_to :back, class: 'button button--back'
   = link_to 'javascript:history.go(-1);', class: 'button button--back'
     = fa_icon 'backward'
+- if @pet.city
+  .advert_brief__locality = @pet.city.title
