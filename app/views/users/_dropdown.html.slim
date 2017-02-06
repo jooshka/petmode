@@ -1,0 +1,13 @@
+ul#menu-dropdown.menu.menu--dropdown
+  li.menu__item.menu__item--dropdown
+    =link_to t('Profile'), user_path(current_user),
+      class: 'menu__link menu__link--dropdown menu__link--dropdown--profile'
+  li.menu__item.menu__item--dropdown
+    =link_to t('Messages'), '#',
+      class: 'menu__link menu__link--dropdown menu__link--dropdown--messages'
+  li.menu__item.menu__item--dropdown
+    =link_to t('Add pet'), new_pet_path,
+      class: 'menu__link menu__link--dropdown menu__link--dropdown--footprint'
+  li.menu__item.menu__item--dropdown
+    =link_to t('Sign out'), destroy_user_session_path, method: 'delete',
+      class: 'menu__link menu__link--dropdown menu__link--dropdown--signout'

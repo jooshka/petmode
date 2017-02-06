@@ -5,6 +5,12 @@
 .menu--partners {}
 .menu--curr-user { background: #ffd800; padding: 20px 20px 20px 40px; &:after { @include clearfix; }}
 .menu--pet { background: #ffd800; padding: 20px 20px 20px 40px; &:after { @include clearfix; }}
+.menu--dropdown {
+  position: absolute;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  display: none;
+}
 
 .menu__item {}
 .menu__item--guest { line-height: 2.0em; font-size: 18px; width: 50%; padding-left: 20px; }
@@ -14,6 +20,14 @@
 .menu__item--foot  { font-size: 16px; width: 33.33%; margin-bottom: 26px; padding-left: 50px; }
 .menu__item--curr-user { float: left; }
 .menu__item--pet { float: left; }
+.menu__item--dropdown {
+  display: list-item;
+  background-color: #646464;
+  border-bottom: 1px solid #343434;
+  &:hover {
+    background-color: #545454;
+  }
+}
 
 .menu__link { white-space: nowrap; color: inherit; }
 .menu__link--head {  line-height: 1.2em; font-size: 18px; border-bottom: 1px dashed #fff; }
@@ -41,6 +55,10 @@
   background-image: url(partner-yobrand.png);
   background-size: contain;
 }
+.menu__link--dropdown {
+  padding: 6px 30px 6px 20px;
+}
+
 .menu__link--curr-user { position: relative; }
 .menu__link--pet {
   position: relative;

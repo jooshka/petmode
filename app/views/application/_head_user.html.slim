@@ -27,17 +27,14 @@
   .head__col-menu.head__col-user
     .user-block
       .user-block__user
-        #user-block__name.user-block__name
-          = current_user.display_name
-          = fa_icon 'angle-down', class: 'user-block__down'
+        .user-block__name-wrap
+          .user-block__name
+            = current_user.display_name
+            = fa_icon 'angle-down', class: 'user-block__down'
+          = render 'users/dropdown'
         = link_to user_path(current_user)
           = image_tag current_user.avatar.img.url(:sm), class: 'user-block__img'
       .user-block__basket
         .menu__item.menu__item--curr-user
           =link_to '#', class: 'menu__link menu__link--curr-user menu__link--curr-user--basket'
             span.menu__badge.menu__badge--basket 0
-
-coffee:
-  $ ->
-    $('#user-block__name').click ->
-      alert(1);
